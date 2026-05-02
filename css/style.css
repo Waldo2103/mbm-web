@@ -1,15 +1,98 @@
 /* ============================================================
+   FUENTES LOCALES
+============================================================ */
+
+/* — BARLOW — */
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Medium.ttf') format('truetype');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-SemiBold.ttf') format('truetype');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-ExtraBold.ttf') format('truetype');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Black.ttf') format('truetype');
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../MBM RECURSOS/BARLOW/Barlow-BlackItalic.ttf') format('truetype');
+  font-weight: 900; font-style: italic; font-display: swap;
+}
+
+/* — BIG CASLON CC — */
+@font-face {
+  font-family: 'Big Caslon CC';
+  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC.otf') format('opentype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Big Caslon CC';
+  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Italic.otf') format('opentype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Big Caslon CC';
+  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold.otf') format('opentype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Big Caslon CC';
+  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold_Italic.otf') format('opentype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Big Caslon CC';
+  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Black.otf') format('opentype');
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Big Caslon CC';
+  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Black_Italic.otf') format('opentype');
+  font-weight: 900; font-style: italic; font-display: swap;
+}
+
+/* ============================================================
    VARIABLES
 ============================================================ */
 :root {
-  --navy:  #0C1E3C;
-  --red:   #C41230;
+  --navy:  #1b203e;
+  --red:   #a91a16;
   --cream: #F0EAE0;
   --white: #FFFFFF;
 
-  --f-display: 'Barlow Condensed', sans-serif;
+  --f-display: 'Barlow', sans-serif;
   --f-body:    'Barlow', sans-serif;
-  --f-serif:   'Playfair Display', serif;
+  --f-serif:   'Big Caslon CC', serif;
 
   --nav-h:  56px;
   --pad-x:  clamp(24px, 6vw, 80px);
@@ -30,7 +113,7 @@ body {
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
-em { font-family: var(--f-serif); font-style: italic; }
+em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
 p { line-height: 1.7; }
 
 /* ============================================================
@@ -104,14 +187,10 @@ p { line-height: 1.7; }
   border-right: 1px solid rgba(255,255,255,0.1);
   flex-shrink: 0;
 }
-.nav__logo span {
-  font-family: var(--f-display);
-  font-weight: 900;
-  font-size: 11px;
-  line-height: 1.1;
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+.nav__logo img {
+  height: 30px;
+  width: auto;
+  display: block;
 }
 
 .nav__links {
@@ -148,15 +227,17 @@ p { line-height: 1.7; }
   text-transform: uppercase;
   white-space: nowrap;
   flex-shrink: 0;
+  margin-left: auto;
   transition: background 0.2s;
 }
-.nav__cta:hover { background: #a80f29; }
+.nav__cta:hover { background: #8c1412; }
 
 /* ============================================================
    HERO
 ============================================================ */
 .hero {
   background: var(--navy);
+  color: var(--white);
   min-height: 100svh;
   padding-top: var(--nav-h);
   display: flex;
@@ -175,6 +256,64 @@ p { line-height: 1.7; }
   text-align: center;
   padding: 12px var(--pad-x);
   border-bottom: 1px solid rgba(255,255,255,0.07);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ============================================================
+   COUNTDOWN
+============================================================ */
+.hero__countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 14px var(--pad-x);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  animation: hero-in 1s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero__countdown-label,
+.hero__countdown-event {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.hero__countdown-items {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.hero__countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 52px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 8px 6px 6px;
+}
+.hero__countdown-item span {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--red);
+  letter-spacing: 0.04em;
+  min-width: 2ch;
+  text-align: center;
+}
+.hero__countdown-item small {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
 }
 
 .hero__main {
@@ -188,16 +327,11 @@ p { line-height: 1.7; }
   gap: 32px;
 }
 
-.hero__title {
-  font-family: var(--f-display);
-  font-weight: 900;
-  font-size: clamp(72px, 17vw, 210px);
-  line-height: 0.85;
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  display: flex;
-  flex-direction: column;
+.hero__logo {
+  max-width: min(500px, 72vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
   animation: hero-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -296,92 +430,6 @@ p { line-height: 1.7; }
 }
 
 /* ============================================================
-   CUERVO ANIMADO
-============================================================ */
-
-.crow-flight {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: min(92vw, 980px);
-  margin-top: -190px;
-  pointer-events: none;
-  z-index: 10;
-  opacity: 0;
-  /*
-    Total: 1.8s
-    El crow entra en pantalla al ~11% (0.2s) y sale al ~67% (1.2s)
-    → visible exactamente 1.0 segundo en pantalla
-  */
-  animation: crow-flight 1.8s linear 0.3s 1 forwards;
-}
-
-.crow-svg {
-  width: 100%;
-  height: auto;
-  /* Leve halo blanco para que destaque sobre el navy */
-  filter: drop-shadow(0 0 24px rgba(255,255,255,0.12));
-}
-
-/* Alas animan desde su unión con el cuerpo (≈x=500, y=190 en viewBox 900×380) */
-.crow__wing-up,
-.crow__wing-down {
-  transform-box: fill-box;
-  transform-origin: 90% 50%;   /* punto de unión ala-cuerpo */
-}
-
-/* Aleteo: batida amplia, ciclo de 0.4s — cuervo en vuelo activo */
-.crow__wing-up {
-  animation: wing-up   0.38s ease-in-out 0.3s infinite alternate;
-}
-.crow__wing-down {
-  animation: wing-down 0.38s ease-in-out 0.3s infinite alternate;
-}
-
-/* ---- Trayectoria de vuelo ----
-   Los cuervos vuelan con:
-   - Subida inicial al despegar/cruzar
-   - Leve descenso-ascenso (no perfectamente recto)
-   - Muy directo y veloz en tránsito
-   Aquí: entra desde izquierda, sube suavemente, sale por derecha  */
-@keyframes crow-flight {
-  /*
-    Distancia total: de -110% a +115% = 225% del ancho del crow.
-    Crow = ~92vw → 225% × 92vw = 207vw de recorrido.
-    A velocidad constante en 1.8s → 115vw/s.
-    "On screen" = cuando translateX pasa de -100% a +108%
-                = 208% del ancho = 191vw / 115vw/s ≈ 1.66s...
-    Ajustamos: entrada rápida, salida rápida, 1s limpio en pantalla.
-  */
-  0%   { transform: translateX(-112%) translateY(50px)  rotate( 5deg); opacity: 0;    }
-  11%  { transform: translateX( -95%) translateY(35px)  rotate( 3deg); opacity: 0.88; }
-  /* — VISIBLE EN PANTALLA desde aquí — */
-  30%  { transform: translateX( -45%) translateY( 8px)  rotate( 0deg); opacity: 0.9;  }
-  55%  { transform: translateX(  10%) translateY(-22px) rotate(-3deg); opacity: 0.9;  }
-  /* — SALE DE PANTALLA desde aquí — */
-  67%  { transform: translateX(  45%) translateY(-35px) rotate(-4deg); opacity: 0.75; }
-  85%  { transform: translateX(  85%) translateY(-50px) rotate(-3deg); opacity: 0.3;  }
-  100% { transform: translateX( 118%) translateY(-60px) rotate(-5deg); opacity: 0;    }
-}
-
-/* ---- Batida de alas: amplia como cuervo en vuelo activo ---- */
-@keyframes wing-up {
-  0%   { transform: rotate(  0deg) scaleY(1);    }
-  100% { transform: rotate(-30deg) scaleY(0.85); }
-}
-@keyframes wing-down {
-  0%   { transform: rotate(  0deg) scaleY(1);    }
-  100% { transform: rotate( 30deg) scaleY(0.85); }
-}
-
-@media (max-width: 768px) {
-  .crow-flight {
-    width: 95vw;
-    margin-top: -130px;
-  }
-}
-
-/* ============================================================
    TICKER
 ============================================================ */
 .ticker {
@@ -469,12 +517,22 @@ p { line-height: 1.7; }
   color: var(--red);
 }
 
-/* Boxed num for red background sections */
+/* Boxed num — cuadrado para todas las secciones */
 .section__num--boxed {
   background: var(--navy);
   color: var(--red);
-  display: inline-block;
-  padding: 2px 14px 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* En fondo navy el box necesita borde para distinguirse */
+.section--navy .section__num--boxed {
+  border: 1.5px solid rgba(255,255,255,0.18);
 }
 
 .section__tag {
@@ -890,12 +948,8 @@ p { line-height: 1.7; }
 }
 .footer__logo {
   display: block;
-  font-family: var(--f-display);
-  font-weight: 900;
-  font-size: 28px;
-  line-height: 1.0;
-  color: var(--white);
-  text-transform: uppercase;
+  height: 56px;
+  width: auto;
   margin-bottom: 16px;
 }
 .footer__claim {
@@ -907,34 +961,57 @@ p { line-height: 1.7; }
   text-transform: uppercase;
   line-height: 1.4;
 }
-.footer__social { display: flex; flex-direction: column; gap: 14px; }
-.footer__links {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border: 1px solid rgba(255,255,255,0.1);
+.footer__social {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
 }
-.footer__links a {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  color: var(--white);
-  text-transform: uppercase;
-  text-align: center;
-  padding: 16px 8px;
-  border-right: 1px solid rgba(255,255,255,0.1);
-  transition: background 0.2s;
-}
-.footer__links a:last-child { border-right: none; }
-.footer__links a:hover { background: var(--red); }
+
 .footer__handle {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-weight: 900;
+  font-size: clamp(28px, 3.2vw, 44px);
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
+  color: var(--white);
+  line-height: 1;
+  margin-top: 6px;
+  margin-bottom: 16px;
 }
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 18px;
+}
+
+.footer__links a {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  padding: 5px 20px 5px 0;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer__links a::before {
+  content: '↗';
+  color: var(--red);
+  font-size: 11px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.footer__links a:hover { color: var(--white); }
 
 /* ============================================================
    SECTION INDICATOR
@@ -944,7 +1021,7 @@ p { line-height: 1.7; }
   bottom: 24px;
   right: 24px;
   z-index: 500;
-  background: rgba(12, 30, 60, 0.92);
+  background: rgba(27, 32, 62, 0.92);
   border: 1px solid rgba(255,255,255,0.12);
   backdrop-filter: blur(8px);
   padding: 12px 16px;
@@ -985,11 +1062,16 @@ p { line-height: 1.7; }
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform, opacity;
 }
-.reveal.from-left  { transform: translateX(-56px) translateY(18px) rotate(-2deg); }
-.reveal.from-right { transform: translateX(56px)  translateY(18px) rotate(2deg);  }
+.reveal.from-left  { transform: translateX(-56px) translateY(18px); }
+.reveal.from-right { transform: translateX(56px)  translateY(18px); }
 .reveal.from-up    { transform: translateY(40px); }
 
 .reveal.is-visible { opacity: 1; transform: none; }
+
+/* Dentro del acordeón el overflow:hidden del acc-inner recorta el translateX.
+   Usamos solo translateY para el contenido interno. */
+.acc-inner .reveal.from-left,
+.acc-inner .reveal.from-right { transform: translateY(20px); }
 
 /* Stagger: cada item hijo demora un poco más */
 .acc-inner .reveal:nth-child(2),
@@ -1060,13 +1142,19 @@ p { line-height: 1.7; }
   /* Nav */
   .nav__links { display: none; }
 
-  /* Hero */
+  /* Hero bottom — event arriba full width, club/candidato abajo lado a lado */
   .hero__bottom {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 24px var(--pad-x) 48px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "event event"
+      "club  candidato";
+    gap: 16px 12px;
+    padding: 20px var(--pad-x) 40px;
+    align-items: start;
   }
-  .hero__candidato { text-align: left; }
+  .hero__event    { grid-area: event; }
+  .hero__club     { grid-area: club; }
+  .hero__candidato { grid-area: candidato; text-align: right; }
 
   /* Accordion header */
   .acc-header {
@@ -1148,18 +1236,24 @@ p { line-height: 1.7; }
 
   /* Footer */
   .footer__inner { grid-template-columns: 1fr; gap: 32px; }
-  .footer__links { grid-template-columns: repeat(3, 1fr); }
-  .footer__links a:nth-child(3) { border-right: none; }
-  .footer__links a:nth-child(4),
-  .footer__links a:nth-child(5) { border-top: 1px solid rgba(255,255,255,0.1); }
-  .footer__links a:nth-child(5) { border-right: none; }
+  .hero__logo { max-width: min(280px, 78vw); }
+
+  /* Countdown mobile */
+  .hero__countdown-label,
+  .hero__countdown-event { display: none; }
+  .hero__countdown { gap: 12px; padding: 12px var(--pad-x); }
+  .hero__countdown-item { min-width: 44px; padding: 6px 4px 4px; }
+  .hero__countdown-item span { font-size: 20px; }
+
+  /* Número boxed mobile */
+  .section__num--boxed { width: 56px; height: 56px; }
 
   /* Hide indicator on mobile */
   .sec-indicator { display: none; }
 
   /* Reduce animation distance */
-  .reveal.from-left  { transform: translateX(-32px) translateY(14px) rotate(-1.5deg); }
-  .reveal.from-right { transform: translateX(32px)  translateY(14px) rotate(1.5deg); }
+  .reveal.from-left  { transform: translateX(-32px) translateY(14px); }
+  .reveal.from-right { transform: translateX(32px)  translateY(14px); }
 }
 
 /* ============================================================
@@ -1170,5 +1264,5 @@ p { line-height: 1.7; }
   .acc-body { transition: none; }
   .ticker__track { animation: none; }
   .hero__title, .hero__taglines, .hero__bottom { animation: none; }
-  .crow-flight, .crow__wing-up, .crow__wing-down { animation: none; display: none; }
+
 }

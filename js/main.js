@@ -111,6 +111,61 @@ sections.forEach(s => {
 });
 
 
+/* ---- COUNTDOWN ---- */
+// 3 mayo 2026 11:00 hs ART (UTC-3) = 14:00 UTC
+const eventDate = new Date('2026-05-03T14:00:00Z');
+
+function updateCountdown() {
+  const diff = eventDate - new Date();
+
+  if (diff <= 0) {
+    const el = document.getElementById('countdown');
+    if (el) el.remove();
+    return;
+  }
+
+  const hours = Math.floor(diff / 36e5);
+  const mins  = Math.floor((diff % 36e5) / 6e4);
+  const secs  = Math.floor((diff % 6e4)  / 1e3);
+
+  const pad = n => String(n).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = pad(hours);
+  document.getElementById('cd-mins').textContent  = pad(mins);
+  document.getElementById('cd-secs').textContent  = pad(secs);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+/* ---- Accordion section entrance animation (alterna izq/der) ---- */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+  const accSectionEls = document.querySelectorAll('.acc-section');
+  const transition = 'opacity 0.72s cubic-bezier(0.22,1,0.36,1), transform 0.72s cubic-bezier(0.22,1,0.36,1)';
+
+  accSectionEls.forEach((section, i) => {
+    const trigger = section.querySelector('.acc-trigger');
+    trigger.style.opacity   = '0';
+    trigger.style.transform = i % 2 === 0 ? 'translateX(-56px)' : 'translateX(56px)';
+    trigger.style.transition = transition;
+  });
+
+  const accEntranceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const trigger = entry.target.querySelector('.acc-trigger');
+      trigger.style.opacity   = '1';
+      trigger.style.transform = 'none';
+      accEntranceObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+
+  accSectionEls.forEach(s => accEntranceObserver.observe(s));
+}
+
+
 /* ---- Smooth scroll ---- */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {

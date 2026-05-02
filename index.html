@@ -8,9 +8,7 @@
   <meta property="og:title" content="Movete Boedo Movete — Plataforma 2026">
   <meta property="og:description" content="Una lista de socios. Nada más, nada menos. CASLA 2026.">
   <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,700;1,900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,7 +18,7 @@
   ====================================================== -->
   <nav class="nav" id="nav">
     <a href="#hero" class="nav__logo">
-      <span>MOVETE<br>BOEDO<br>MOVETE</span>
+      <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete">
     </a>
     <ul class="nav__links">
       <li><a href="#quienes">01 / QUIÉNES</a></li>
@@ -40,97 +38,19 @@
   <section class="hero" id="hero">
     <p class="hero__subnav">◆ PLATAFORMA 2026 ◆ LISTA DE SOCIOS · CASLA ◆</p>
 
-    <!-- Cuervo animado — vuela una sola vez al cargar -->
-    <div class="crow-flight" aria-hidden="true">
-      <svg class="crow-svg" viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
-
-        <!-- ALA SUPERIOR
-             Vuela a la derecha → el ala se extiende hacia arriba-izquierda.
-             Forma real: primer tercio sube recto, luego dobla en la "muñeca"
-             hacia afuera con plumas primarias abiertas en la punta. -->
-        <path class="crow__wing-up" d="
-          M 500,178
-          C 460,158 400,132 330,108
-          C 260,84  185,66  110,60
-          C  72,57   38,62   14,78
-          C   4,85    6,96   18,98
-          C  42,92   72,88  108,94
-          C 182,106  258,128 335,154
-          C 410,180  468,200 500,188
-          Z
-        " fill="white"/>
-
-        <!-- Plumas primarias superior (dedos del ala) -->
-        <path class="crow__wing-up" d="
-          M 14,78  C  -4,68  -8,54  10,50 C 16,62 18,74 14,78 Z
-          M 14,78  C  -6,82 -10,96  10,98 C 14,90 16,84 14,78 Z
-          M 14,78  C   2,76   0,88  16,92 C 18,86 18,82 14,78 Z
-        " fill="white"/>
-
-        <!-- ALA INFERIOR — espejo, se extiende hacia abajo-izquierda -->
-        <path class="crow__wing-down" d="
-          M 500,202
-          C 460,222 400,248 330,272
-          C 260,296 185,314 110,320
-          C  72,323  38,318  14,302
-          C   4,295   6,284  18,282
-          C  42,288  72,292 108,286
-          C 182,274  258,252 335,226
-          C 410,200  468,180 500,192
-          Z
-        " fill="white"/>
-
-        <!-- Plumas primarias inferior -->
-        <path class="crow__wing-down" d="
-          M 14,302 C  -4,312  -8,326  10,330 C 16,318 18,306 14,302 Z
-          M 14,302 C  -6,298 -10,284  10,280 C 14,290 16,296 14,302 Z
-          M 14,302 C   2,304   0,292  16,288 C 18,294 18,298 14,302 Z
-        " fill="white"/>
-
-        <!-- CUERPO — torpedo compacto típico del cuervo -->
-        <path d="
-          M 500,170
-          C 540,160 600,158 640,165
-          C 680,172 700,185 695,198
-          C 690,212 665,220 625,218
-          C 585,216 540,210 500,208
-          Z
-        " fill="white"/>
-
-        <!-- COLA — abanico cuadrado, característica del cuervo -->
-        <path d="
-          M 500,180
-          C 475,170 440,158 415,163
-          C 400,168 398,185 415,193
-          C 440,202 475,210 500,205
-          Z
-        " fill="white"/>
-
-        <!-- CABEZA — grande y redondeada como el cuervo -->
-        <ellipse cx="670" cy="175" rx="42" ry="36" fill="white"/>
-
-        <!-- PICO — grueso y curvo, muy característico del cuervo -->
-        <path d="
-          M 708,160
-          C 730,152 760,158 768,170
-          C 762,182 748,186 730,182
-          C 718,178 710,170 708,160
-          Z
-        " fill="white"/>
-        <!-- Gancho del pico superior -->
-        <path d="
-          M 760,158 C 780,152 790,162 775,170 C 768,166 760,162 760,158 Z
-        " fill="white"/>
-
-      </svg>
+    <!-- Countdown al evento -->
+    <div class="hero__countdown" id="countdown" aria-live="polite">
+      <span class="hero__countdown-label">FALTAN</span>
+      <div class="hero__countdown-items">
+        <div class="hero__countdown-item"><span id="cd-hours">—</span><small>HS</small></div>
+        <div class="hero__countdown-item"><span id="cd-mins">—</span><small>MIN</small></div>
+        <div class="hero__countdown-item"><span id="cd-secs">—</span><small>SEG</small></div>
+      </div>
+      <span class="hero__countdown-event">◆ LANZAMIENTO · 3 MAYO · 11:00 hs · Ushuaia</span>
     </div>
 
     <div class="hero__main">
-      <h1 class="hero__title">
-        <span>MOVETE</span>
-        <span>BOEDO</span>
-        <span>MOVETE</span>
-      </h1>
+      <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="hero__logo">
       <div class="hero__taglines">
         <p class="hero__tagline-1">SIN LOS DE ANTES,</p>
         <p class="hero__tagline-2">SIN LOS DE AHORA.</p>
@@ -140,12 +60,12 @@
 
     <div class="hero__bottom">
       <div class="hero__club">
-        <span class="label-xs">UNA LISTA DE SOCIOS</span>
+        <span class="label-xs">UNA LISTA<br>DE SOCIOS</span>
         <strong>CLUB ATLÉTICO<br>SAN LORENZO<br>DE ALMAGRO</strong>
       </div>
       <div class="hero__event">
         <span class="hero__event-label">◆ LANZAMIENTO DE PLATAFORMA</span>
-        <span class="hero__event-date">02 MAYO</span>
+        <span class="hero__event-date">03 MAYO</span>
         <span class="hero__event-info">11:00 hs · SUM del Ala B<br>Campus UNTDF · Ushuaia<br>Yrigoyen 879</span>
       </div>
       <div class="hero__candidato">
@@ -174,7 +94,7 @@
     <button class="acc-trigger" aria-expanded="false" aria-controls="body-quienes">
       <div class="acc-header">
         <div class="section__label">
-          <span class="section__num">01</span>
+          <span class="section__num section__num--boxed">01</span>
           <span class="section__tag">QUIÉNES SOMOS</span>
         </div>
         <h2 class="section__title">
@@ -205,7 +125,7 @@
     <button class="acc-trigger" aria-expanded="false" aria-controls="body-hicimos">
       <div class="acc-header">
         <div class="section__label">
-          <span class="section__num">02</span>
+          <span class="section__num section__num--boxed">02</span>
           <span class="section__tag">QUÉ HICIMOS</span>
         </div>
         <h2 class="section__title">
@@ -280,7 +200,7 @@
     <button class="acc-trigger" aria-expanded="false" aria-controls="body-candidatos">
       <div class="acc-header">
         <div class="section__label">
-          <span class="section__num">04</span>
+          <span class="section__num section__num--boxed">04</span>
           <span class="section__tag">NUESTROS CANDIDATOS</span>
         </div>
         <h2 class="section__title">A PRESIDENTE.</h2>
@@ -330,7 +250,7 @@
     <button class="acc-trigger" aria-expanded="false" aria-controls="body-situacion">
       <div class="acc-header">
         <div class="section__label">
-          <span class="section__num">05</span>
+          <span class="section__num section__num--boxed">05</span>
           <span class="section__tag">CUADRO DE SITUACIÓN</span>
         </div>
         <h2 class="section__title">
@@ -373,7 +293,7 @@
     <button class="acc-trigger" aria-expanded="false" aria-controls="body-compromisos">
       <div class="acc-header">
         <div class="section__label">
-          <span class="section__num">06</span>
+          <span class="section__num section__num--boxed">06</span>
           <span class="section__tag">NUESTROS COMPROMISOS</span>
         </div>
         <h2 class="section__title">LO QUE <span class="c-red">FIRMAMOS.</span></h2>
@@ -429,7 +349,7 @@
     <button class="acc-trigger" aria-expanded="false" aria-controls="body-propuestas">
       <div class="acc-header">
         <div class="section__label">
-          <span class="section__num">07</span>
+          <span class="section__num section__num--boxed">07</span>
           <span class="section__tag">NUESTRAS PROPUESTAS</span>
         </div>
         <h2 class="section__title">PLATAFORMA <span class="c-red">2026.</span></h2>
@@ -479,14 +399,14 @@
   ====================================================== -->
   <section class="sumate section--red" id="sumate">
     <div class="sumate__inner">
-      <p class="overline reveal from-left">◆ LANZAMIENTO DE PLATAFORMA</p>
-      <h2 class="sumate__title reveal from-right">
+      <p class="overline reveal from-up">◆ LANZAMIENTO DE PLATAFORMA</p>
+      <h2 class="sumate__title reveal from-up">
         TE ESPERAMOS<br><span class="c-navy">EN USHUAIA.</span>
       </h2>
       <div class="sumate__details reveal from-up">
         <div class="sumate__detail">
           <span class="label-xs">FECHA</span>
-          <strong>2 MAYO</strong>
+          <strong>3 MAYO</strong>
         </div>
         <div class="sumate__detail">
           <span class="label-xs">HORA</span>
@@ -510,19 +430,19 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <span class="footer__logo">MOVETE<br>BOEDO<br>MOVETE</span>
+        <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="footer__logo">
         <p class="footer__claim">AHORA Y PARA SIEMPRE,<br><span class="c-red">EN TUS MANOS.</span></p>
       </div>
       <div class="footer__social">
         <p class="label-xs">SEGUINOS EN REDES</p>
-        <div class="footer__links">
+        <p class="footer__handle">@MOVETEBOEDO</p>
+        <nav class="footer__links" aria-label="Redes sociales">
           <a href="https://instagram.com/moveteboedo" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
-          <a href="https://x.com/moveteboedo" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://x.com/moveteboedo" target="_blank" rel="noopener noreferrer">X / TWITTER</a>
           <a href="https://tiktok.com/@moveteboedo" target="_blank" rel="noopener noreferrer">TIKTOK</a>
           <a href="https://facebook.com/moveteboedo" target="_blank" rel="noopener noreferrer">FACEBOOK</a>
           <a href="https://youtube.com/@moveteboedo" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
-        </div>
-        <p class="footer__handle">@MOVETEBOEDO EN TODAS LAS PLATAFORMAS</p>
+        </nav>
       </div>
     </div>
   </footer>
