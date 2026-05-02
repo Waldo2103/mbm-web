@@ -161,6 +161,8 @@ p { line-height: 1.7; }
   padding-top: var(--nav-h);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero__subnav {
@@ -291,6 +293,66 @@ p { line-height: 1.7; }
   line-height: 1.0;
   color: var(--white);
   text-transform: uppercase;
+}
+
+/* ============================================================
+   CUERVO ANIMADO
+============================================================ */
+
+/* Contenedor que viaja de izquierda a derecha */
+.crow-flight {
+  position: absolute;
+  top: 38%;
+  left: 0;
+  width: 160px;
+  pointer-events: none;
+  z-index: 10;
+  animation: crow-flight 7s cubic-bezier(0.4, 0, 0.6, 1) 0.6s 1 forwards;
+  opacity: 0;
+}
+
+/* SVG dentro del contenedor */
+.crow-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.15));
+}
+
+/* Alas: rotan sobre su punto de unión con el cuerpo (~x=88,y=42) */
+.crow__wing-up,
+.crow__wing-down {
+  transform-origin: 88px 42px;
+  transform-box: fill-box;
+}
+
+.crow__wing-up   { animation: wing-up   0.55s ease-in-out 0.6s infinite alternate; }
+.crow__wing-down { animation: wing-down 0.55s ease-in-out 0.6s infinite alternate; }
+
+/* ----- Trayectoria de vuelo: ondulada como un cuervo real ----- */
+@keyframes crow-flight {
+  0%   { transform: translateX(-160px) translateY(30px)  rotate( 3deg); opacity: 0; }
+  6%   { opacity: 0.85; }
+  20%  { transform: translateX(18vw)   translateY(0px)   rotate(-2deg); }
+  38%  { transform: translateX(38vw)   translateY(-28px) rotate(-4deg); }
+  55%  { transform: translateX(56vw)   translateY(-8px)  rotate( 1deg); }
+  72%  { transform: translateX(74vw)   translateY(-34px) rotate(-3deg); }
+  88%  { transform: translateX(92vw)   translateY(-18px) rotate( 0deg); opacity: 0.7; }
+  100% { transform: translateX(110vw)  translateY(-30px) rotate(-2deg); opacity: 0; }
+}
+
+/* ----- Aleteo: sutil, asimétrico como ave real ----- */
+@keyframes wing-up {
+  0%   { transform: rotate( 0deg)  translateY(0px); }
+  100% { transform: rotate(-18deg) translateY(-4px); }
+}
+@keyframes wing-down {
+  0%   { transform: rotate( 0deg)  translateY(0px); }
+  100% { transform: rotate( 18deg) translateY( 4px); }
+}
+
+/* En mobile el cuervo es un poco más chico */
+@media (max-width: 768px) {
+  .crow-flight { width: 110px; top: 32%; }
 }
 
 /* ============================================================
@@ -1082,4 +1144,5 @@ p { line-height: 1.7; }
   .acc-body { transition: none; }
   .ticker__track { animation: none; }
   .hero__title, .hero__taglines, .hero__bottom { animation: none; }
+  .crow-flight, .crow__wing-up, .crow__wing-down { animation: none; display: none; }
 }
