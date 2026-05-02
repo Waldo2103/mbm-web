@@ -42,23 +42,86 @@
 
     <!-- Cuervo animado — vuela una sola vez al cargar -->
     <div class="crow-flight" aria-hidden="true">
-      <svg class="crow-svg" viewBox="0 0 180 80" xmlns="http://www.w3.org/2000/svg">
-        <!-- Ala superior -->
-        <path class="crow__wing-up"
-              d="M88,38 C68,26 42,13 10,21 C6,22 7,25 12,25 C40,18 66,32 88,44"
-              fill="white"/>
-        <!-- Ala inferior -->
-        <path class="crow__wing-down"
-              d="M88,46 C68,58 42,71 10,63 C6,62 7,59 12,59 C40,66 66,52 88,40"
-              fill="white"/>
-        <!-- Cuerpo -->
-        <ellipse cx="106" cy="42" rx="21" ry="8" fill="white"/>
-        <!-- Cabeza -->
-        <ellipse cx="124" cy="37" rx="9" ry="8" fill="white"/>
-        <!-- Pico -->
-        <polygon points="132,35 147,40 132,45" fill="white"/>
-        <!-- Cola -->
-        <path d="M85,40 C74,35 61,31 54,36 C61,42 74,49 85,44 Z" fill="white"/>
+      <svg class="crow-svg" viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- ALA SUPERIOR
+             Vuela a la derecha → el ala se extiende hacia arriba-izquierda.
+             Forma real: primer tercio sube recto, luego dobla en la "muñeca"
+             hacia afuera con plumas primarias abiertas en la punta. -->
+        <path class="crow__wing-up" d="
+          M 500,178
+          C 460,158 400,132 330,108
+          C 260,84  185,66  110,60
+          C  72,57   38,62   14,78
+          C   4,85    6,96   18,98
+          C  42,92   72,88  108,94
+          C 182,106  258,128 335,154
+          C 410,180  468,200 500,188
+          Z
+        " fill="white"/>
+
+        <!-- Plumas primarias superior (dedos del ala) -->
+        <path class="crow__wing-up" d="
+          M 14,78  C  -4,68  -8,54  10,50 C 16,62 18,74 14,78 Z
+          M 14,78  C  -6,82 -10,96  10,98 C 14,90 16,84 14,78 Z
+          M 14,78  C   2,76   0,88  16,92 C 18,86 18,82 14,78 Z
+        " fill="white"/>
+
+        <!-- ALA INFERIOR — espejo, se extiende hacia abajo-izquierda -->
+        <path class="crow__wing-down" d="
+          M 500,202
+          C 460,222 400,248 330,272
+          C 260,296 185,314 110,320
+          C  72,323  38,318  14,302
+          C   4,295   6,284  18,282
+          C  42,288  72,292 108,286
+          C 182,274  258,252 335,226
+          C 410,200  468,180 500,192
+          Z
+        " fill="white"/>
+
+        <!-- Plumas primarias inferior -->
+        <path class="crow__wing-down" d="
+          M 14,302 C  -4,312  -8,326  10,330 C 16,318 18,306 14,302 Z
+          M 14,302 C  -6,298 -10,284  10,280 C 14,290 16,296 14,302 Z
+          M 14,302 C   2,304   0,292  16,288 C 18,294 18,298 14,302 Z
+        " fill="white"/>
+
+        <!-- CUERPO — torpedo compacto típico del cuervo -->
+        <path d="
+          M 500,170
+          C 540,160 600,158 640,165
+          C 680,172 700,185 695,198
+          C 690,212 665,220 625,218
+          C 585,216 540,210 500,208
+          Z
+        " fill="white"/>
+
+        <!-- COLA — abanico cuadrado, característica del cuervo -->
+        <path d="
+          M 500,180
+          C 475,170 440,158 415,163
+          C 400,168 398,185 415,193
+          C 440,202 475,210 500,205
+          Z
+        " fill="white"/>
+
+        <!-- CABEZA — grande y redondeada como el cuervo -->
+        <ellipse cx="670" cy="175" rx="42" ry="36" fill="white"/>
+
+        <!-- PICO — grueso y curvo, muy característico del cuervo -->
+        <path d="
+          M 708,160
+          C 730,152 760,158 768,170
+          C 762,182 748,186 730,182
+          C 718,178 710,170 708,160
+          Z
+        " fill="white"/>
+        <!-- Gancho del pico superior -->
+        <path d="
+          M 760,158 C 780,152 790,162 775,170 C 768,166 760,162 760,158 Z
+        " fill="white"/>
+
       </svg>
     </div>
 
