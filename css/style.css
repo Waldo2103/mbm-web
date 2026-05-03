@@ -570,10 +570,6 @@ p { line-height: 1.7; }
   padding-left: calc(var(--pad-x) + 200px + 48px);
 }
 
-/* section 03 content doesn't need the indentation */
-#porque .acc-content {
-  padding-left: var(--pad-x);
-}
 
 /* ============================================================
    SECTION CONTENT COMPONENTS
@@ -1241,8 +1237,7 @@ p { line-height: 1.7; }
   .section__title { font-size: clamp(28px, 8vw, 48px); }
 
   /* Accordion content — no indentation on mobile */
-  .acc-content,
-  #porque .acc-content {
+  .acc-content {
     padding-left: var(--pad-x);
   }
 
