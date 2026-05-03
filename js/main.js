@@ -2,6 +2,10 @@
    MOVETE BOEDO MOVETE — main.js
 ============================================================ */
 
+/* ---- Forzar scroll al tope (evita que el browser restaure posición del hash) ---- */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
 /* ---- PRELOADER ---- */
 (function () {
   const preloader = document.getElementById('preloader');
@@ -170,6 +174,23 @@ if (!prefersReducedMotion) {
   function startAuto() { timer = setInterval(() => goTo(current + 1), 3500); }
   startAuto();
 })();
+
+
+/* ---- Accordion next-section navigation ---- */
+document.querySelectorAll('.acc-next-row__btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.dataset.next;
+    const targetSection = document.getElementById(targetId);
+    if (!targetSection) return;
+    const trigger = targetSection.querySelector('.acc-trigger');
+    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => {
+      if (trigger && trigger.getAttribute('aria-expanded') === 'false') {
+        trigger.click();
+      }
+    }, 600);
+  });
+});
 
 
 /* ---- Smooth scroll ---- */

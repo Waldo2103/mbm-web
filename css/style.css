@@ -1074,6 +1074,21 @@ p { line-height: 1.7; }
   height: auto;
   opacity: 0.85;
 }
+
+/* Carousel con fotos reales (galería en sumate) */
+.sumate .carousel__slide {
+  padding: 0;
+  background: #0d0f1e;
+  border: none;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.sumate .carousel__slide img {
+  width: 100%; height: 100%;
+  max-width: none;
+  object-fit: cover;
+  opacity: 1;
+}
 .carousel__dots {
   display: flex;
   justify-content: center;
@@ -1126,8 +1141,8 @@ p { line-height: 1.7; }
   max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 80px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 64px;
   align-items: start;
 }
 
@@ -1169,7 +1184,6 @@ p { line-height: 1.7; }
   display: flex;
   flex-direction: column;
   gap: 6px;
-  justify-content: center;
 }
 
 .footer__handle {
@@ -1216,6 +1230,38 @@ p { line-height: 1.7; }
 }
 
 .footer__links a:hover { color: var(--white); }
+
+/* ============================================================
+   ACCORDION NEXT-SECTION ROW
+============================================================ */
+.acc-next-row {
+  padding: 28px var(--pad-x) 48px;
+  border-top: 1px solid rgba(27,32,62,0.1);
+}
+.acc-next-row__btn {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+}
+.acc-next-row__btn:hover { opacity: 1; }
+.section--navy .acc-next-row { border-top-color: rgba(255,255,255,0.1); }
+.section--navy .acc-next-row__btn { color: rgba(255,255,255,0.75); opacity: 1; }
+.section--navy .acc-next-row__btn:hover { color: var(--white); }
+.section--red .acc-next-row { border-top-color: rgba(27,32,62,0.15); }
+.section--red .acc-next-row__btn { color: var(--navy); opacity: 0.55; }
+.section--red .acc-next-row__btn:hover { opacity: 1; }
 
 /* ============================================================
    FLOATING SUMATE BUTTON
@@ -1327,7 +1373,14 @@ p { line-height: 1.7; }
 #compromisos .commitment__desc  { color: rgba(255,255,255,0.75); }
 #compromisos .commitment__tag   { color: rgba(255,255,255,0.4); }
 
-/* 09 PROPUESTAS — ahora cream, ejes como cards blancas con acento rojo */
+/* 08 COMPROMISOS — fondo rojo, ejes como cards blancas con acento navy */
+#compromisos .ejes              { background: transparent; border: none; gap: 12px; }
+#compromisos .eje               { background: var(--white); border-left: 4px solid var(--navy); padding: 28px 32px; }
+#compromisos .eje__num          { color: rgba(27,32,62,0.4); }
+#compromisos .eje__title        { color: var(--navy); }
+#compromisos .eje__desc         { color: rgba(27,32,62,0.6); }
+
+/* 09 PROPUESTAS — fondo cream, ejes como cards blancas con acento rojo */
 #propuestas .ejes               { background: transparent; border: none; gap: 12px; }
 #propuestas .eje                { background: var(--white); border-left: 4px solid var(--red); padding: 28px 32px; }
 #propuestas .eje__title         { color: var(--navy); }

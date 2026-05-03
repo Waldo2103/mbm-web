@@ -1,3 +1,9 @@
 .DS_Store
 **/.DS_Store
 Thumbs.db
+
+# Originales de galería (se usan los .webp convertidos)
+recursos/galeria/*.jpg
+recursos/galeria/*.jpeg
+recursos/galeria/*.HEIC
+recursos/galeria/*.heif

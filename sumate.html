@@ -180,11 +180,21 @@
 
   <!-- FORMULARIO -->
   <!--
-    CONFIGURACIÓN FORMSPREE:
-    1. Creá una cuenta gratis en https://formspree.io
-    2. Creá un nuevo form y copiá el ID (formato: xxxxxxxx)
-    3. Reemplazá YOUR_FORM_ID en el action de abajo
-    4. Configurá el email de destino en el panel de Formspree
+    TODO FORMULARIO — elegir una de las dos opciones:
+
+    OPCIÓN A · Formspree (simple, gratis hasta 50/mes):
+      1. Crear cuenta en https://formspree.io
+      2. Crear form, copiar ID (formato: xxxxxxxx)
+      3. Reemplazar YOUR_FORM_ID en el action de abajo
+      4. Configurar email destino en el panel de Formspree
+
+    OPCIÓN B · Google Apps Script + Google Sheet (recomendado, gratis, sin límite):
+      1. Crear una Google Sheet para almacenar adhesiones
+      2. En el Sheet: Extensiones → Apps Script → pegar el script de backend
+      3. Publicar como Web App (cualquiera puede acceder)
+      4. Reemplazar el action del form por la URL de la Web App
+      5. Cambiar method a POST y agregar fetch() en JS para manejar el response
+      → Los datos quedan en la planilla, exportables, compartibles con el equipo
   -->
   <div class="form-wrap">
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
