@@ -1278,6 +1278,7 @@ p { line-height: 1.7; }
 #compromisos .commitment:last-child { border-bottom-color: rgba(255,255,255,0.15); }
 #compromisos .commitment__num   { color: var(--white); }
 #compromisos .commitment__title { color: var(--navy); }
+#compromisos .section__lead     { color: var(--navy); }
 #compromisos .commitment__desc  { color: rgba(255,255,255,0.75); }
 #compromisos .commitment__tag   { color: rgba(255,255,255,0.4); }
 
