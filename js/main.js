@@ -80,13 +80,15 @@ sumateReveals.forEach(el => scrollObserver.observe(el));
 
 /* ---- Section indicator (badge bottom-right) ---- */
 const sections = [
-  { id: 'quienes',     num: '01', label: 'QUIÉNES SOMOS' },
-  { id: 'hicimos',     num: '02', label: 'QUÉ HICIMOS'   },
-  { id: 'porque',      num: '03', label: 'POR QUÉ'        },
-  { id: 'candidatos',  num: '04', label: 'CANDIDATOS'     },
-  { id: 'situacion',   num: '05', label: 'SITUACIÓN'      },
-  { id: 'compromisos', num: '06', label: 'COMPROMISOS'    },
-  { id: 'propuestas',  num: '07', label: 'PROPUESTAS'     },
+  { id: 'quienes',    num: '01', label: 'QUIÉNES SOMOS'     },
+  { id: 'hicimos',    num: '02', label: 'NUESTRO RECORRIDO'  },
+  { id: 'porque',     num: '03', label: 'POR QUÉ'            },
+  { id: 'candidatos', num: '04', label: 'NUESTRO PRESIDENTE' },
+  { id: 'lista',      num: '05', label: 'NUESTRA LISTA'      },
+  { id: 'situacion',  num: '06', label: 'CUADRO SITUACIÓN'   },
+  { id: 'valores',    num: '07', label: 'NUESTROS VALORES'   },
+  { id: 'compromisos',num: '08', label: 'NUESTRO COMPROMISO' },
+  { id: 'propuestas', num: '09', label: 'PROPUESTAS'         },
 ];
 
 const indicator = document.getElementById('secIndicator');
@@ -188,6 +190,29 @@ if (!prefersReducedMotion) {
 
   accSectionEls.forEach(s => accEntranceObserver.observe(s));
 }
+
+
+/* ---- CARRUSEL ---- */
+(function () {
+  const track = document.getElementById('carouselTrack');
+  const dots  = document.querySelectorAll('.carousel__dot');
+  if (!track || !dots.length) return;
+
+  const total = dots.length;
+  let current = 0;
+  let timer;
+
+  function goTo(i) {
+    current = (i + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, idx) => d.classList.toggle('carousel__dot--active', idx === current));
+  }
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { clearInterval(timer); goTo(i); startAuto(); }));
+
+  function startAuto() { timer = setInterval(() => goTo(current + 1), 3500); }
+  startAuto();
+})();
 
 
 /* ---- Smooth scroll ---- */

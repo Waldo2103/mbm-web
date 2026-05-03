@@ -5,88 +5,88 @@
 /* — BARLOW — */
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Regular.woff2') format('woff2'),
-       url('../MBM RECURSOS/BARLOW/Barlow-Regular.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-Regular.woff2') format('woff2'),
+       url('../recursos/BARLOW/Barlow-Regular.ttf') format('truetype');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Italic.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-Italic.ttf') format('truetype');
   font-weight: 400; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Medium.woff2') format('woff2'),
-       url('../MBM RECURSOS/BARLOW/Barlow-Medium.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-Medium.woff2') format('woff2'),
+       url('../recursos/BARLOW/Barlow-Medium.ttf') format('truetype');
   font-weight: 500; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-SemiBold.woff2') format('woff2'),
-       url('../MBM RECURSOS/BARLOW/Barlow-SemiBold.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-SemiBold.woff2') format('woff2'),
+       url('../recursos/BARLOW/Barlow-SemiBold.ttf') format('truetype');
   font-weight: 600; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Bold.woff2') format('woff2'),
-       url('../MBM RECURSOS/BARLOW/Barlow-Bold.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-Bold.woff2') format('woff2'),
+       url('../recursos/BARLOW/Barlow-Bold.ttf') format('truetype');
   font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-BoldItalic.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-BoldItalic.ttf') format('truetype');
   font-weight: 700; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-ExtraBold.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-ExtraBold.ttf') format('truetype');
   font-weight: 800; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Black.woff2') format('woff2'),
-       url('../MBM RECURSOS/BARLOW/Barlow-Black.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-Black.woff2') format('woff2'),
+       url('../recursos/BARLOW/Barlow-Black.ttf') format('truetype');
   font-weight: 900; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-BlackItalic.ttf') format('truetype');
+  src: url('../recursos/BARLOW/Barlow-BlackItalic.ttf') format('truetype');
   font-weight: 900; font-style: italic; font-display: swap;
 }
 
 /* — BIG CASLON CC — */
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/Big_Caslon_CC.woff2') format('woff2'),
-       url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC.otf') format('opentype');
+  src: url('../recursos/BIG CASLON/Big_Caslon_CC.woff2') format('woff2'),
+       url('../recursos/BIG CASLON/fonnts.com-Big_Caslon_CC.otf') format('opentype');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/Big_Caslon_CC_Italic.woff2') format('woff2'),
-       url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Italic.otf') format('opentype');
+  src: url('../recursos/BIG CASLON/Big_Caslon_CC_Italic.woff2') format('woff2'),
+       url('../recursos/BIG CASLON/fonnts.com-Big_Caslon_CC_Italic.otf') format('opentype');
   font-weight: 400; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/Big_Caslon_CC_Bold.woff2') format('woff2'),
-       url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold.otf') format('opentype');
+  src: url('../recursos/BIG CASLON/Big_Caslon_CC_Bold.woff2') format('woff2'),
+       url('../recursos/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold.otf') format('opentype');
   font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/Big_Caslon_CC_Bold_Italic.woff2') format('woff2'),
-       url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold_Italic.otf') format('opentype');
+  src: url('../recursos/BIG CASLON/Big_Caslon_CC_Bold_Italic.woff2') format('woff2'),
+       url('../recursos/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold_Italic.otf') format('opentype');
   font-weight: 700; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Black.otf') format('opentype');
+  src: url('../recursos/BIG CASLON/fonnts.com-Big_Caslon_CC_Black.otf') format('opentype');
   font-weight: 900; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Black_Italic.otf') format('opentype');
+  src: url('../recursos/BIG CASLON/fonnts.com-Big_Caslon_CC_Black_Italic.otf') format('opentype');
   font-weight: 900; font-style: italic; font-display: swap;
 }
 
@@ -284,6 +284,27 @@ p { line-height: 1.7; }
   overflow: hidden;
 }
 
+/* Escudo de fondo — detrás de todo el contenido */
+.hero__escudo {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(640px, 80vw);
+  height: auto;
+  display: block;
+  pointer-events: none;
+  opacity: 0.08;
+  filter: grayscale(1) brightness(2);
+  z-index: 0;
+}
+
+/* Contenido del hero siempre encima del escudo */
+.hero__subnav,
+.hero__countdown,
+.hero__main,
+.hero__bottom { position: relative; z-index: 1; }
+
 .hero__subnav {
   font-family: var(--f-display);
   font-weight: 600;
@@ -367,40 +388,6 @@ p { line-height: 1.7; }
   isolation: isolate;
 }
 
-/* ◆ gigante de fondo — motivo de marca, muy sutil */
-.hero__main::before {
-  content: '◆';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--f-display);
-  font-weight: 900;
-  font-size: clamp(340px, 62vw, 720px);
-  line-height: 1;
-  color: rgba(255,255,255,0.035);
-  pointer-events: none;
-  user-select: none;
-  z-index: -1;
-}
-
-/* Halo radial — luz suave centrada detrás del logo */
-.hero__main::after {
-  content: '';
-  position: absolute;
-  top: 46%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(560px, 85vw);
-  height: min(560px, 85vw);
-  background: radial-gradient(ellipse,
-    rgba(255,255,255,0.06) 0%,
-    rgba(255,255,255,0.02) 35%,
-    transparent 68%
-  );
-  pointer-events: none;
-  z-index: -1;
-}
 
 .hero__logo {
   max-width: min(500px, 72vw);
@@ -415,7 +402,13 @@ p { line-height: 1.7; }
   to   { opacity: 1; transform: none; }
 }
 
-.hero__taglines { animation: hero-in 1s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero__taglines {
+  animation: hero-in 1s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
 
 .hero__tagline-1 {
   font-family: var(--f-display);
@@ -424,6 +417,7 @@ p { line-height: 1.7; }
   line-height: 1;
   color: var(--white);
   text-transform: uppercase;
+  margin: 0;
 }
 .hero__tagline-2 {
   font-family: var(--f-display);
@@ -432,13 +426,28 @@ p { line-height: 1.7; }
   line-height: 1;
   color: var(--red);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
-.hero__sub {
+
+/* Claim principal: Barlow + Big Caslon CC combo como en el folleto */
+.hero__claim {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(20px, 3.5vw, 44px);
+  line-height: 1.15;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.01em;
+}
+.hero__claim em {
+  display: block;
   font-family: var(--f-serif);
   font-style: italic;
-  font-size: clamp(15px, 1.8vw, 20px);
-  color: rgba(255,255,255,0.6);
+  font-weight: 700;
+  font-size: clamp(34px, 6.5vw, 84px);
+  line-height: 0.95;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-top: 4px;
 }
 
 .hero__bottom {
@@ -580,8 +589,9 @@ p { line-height: 1.7; }
 /* Section label (num + tag) */
 .section__label {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
   flex-shrink: 0;
 }
 .section__num {
@@ -626,7 +636,14 @@ p { line-height: 1.7; }
   font-size: clamp(32px, 5.5vw, 72px);
   line-height: 0.93;
   text-transform: uppercase;
+  color: var(--navy);
 }
+
+/* Títulos blancos en fondos oscuros */
+.section--navy .section__title,
+.section--navy .section__tag,
+.section--red .section__title,
+.section--red .section__tag { color: var(--white); }
 
 /* +/− icon */
 .acc-icon {
@@ -754,13 +771,28 @@ p { line-height: 1.7; }
   aspect-ratio: 3 / 4;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
   background-image: repeating-linear-gradient(
     -45deg,
     transparent, transparent 12px,
     rgba(255,255,255,0.025) 12px, rgba(255,255,255,0.025) 13px
   );
+}
+.candidate__photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.candidate__photo-name {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(27,32,62,0.92) 0%, transparent 100%);
 }
 .candidate__photo-tag {
   font-family: var(--f-display);
@@ -1006,6 +1038,75 @@ p { line-height: 1.7; }
 }
 
 /* ============================================================
+   CARRUSEL (sumate / galería)
+============================================================ */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  border-radius: 4px;
+}
+.carousel__track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.carousel__slide {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.carousel__slide img {
+  max-width: min(260px, 60vw);
+  height: auto;
+  opacity: 0.85;
+}
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.carousel__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transition: background 0.3s;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+.carousel__dot--active { background: var(--white); }
+
+/* Link de lectura extendida / galería */
+.section__read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+  margin-top: 24px;
+}
+.section--navy .section__read-more,
+.section--red  .section__read-more { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.3); }
+.section__read-more:hover { opacity: 0.7; }
+.section__read-more::after { content: ' →'; }
+
+/* ============================================================
    FOOTER
 ============================================================ */
 .footer {
@@ -1065,16 +1166,16 @@ p { line-height: 1.7; }
 
 .footer__links a {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.45);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.55);
   text-transform: uppercase;
-  padding: 5px 20px 5px 0;
+  padding: 7px 24px 7px 0;
   transition: color 0.2s;
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
 }
 
 .footer__links a::before {
@@ -1216,6 +1317,9 @@ p { line-height: 1.7; }
 
   /* Nav */
   .nav__links { display: none; }
+
+  /* Escudo — bajar para que quede a la misma altura visual que en desktop */
+  .hero__escudo { top: 15%; }
 
   /* Hero bottom — event arriba full width, club/candidato abajo lado a lado */
   .hero__bottom {

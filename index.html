@@ -10,14 +10,14 @@
   <meta property="og:type" content="website">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="MBM RECURSOS/LOGO-MBM-COLOR-FINAL.png">
-  <link rel="apple-touch-icon" href="MBM RECURSOS/LOGO-MBM-COLOR-FINAL.png">
+  <link rel="icon" type="image/png" href="recursos/LOGO-MBM-COLOR-FINAL.png">
+  <link rel="apple-touch-icon" href="recursos/LOGO-MBM-COLOR-FINAL.png">
 
   <!-- Preload fuentes críticas -->
-  <link rel="preload" href="MBM%20RECURSOS/BARLOW/Barlow-Black.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="MBM%20RECURSOS/BARLOW/Barlow-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="MBM%20RECURSOS/BARLOW/Barlow-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="MBM%20RECURSOS/BIG%20CASLON/Big_Caslon_CC_Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="recursos/BARLOW/Barlow-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="recursos/BARLOW/Barlow-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="recursos/BARLOW/Barlow-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="recursos/BIG%20CASLON/Big_Caslon_CC_Bold.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -26,8 +26,8 @@
   <!-- Preloader -->
   <div class="preloader" id="preloader" aria-hidden="true">
     <picture>
-      <source srcset="MBM RECURSOS/LOGO-BLANCO.webp" type="image/webp">
-      <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="MBM" class="preloader__logo">
+      <source srcset="recursos/LOGO-BLANCO.webp" type="image/webp">
+      <img src="recursos/LOGO-BLANCO.png" alt="MBM" class="preloader__logo">
     </picture>
   </div>
 
@@ -37,18 +37,20 @@
   <nav class="nav" id="nav">
     <a href="#hero" class="nav__logo">
       <picture>
-        <source srcset="MBM RECURSOS/LOGO-BLANCO.webp" type="image/webp">
-        <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete">
+        <source srcset="recursos/LOGO-BLANCO.webp" type="image/webp">
+        <img src="recursos/LOGO-BLANCO.png" alt="Movete Boedo Movete">
       </picture>
     </a>
     <ul class="nav__links">
       <li><a href="#quienes">01 / QUIÉNES</a></li>
-      <li><a href="#hicimos">02 / HICIMOS</a></li>
+      <li><a href="#hicimos">02 / RECORRIDO</a></li>
       <li><a href="#porque">03 / POR QUÉ</a></li>
-      <li><a href="#candidatos">04 / CANDIDATOS</a></li>
-      <li><a href="#situacion">05 / SITUACIÓN</a></li>
-      <li><a href="#compromisos">06 / COMPROMISOS</a></li>
-      <li><a href="#propuestas">07 / PROPUESTAS</a></li>
+      <li><a href="#candidatos">04 / PRESIDENTE</a></li>
+      <li><a href="#lista">05 / LISTA</a></li>
+      <li><a href="#situacion">06 / CUADRO SITUACIÓN</a></li>
+      <li><a href="#valores">07 / VALORES</a></li>
+      <li><a href="#compromisos">08 / NUESTRO COMPROMISO</a></li>
+      <li><a href="#propuestas">09 / PROPUESTAS</a></li>
     </ul>
     <a href="#sumate" class="nav__cta">SUMATE →</a>
   </nav>
@@ -57,46 +59,25 @@
        HERO
   ====================================================== -->
   <section class="hero" id="hero">
-    <p class="hero__subnav">◆ PLATAFORMA 2026 ◆ LISTA DE SOCIOS · CASLA ◆</p>
+    <!-- <img class="hero__escudo" src="recursos/escudo-hero.svg" alt="" aria-hidden="true"> -->
 
-    <!-- Countdown al evento -->
-    <div class="hero__countdown" id="countdown" aria-live="polite">
-      <span class="hero__countdown-label">FALTAN</span>
-      <div class="hero__countdown-items">
-        <div class="hero__countdown-item"><span id="cd-hours">—</span><small>HS</small></div>
-        <div class="hero__countdown-item"><span id="cd-mins">—</span><small>MIN</small></div>
-        <div class="hero__countdown-item"><span id="cd-secs">—</span><small>SEG</small></div>
-      </div>
-      <span class="hero__countdown-event">◆ LANZAMIENTO · 3 MAYO · 11:00 hs · Ushuaia</span>
-    </div>
+    <p class="hero__subnav">◆ PLATAFORMA 2026 ◆ MOVETE BOEDO MOVETE · CASLA ◆</p>
+
 
     <div class="hero__main">
       <picture>
-        <source srcset="MBM RECURSOS/LOGO-BLANCO.webp" type="image/webp">
-        <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="hero__logo">
+        <source srcset="recursos/LOGO-BLANCO.webp" type="image/webp">
+        <img src="recursos/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="hero__logo">
       </picture>
       <div class="hero__taglines">
         <p class="hero__tagline-1">SIN LOS DE ANTES,</p>
         <p class="hero__tagline-2">SIN LOS DE AHORA.</p>
-        <p class="hero__sub">Con la verdad para adelante. Ahora y para siempre, en tus manos.</p>
+        <p class="hero__claim">
+          Con la verdad<br><em>para adelante.</em>
+        </p>
       </div>
     </div>
 
-    <div class="hero__bottom">
-      <div class="hero__club">
-        <span class="label-xs">UNA LISTA<br>DE SOCIOS</span>
-        <strong>CLUB ATLÉTICO<br>SAN LORENZO<br>DE ALMAGRO</strong>
-      </div>
-      <div class="hero__event">
-        <span class="hero__event-label">◆ LANZAMIENTO DE PLATAFORMA</span>
-        <span class="hero__event-date">03 MAYO</span>
-        <span class="hero__event-info">11:00 hs · SUM del Ala B<br>Campus UNTDF · Ushuaia<br>Yrigoyen 879</span>
-      </div>
-      <div class="hero__candidato">
-        <span class="label-xs">CANDIDATO A PRESIDENTE</span>
-        <strong>MANUEL<br>ASTESIANO<br>AGOTE</strong>
-      </div>
-    </div>
   </section>
 
   <!-- ======================================================
@@ -104,8 +85,10 @@
   ====================================================== -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker__track">
-      <span>MBM // MOVETE BOEDO MOVETE // AHORA Y PARA SIEMPRE EN TUS MANOS // MBM // MOVETE BOEDO MOVETE // AHORA Y PARA SIEMPRE EN TUS MANOS // MBM // MOVETE BOEDO MOVETE // AHORA Y PARA SIEMPRE EN TUS MANOS //&nbsp;</span>
-      <span>MBM // MOVETE BOEDO MOVETE // AHORA Y PARA SIEMPRE EN TUS MANOS // MBM // MOVETE BOEDO MOVETE // AHORA Y PARA SIEMPRE EN TUS MANOS // MBM // MOVETE BOEDO MOVETE // AHORA Y PARA SIEMPRE EN TUS MANOS //&nbsp;</span>
+      <!-- CANDIDATO A PRESIDENTE MANUEL ASTESIANO AGOTE // MOVETE BOEDO MOVETE // LISTA 3 MAS RAPIDO!! -->
+      <span>CANDIDATO A PRESIDENTE MANUEL ASTESIANO AGOTE // MOVETE BOEDO MOVETE // LISTA 3 //&nbsp;</span>
+      <span>CANDIDATO A PRESIDENTE MANUEL ASTESIANO AGOTE // MOVETE BOEDO MOVETE // LISTA 3 //&nbsp;</span>
+      <span>CANDIDATO A PRESIDENTE MANUEL ASTESIANO AGOTE // MOVETE BOEDO MOVETE // LISTA 3 //&nbsp;</span>
     </div>
   </div>
 
@@ -119,12 +102,12 @@
       <div class="acc-header">
         <div class="section__label">
           <span class="section__num section__num--boxed">01</span>
-          <span class="section__tag">QUIÉNES SOMOS</span>
+          <span class="section__title">QUIÉNES SOMOS</span>
         </div>
-        <h2 class="section__title">
+        <!-- <h2 class="section__title">
           UNA LISTA DE SOCIOS.<br>
           <span class="c-red">NADA MÁS,</span> <em class="serif c-red">NADA MENOS.</em>
-        </h2>
+        </h2> -->
       </div>
       <span class="acc-icon" aria-hidden="true"></span>
     </button>
@@ -132,30 +115,27 @@
       <div class="acc-inner">
         <div class="acc-content">
           <p class="section__lead reveal from-up">
-            <em>San Lorenzo le pertenece a sus socios. No a las dirigencias que se turnan en la administración de la crisis.</em>
+            <em>Movete Boedo Movete es una Agrupación formalmente fundada hace 3 años e integrada por un centenar de socios y socias que militamos y participamos en la vida institucional del Club, varios de los cuales caminamos juntos desde hace más de dos décadas.</em>
           </p>
           <hr class="divider reveal from-up">
           <div class="two-col reveal from-up">
-            <p>Somos hinchas, profesionales y militantes de la vida institucional. No confundimos al club con un patrimonio personal ni con una plataforma de carrera. Llegamos para defender el estatuto.</p>
-            <p>Para exigir transparencia y devolverle a la asamblea de socios el lugar que nunca debió perder. Para eso construimos Movete Boedo Movete: una herramienta política con dueños claros — los socios.</p>
+            <p>Nos estructuramos con un organigrama interno en el que distribuimos roles y responsabilidades y, hasta la fecha, enfocamos nuestro trabajo en las áreas de legal, contable, acción social, comunicación, prensa, sistematización de datos, intendencia, cultura, inclusión y género, marca y producción gráfica y audiovisual.</p>
+            <p>Tenemos una Sede propia ubicada en la calle 33 Orientales 2073 del barrio de Boedo. Allí llevamos adelante todas las actividades de la Agrupación, realizamos eventos culturales y, también, abrimos las puertas a los hinchas del Club cuando San Lorenzo juega de visitante para compartir un momento Sanlorencista. En esta etapa preelectoral, nuestra casa también ha oficiado como espacio de reunión y comunión con quienes se han acercado para debatir en profundidad los ejes de trabajo que nos preocupan de cara al futuro.
+</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02 · QUÉ HICIMOS -->
+  <!-- 02 · NUESTRO RECORRIDO -->
   <section class="acc-section section--navy" id="hicimos">
     <button class="acc-trigger" aria-expanded="false" aria-controls="body-hicimos">
       <div class="acc-header">
         <div class="section__label">
           <span class="section__num section__num--boxed">02</span>
-          <span class="section__tag">QUÉ HICIMOS</span>
+          <span class="section__title">NUESTRO RECORRIDO</span>
         </div>
-        <h2 class="section__title">
-          ANTES DEL VOTO,<br>
-          <span class="c-red">HICIMOS.</span>
-        </h2>
       </div>
       <span class="acc-icon" aria-hidden="true"></span>
     </button>
@@ -163,29 +143,15 @@
       <div class="acc-inner">
         <div class="acc-content">
           <p class="section__lead reveal from-up">
-            <em>Cuatro años de trabajo institucional documentado. No es campaña: es la trayectoria que nos trajo hasta acá.</em>
+            <em>Desde antes de la fundación de MBM, quienes integramos esta agrupación llevamos años al servicio del resguardo institucional, habiendo cada uno de nosotros sido partícipes de momentos relevantes de la historia de San Lorenzo.</em>
           </p>
-          <div class="timeline">
-            <div class="timeline__item reveal from-left">
-              <span class="timeline__year">2024</span>
-              <span class="timeline__cat">IGJ</span>
-              <p class="timeline__desc">Reclamos formales ante la Inspección General de Justicia por irregularidades en la administración del club.</p>
-            </div>
-            <div class="timeline__item reveal from-right">
-              <span class="timeline__year">2024</span>
-              <span class="timeline__cat">SAD</span>
-              <p class="timeline__desc">Denuncia pública: el entonces presidente Marcelo Moretti puso a San Lorenzo a disposición del Gobierno Nacional en el debate sobre Sociedades Anónimas Deportivas.</p>
-            </div>
-            <div class="timeline__item reveal from-left">
-              <span class="timeline__year">DIC.25</span>
-              <span class="timeline__cat">COMISIÓN</span>
-              <p class="timeline__desc">Presentación de propuesta de comisión directiva transitoria en la Asamblea Extraordinaria de Representantes.</p>
-            </div>
-            <div class="timeline__item reveal from-right">
-              <span class="timeline__year">2026</span>
-              <span class="timeline__cat">PLATAFORMA</span>
-              <p class="timeline__desc">Lanzamiento de la plataforma electoral desde Ushuaia, en el SUM del Ala B del Campus UNTDF.</p>
-            </div>
+          <hr class="divider reveal from-up">
+          <div class="two-col reveal from-up">
+            <p><strong>Siempre Casla Nunca SA.</strong> En MBM se nuclean Sanlorencistas que en el año 2000 han batallado contra ISL, que trabajaron en la importancia de establecer el 30/11 como Día del Hincha, que entre 2008 y 2011 denunciaron y expusieron las nefastas consecuencias que nos iba a traer el Grupo Inversor que nos dejó al borde de un descenso en 2012 y que en 2016 confeccionaron e incluyeron en el Estatuto Social la figura del Plebiscito, que es el único real resguardo institucional contra la intromisión de capitales privados en la administración del Club.</p>
+            <p><strong>Vuelta a Boedo.</strong> Nos enorgullece que en nuestra agrupación haya verdaderos guardianes de la Vuelta a Boedo. En MBM hay compañeros que han impulsado la causa desde sus inicios, que movilizaron y acompañaron en todas las marchas, que dieron la batalla cultural y comunicacional para lograr que se convirtiera en Cuestión de Estado, que generaron aportes sustanciales y fundamentales para la argumentación legal y técnica que propició la recuperación de la Plaza Lorenzo Massa, que hicieron estudios con urbanistas reconocidos para generar publicaciones que elevaron el nivel de la discusión pública, que impulsaron estrategias de marketing y de militancia territorial que permitieron masificar la causa y, asimismo, que se ocuparon de denunciar las sistemáticas entregas y traiciones que sufrimos en estos últimos 10 años en torno a la Causa Madre Sanlorencista.</p>
+            <p><strong>Construcción Identitaria del Sanlorencismo digno.</strong> Durante más de una década, varios integrantes de MBM fuimos parte de DeBoedoVengo, espacio desde el cual traccionamos por la construcción identitaria de un Sanlorencismo digno, enarbolando las banderas del San Lorenzo No Se Vende, Sin Hinchas No Se Juega, la Vuelta a Boedo y el respeto por nuestros valores fundacionales.</p>
+            <p><strong>Género.</strong> Durante varios años, compañeras de MBM participaron del espacio San Lorenzo Feminista. Desde la Comisión de Salud articularon con la Campaña Nacional por la Despenalización del Aborto, la aprobación de la Ley IVE, desarrollaron diferentes conversatorios sobre memoria y juventudes, derechos humanos y educación sexual integral (ESI). Asimismo, acompañaron al plantel de fútbol femenino en la adecuación de la disciplina en su etapa de profesionalización.</p>
+            <p><strong>San Lorenzo Federal.</strong> Compañeras de MBM participaron en el área de Mujeres, Géneros y Diversidades del Departamento de Peñas de San Lorenzo. A través de la articulación con diferentes peñas de todo el país se desarrollaron jornadas y actividades en el marco de la reivindicación de un Club nacional, popular y federal.</p>
           </div>
         </div>
       </div>
@@ -198,11 +164,8 @@
       <div class="acc-header">
         <div class="section__label">
           <span class="section__num section__num--boxed">03</span>
-          <span class="section__tag">POR QUÉ NOS PRESENTAMOS</span>
+          <span class="section__title">POR QUÉ NOS PRESENTAMOS</span> 
         </div>
-        <h2 class="section__title">
-          PORQUE NADIE VA A VENIR<br><em class="serif">a salvarnos.</em>
-        </h2>
       </div>
       <span class="acc-icon" aria-hidden="true"></span>
     </button>
@@ -210,9 +173,14 @@
       <div class="acc-inner">
         <div class="acc-content">
           <div class="three-col reveal from-up">
-            <p><em>Hace más de una década que San Lorenzo atraviesa una crisis institucional y económica que se profundiza cada año.</em></p>
-            <p>Cambian los nombres, cambian los carteles, no cambia el rumbo. La gestión administra la crisis: no la resuelve.</p>
-            <p>Nos presentamos porque la única salida es la que construyan quienes están afuera de ese sistema: socios y socias dispuestos a ponerle el cuerpo al club que aman.</p>
+            <p><em>Decidimos dar un salto de calidad en nuestro compromiso con la Institución porque tenemos los actores, las herramientas, la agenda, las ideas claras y los acuerdos políticos para llevar adelante los cambios neurálgicos que necesita San Lorenzo.</em></p>
+
+             <p>En MBM nunca fuimos parte del problema y estamos convencidos que eso nos habilita a ser artífices de la solución. No tenemos ningún tipo de vinculación con los dirigentes que hundieron a San Lorenzo en este caos y los 20 integrantes de nuestra lista jamás han participado en una Comisión Directiva del Club.</p>
+             <p>Estos años puestos al servicio del resguardo institucional forjaron la decisión y convicción de poner todo nuestro esfuerzo al servicio de la gestión. En MBM participaremos de estas elecciones impulsados por la genuina preocupación que nos genera el delicado momento que atraviesa el Club y el convencimiento de que hemos conformado una estructura seria e inteligente y con cuadros técnicos y profesionales para construir el futuro que todos los Sanlorencistas nos merecemos.</p>
+             <p>En MBM tenemos un gran respeto por los socios y las socias del Club, militamos con una inquebrantable seriedad la propuesta electoral elaborada y sentimos una profunda responsabilidad con el rol que ocuparemos a partir de junio. Más allá de los asuntos propios de la gestión de una institución de nuestra envergadura, tenemos claro que lo más importante será administrar el sentimiento de más de 4 millones de Sanlorencistas.</p>
+             <p>San Lorenzo no se trata de un país, una provincia, una ciudad o un municipio: somos un club social y eso significa que vamos a gobernar historias de amor; de familias y de amigos, de recuerdos y de sueños, todas entrelazadas por un sentido de identidad y de pertenencia que nos atraviesa y nos determina. Sabemos que cada decisión que tomemos impactará de lleno en el ánimo y el humor de cuervos y cuervas que se despiertan pensando en San Lorenzo y se van a dormir pensando en San Lorenzo. Y nuestro principal compromiso es siempre tener presente todo lo que eso implica.</p>
+             <p>En esta breve primera etapa, hasta diciembre de 2027, enfocaremos todos nuestros esfuerzos en recuperar el orden económico y financiero de San Lorenzo, siempre entendiendo la multiplicidad de aristas que esto implica en un Club social tan grande como el nuestro. Hemos conformado el mejor equipo, con actores de peso específico que nos aseguran una convivencia sana y provechosa con espacios de poder real que serán fundamentales para recuperar la autonomía administrativa de nuestra Institución.</p>
+             <p>Será una pelea difícil. Del otro lado hay gente que le ha hecho mucho daño al Club, y que pretenderá impedir que llevemos adelante las transformaciones que vamos a implementar. Pero tenemos claro el cuadro de situación del Club y tenemos claro lo que hay que hacer. Y nuestro amor por San Lorenzo, y la estructura sólida que hemos construído, son más fuertes que cualquier obstáculo que quieran imponer con la intención de detener la revolución que vamos a encaminar.</p>
           </div>
         </div>
       </div>
@@ -225,9 +193,8 @@
       <div class="acc-header">
         <div class="section__label">
           <span class="section__num section__num--boxed">04</span>
-          <span class="section__tag">NUESTROS CANDIDATOS</span>
+          <span class="section__title">NUESTRO PRESIDENTE.</span>
         </div>
-        <h2 class="section__title">A PRESIDENTE.</h2>
       </div>
       <span class="acc-icon" aria-hidden="true"></span>
     </button>
@@ -236,7 +203,7 @@
         <div class="acc-content">
           <div class="candidate reveal from-up">
             <div class="candidate__photo">
-              <span class="candidate__photo-tag">◆ FOTO PENDIENTE</span>
+              <img src="recursos/fotoCandidato.jpg" alt="Manuel Astesiano Agote" class="candidate__photo-img" loading="lazy">
               <div class="candidate__photo-name">
                 <p class="candidate__name">MANUEL<br>AGOTE</p>
                 <p class="candidate__role">CANDIDATO A PRESIDENTE</p>
@@ -258,9 +225,13 @@
                 </div>
               </div>
               <div class="candidate__bio">
-                <p><strong>Abogado</strong>, egresado del Colegio San Andrés y de la Universidad Torcuato Di Tella. Referente de Movete Boedo Movete y militante en defensa de la vida institucional de San Lorenzo.</p>
+                <p>Es abogado, egresado del Colegio San Andrés y de la Universidad Torcuato Di Tella, con especialización en derecho societario y notarial, y referente de la agrupación Movete Boedo Movete. Cuenta con una extensa trayectoria de militancia en defensa de la vida institucional del Club Atlético San Lorenzo de Almagro.</p>
+                <p>En los últimos años se consolidó como una de las voces críticas frente al accionar de las dirigencias responsables de la crisis que atraviesa hace más de una década el club, con foco en la transparencia, el cumplimiento del estatuto y el rol de los socios como base de la legitimidad institucional.</p>
+                <p>En ese contexto, impulsó reclamos ante la Inspección General de Justicia (IGJ). En 2024, advirtió públicamente que el entonces presidente Marcelo Moretti había puesto a San Lorenzo a disposición del Gobierno Nacional en el debate sobre las Sociedades Anónimas Deportivas (SAD) y, posteriormente, en diciembre de 2025, presentó una propuesta de comisión directiva transitoria en la Asamblea Extraordinaria de Representantes.</p>
+                <p>Con 43 años, combina su formación jurídica con una mirada orientada a contribuir a la salida de la crisis institucional y económica de San Lorenzo.</p>
+                <!-- <p><strong>Abogado</strong>, egresado del Colegio San Andrés y de la Universidad Torcuato Di Tella. Referente de Movete Boedo Movete y militante en defensa de la vida institucional de San Lorenzo.</p>
                 <p>Una de las <strong>voces críticas</strong> frente al accionar de las dirigencias responsables de la crisis del club, con foco en la transparencia, el cumplimiento del estatuto y el rol de los socios como base de la legitimidad institucional.</p>
-                <p>Combina su formación jurídica con una mirada orientada a contribuir a la salida de la crisis institucional y económica que atraviesa hace más de una década el club.</p>
+                <p>Combina su formación jurídica con una mirada orientada a contribuir a la salida de la crisis institucional y económica que atraviesa hace más de una década el club.</p> -->
               </div>
             </div>
           </div>
@@ -269,21 +240,18 @@
     </div>
   </section>
 
-  <!-- 05 · CUADRO DE SITUACIÓN -->
-  <section class="acc-section section--navy" id="situacion">
-    <button class="acc-trigger" aria-expanded="false" aria-controls="body-situacion">
+  <!-- 05 · NUESTRA LISTA -->
+  <section class="acc-section section--navy" id="lista">
+    <button class="acc-trigger" aria-expanded="false" aria-controls="body-lista">
       <div class="acc-header">
         <div class="section__label">
           <span class="section__num section__num--boxed">05</span>
-          <span class="section__tag">CUADRO DE SITUACIÓN</span>
+          <span class="section__title">NUESTRA LISTA</span>
         </div>
-        <h2 class="section__title">
-          DE QUÉ HABLAMOS CUANDO<br>HABLAMOS <span class="c-red">DE CRISIS.</span>
-        </h2>
       </div>
       <span class="acc-icon" aria-hidden="true"></span>
     </button>
-    <div class="acc-body" id="body-situacion">
+    <div class="acc-body" id="body-lista">
       <div class="acc-inner">
         <div class="acc-content">
           <div class="stats reveal from-up">
@@ -305,22 +273,76 @@
             </div>
           </div>
           <p class="section__lead reveal from-up">
-            <em>La crisis no es un accidente: es el resultado de un sistema de gestión que se sostiene a sí mismo a costa del club.</em>
+            <em>Los 20 candidatos que integran la lista de MBM participaremos por primera vez en un proceso electoral para ocupar cargos de Comisión Directiva, y no tenemos ningún tipo de vinculación con los dirigentes que en la última década han propiciado el vaciamiento económico del Club.</em>
           </p>
+          <a href="recursos/lista-mbm.pdf" class="section__read-more reveal from-up" target="_blank" rel="noopener noreferrer">Descargá nuestra lista acá</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 06 · COMPROMISOS -->
-  <section class="acc-section section--cream" id="compromisos">
-    <button class="acc-trigger" aria-expanded="false" aria-controls="body-compromisos">
+  <!-- 06 · CUADRO DE SITUACIÓN -->
+  <section class="acc-section section--red" id="situacion">
+    <button class="acc-trigger" aria-expanded="false" aria-controls="body-situacion">
       <div class="acc-header">
         <div class="section__label">
           <span class="section__num section__num--boxed">06</span>
-          <span class="section__tag">NUESTROS COMPROMISOS</span>
+          <span class="section__title">CUADRO DE SITUACIÓN</span>
         </div>
-        <h2 class="section__title">LO QUE <span class="c-red">FIRMAMOS.</span></h2>
+      </div>
+      <span class="acc-icon" aria-hidden="true"></span>
+    </button>
+    <div class="acc-body" id="body-situacion">
+      <div class="acc-inner">
+        <div class="acc-content">
+          <p class="section__lead reveal from-up">
+            <em>Breve recorrido histórico: crisis cíclicas con patrones comunes.</em>
+          </p>
+          <div class="two-col reveal from-up">
+            <p>Para comprender la crisis actual es necesario hacer un breve recorrido por los últimos 25 años de la vida institucional de San Lorenzo. En el análisis de este período queda en evidencia que, cíclicamente, nos enfrentamos a los mismos dilemas, con los mismos actores y, sin embargo, seguimos cometiendo los mismos errores. Razón por la cual, para proyectar un mejor futuro, debemos tener claro qué ocurrió en el pasado que nos trajo a este delicado presente.</p>
+          </div>
+          <a href="analisis.html" class="section__read-more reveal from-up">Leer el análisis completo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · NUESTROS VALORES -->
+  <section class="acc-section section--cream" id="valores">
+    <button class="acc-trigger" aria-expanded="false" aria-controls="body-valores">
+      <div class="acc-header">
+        <div class="section__label">
+          <span class="section__num section__num--boxed">07</span>
+          <span class="section__title">NUESTROS VALORES</span>
+        </div>
+      </div>
+      <span class="acc-icon" aria-hidden="true"></span>
+    </button>
+    <div class="acc-body" id="body-valores">
+      <div class="acc-inner">
+        <div class="acc-content">
+          <p class="section__lead reveal from-up">
+            <em>En MBM militamos, construimos y difundimos un Sanlorencismo digno, ordenando nuestra vinculación con San Lorenzo bajo los lineamientos de la identidad, el respeto y el trabajo.</em>
+          </p>
+          <hr class="divider reveal from-up">
+          <div class="two-col reveal from-up">
+            <p><strong>Identidad.</strong> Con el Club, nuestra historia y el sentido de pertenencia que atraviesa a todos los Sanlorencistas.</p>
+            <p><strong>Respeto.</strong> Desde el sentimiento sanlorencista, con los socios como protagonistas, en defensa de los valores fundacionales del club, su naturaleza de Asociación Civil y el legado de los valores salesianos que nos dieron origen: una identidad basada en la inclusión, la comunidad y el compromiso social.</p>
+            <p><strong>Trabajo.</strong> Obrando desde el ejemplo, convencidos de que mejor que decir es hacer, dedicándole nuestro tiempo y esfuerzo al cuidado irrestricto de la institucionalidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · COMPROMISOS -->
+  <section class="acc-section section--navy" id="compromisos">
+    <button class="acc-trigger" aria-expanded="false" aria-controls="body-compromisos">
+      <div class="acc-header">
+        <div class="section__label">
+          <span class="section__num section__num--boxed">08</span>
+          <span class="section__title">NUESTRO COMPROMISO</span>
+        </div>
       </div>
       <span class="acc-icon" aria-hidden="true"></span>
     </button>
@@ -368,15 +390,14 @@
     </div>
   </section>
 
-  <!-- 07 · PROPUESTAS -->
-  <section class="acc-section section--navy" id="propuestas">
+  <!-- 09 · PROPUESTAS -->
+  <section class="acc-section section--red" id="propuestas">
     <button class="acc-trigger" aria-expanded="false" aria-controls="body-propuestas">
       <div class="acc-header">
         <div class="section__label">
-          <span class="section__num section__num--boxed">07</span>
-          <span class="section__tag">NUESTRAS PROPUESTAS</span>
+          <span class="section__num section__num--boxed">09</span>
+          <span class="section__title">PROPUESTAS</span>
         </div>
-        <h2 class="section__title">PLATAFORMA <span class="c-red">2026.</span></h2>
       </div>
       <span class="acc-icon" aria-hidden="true"></span>
     </button>
@@ -423,28 +444,30 @@
   ====================================================== -->
   <section class="sumate section--red" id="sumate">
     <div class="sumate__inner">
-      <p class="overline reveal from-up">◆ LANZAMIENTO DE PLATAFORMA ◆</p>
+      <p class="overline reveal from-up">◆ GALERÍA ◆</p>
       <h2 class="sumate__title reveal from-up">
-        TE ESPERAMOS<br><span class="c-navy">EN USHUAIA.</span>
+        USHUAIA,<br><span class="c-navy">3 DE MAYO.</span>
       </h2>
-      <div class="sumate__details reveal from-up">
-        <div class="sumate__detail">
-          <span class="label-xs">FECHA</span>
-          <strong>3 MAYO</strong>
-        </div>
-        <div class="sumate__detail">
-          <span class="label-xs">HORA</span>
-          <strong>11:00</strong>
-        </div>
-        <div class="sumate__detail">
-          <span class="label-xs">LUGAR</span>
-          <strong>SUM ALA B</strong>
-        </div>
-        <div class="sumate__detail">
-          <span class="label-xs">DIRECCIÓN</span>
-          <strong>YRIGOYEN 879</strong>
+
+      <div class="carousel reveal from-up" id="mainCarousel">
+        <div class="carousel__track" id="carouselTrack">
+          <div class="carousel__slide">
+            <img src="recursos/LOGO-BLANCO.png" alt="Movete Boedo Movete">
+          </div>
+          <div class="carousel__slide">
+            <img src="recursos/LOGO-MBM-COLOR-FINAL.png" alt="Movete Boedo Movete">
+          </div>
         </div>
       </div>
+      <div class="carousel__dots" id="carouselDots">
+        <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+        <button class="carousel__dot" aria-label="Slide 2"></button>
+      </div>
+
+      <p class="reveal from-up" style="color:rgba(255,255,255,0.7); font-size:15px; margin-top:28px; font-family:var(--f-display); font-weight:500; text-align:center;">
+        Las fotos del lanzamiento estarán disponibles pronto.
+      </p>
+      <a href="galeria.html" class="section__read-more reveal from-up" style="margin: 16px auto 0; display:table;">Ver galería completa</a>
     </div>
   </section>
 
@@ -455,8 +478,8 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <picture>
-          <source srcset="MBM RECURSOS/LOGO-BLANCO.webp" type="image/webp">
-          <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="footer__logo" loading="lazy">
+          <source srcset="recursos/LOGO-BLANCO.webp" type="image/webp">
+          <img src="recursos/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="footer__logo" loading="lazy">
         </picture>
         <p class="footer__claim">AHORA Y PARA SIEMPRE,<br><span class="c-red">EN TUS MANOS.</span></p>
       </div>
