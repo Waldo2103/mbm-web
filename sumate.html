@@ -263,14 +263,10 @@
       };
 
       try {
-        const params = new URLSearchParams();
-        Object.entries(data).forEach(([k, v]) => params.append(k, v));
+        const url = new URL(SCRIPT_URL);
+        Object.entries(data).forEach(([k, v]) => url.searchParams.append(k, String(v)));
 
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode:   'no-cors',
-          body:   params
-        });
+        await fetch(url.toString(), { mode: 'no-cors' });
 
         form.style.display    = 'none';
         success.style.display = 'block';
