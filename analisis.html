@@ -3,18 +3,445 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Análisis — MBM</title>
+  <title>Cuadro de Situación — MBM</title>
+
+  <link rel="preload" href="recursos/BARLOW/Barlow-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="recursos/BARLOW/Barlow-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="recursos/BIG%20CASLON/Big_Caslon_CC_Bold_Italic.woff2" as="font" type="font/woff2" crossorigin>
+
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── página ─────────────────────────────────── */
+    body {
+      background: var(--cream);
+      color: var(--navy);
+      min-height: 100vh;
+    }
+
+    /* ── barra superior ──────────────────────────── */
+    .doc-nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      height: 56px;
+      padding: 0 var(--pad-x);
+      gap: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .doc-nav__back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+      flex-shrink: 0;
+    }
+    .doc-nav__back:hover { color: var(--white); }
+    .doc-nav__back::before { content: '←'; font-size: 14px; }
+    .doc-nav__divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+    .doc-nav__label {
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .doc-nav__num {
+      margin-left: auto;
+      font-family: var(--f-display);
+      font-weight: 900;
+      font-size: 13px;
+      color: var(--red);
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+
+    /* ── hero del documento ──────────────────────── */
+    .doc-hero {
+      background: var(--cream);
+      padding: clamp(48px, 8vw, 100px) var(--pad-x) clamp(40px, 6vw, 72px);
+      border-bottom: 1px solid rgba(27,32,62,0.1);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .doc-hero__overline {
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .doc-hero__title {
+      font-family: var(--f-display);
+      font-weight: 900;
+      font-size: clamp(40px, 7vw, 96px);
+      line-height: 0.92;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin: 0 0 8px;
+    }
+    .doc-hero__title-serif {
+      display: block;
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 84px);
+      line-height: 1;
+      color: var(--red);
+      text-transform: none;
+      margin-top: 4px;
+    }
+    .doc-hero__lead {
+      margin-top: clamp(24px, 3vw, 40px);
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(16px, 2vw, 22px);
+      line-height: 1.5;
+      color: var(--navy);
+      max-width: 720px;
+      opacity: 0.75;
+    }
+
+    /* ── cuerpo del artículo ─────────────────────── */
+    .doc-body {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: clamp(40px, 6vw, 80px) var(--pad-x) clamp(60px, 8vw, 120px);
+    }
+
+    .doc-body p {
+      font-family: var(--f-body);
+      font-weight: 500;
+      font-size: clamp(15px, 1.3vw, 17px);
+      line-height: 1.8;
+      color: var(--navy);
+      margin-bottom: 1.4em;
+    }
+
+    .doc-body strong {
+      font-weight: 700;
+    }
+
+    /* ── separador de sección ────────────────────── */
+    .doc-section {
+      margin: clamp(48px, 6vw, 80px) 0 clamp(28px, 3vw, 40px);
+      padding-top: clamp(40px, 5vw, 64px);
+      border-top: 1px solid rgba(27,32,62,0.15);
+    }
+    .doc-section__label {
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .doc-section__title {
+      font-family: var(--f-display);
+      font-weight: 900;
+      font-size: clamp(26px, 4vw, 52px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin: 0;
+    }
+    .doc-section__title em {
+      display: block;
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(22px, 3.2vw, 44px);
+      color: var(--red);
+      text-transform: none;
+      line-height: 1.1;
+      margin-top: 2px;
+    }
+
+    /* ── sub-secciones (crisis multifacética) ────── */
+    .doc-subsection {
+      margin: clamp(32px, 4vw, 52px) 0 0;
+    }
+    .doc-subsection__title {
+      font-family: var(--f-display);
+      font-weight: 900;
+      font-size: clamp(15px, 1.8vw, 20px);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      border-left: 3px solid var(--red);
+      padding-left: 14px;
+      margin: 0 0 16px;
+    }
+
+    /* ── datos destacados ───────────────────────── */
+    .doc-highlight {
+      background: var(--navy);
+      color: var(--white);
+      padding: clamp(24px, 3vw, 40px) clamp(20px, 3vw, 40px);
+      margin: clamp(32px, 4vw, 52px) 0;
+    }
+    .doc-highlight p {
+      color: rgba(255,255,255,0.85);
+      font-size: clamp(14px, 1.2vw, 16px);
+      margin-bottom: 0;
+    }
+    .doc-highlight strong {
+      color: var(--white);
+    }
+
+    /* ── botón volver al pie ─────────────────────── */
+    .doc-footer {
+      border-top: 1px solid rgba(27,32,62,0.12);
+      padding: clamp(32px, 4vw, 56px) var(--pad-x);
+      max-width: 740px;
+      margin: 0 auto;
+    }
+    .doc-footer__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: transparent;
+      border: 2px solid var(--navy);
+      padding: 12px 28px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .doc-footer__back::before { content: '←'; }
+    .doc-footer__back:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* ── responsive ──────────────────────────────── */
+    @media (max-width: 768px) {
+      .doc-hero { max-width: 100%; }
+      .doc-nav__label { display: none; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Análisis</h1>
 
-  <p>Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete.</p>
+  <!-- NAV SUPERIOR -->
+  <nav class="doc-nav">
+    <a href="javascript:history.back()" class="doc-nav__back">Volver</a>
+    <div class="doc-nav__divider"></div>
+    <span class="doc-nav__label">06 / Cuadro de situación</span>
+    <span class="doc-nav__num">MBM · 2026</span>
+  </nav>
 
-  <p>Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete.</p>
+  <!-- HERO -->
+  <header class="doc-hero">
+    <span class="doc-hero__overline">◆ Movete Boedo Movete · Plataforma 2026</span>
+    <h1 class="doc-hero__title">
+      Cuadro de<br>situación
+      <em class="doc-hero__title-serif">general.</em>
+    </h1>
+    <p class="doc-hero__lead">
+      Crisis cíclicas con patrones comunes: un breve recorrido por 25 años de vida institucional de San Lorenzo de Almagro.
+    </p>
+  </header>
 
-  <p>Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete. Movete Boedo movete.</p>
+  <!-- CUERPO -->
+  <article class="doc-body">
 
-  <button onclick="history.back()">Volver</button>
+    <!-- SECCIÓN 1: RECORRIDO HISTÓRICO -->
+    <div class="doc-section">
+      <span class="doc-section__label">◆ Parte I</span>
+      <h2 class="doc-section__title">
+        Breve recorrido histórico
+        <em>crisis cíclicas con patrones comunes.</em>
+      </h2>
+    </div>
+
+    <p>Para comprender la crisis actual es necesario hacer un breve recorrido por los últimos 25 años de la vida institucional de San Lorenzo. En el análisis de este período queda en evidencia que, cíclicamente, nos enfrentamos a los mismos dilemas, con los mismos actores y, sin embargo, seguimos cometiendo los mismos errores. Razón por la cual, para proyectar un mejor futuro, debemos tener claro qué ocurrió en el pasado que nos trajo a este delicado presente.</p>
+
+    <p>El 2000 culminó con la etapa de Fernando Miele como presidente del Club. En la explicación de ese triste desenlace se ve por primera vez un patrón que años más tarde veríamos replicado en Matías Lammens y Marcelo Tinelli: todos se creyeron más importantes que San Lorenzo de Almagro.</p>
+
+    <p>Miele comenzó su administración en un escenario completamente caótico, logrando recuperar la localía y armar un plantel campeón después de 21 años de sequía. Pero, obnubilado y perdiendo el foco, priorizó sus intereses personales enfocándose en la AFA, generando una inestabilidad política que desencadenó en la ruptura de la armonía interna y terminó de minar su vínculo con Grondona.</p>
+
+    <p>Un presente deportivo exitoso no fue argumento suficiente para relativizar el malestar generalizado que produjo con el intento de privatización a manos de ISL y la escandalosa represión a los hinchas del club. Esa etapa oscura de nuestra historia dejó en evidencia un modus operandi que también veríamos replicado años más tarde, con comisiones directivas y asambleas operando a espaldas del socio, ocultando información, desatendiendo sus obligaciones estatutarias y tirándole la policía a la gente.</p>
+
+    <p>En 2001, la llegada de Alberto Guil se da en el marco de un profundo descreimiento en la política y un extendido sentimiento de incertidumbre. Sin embargo, se pone el foco en lo fundamental y rápidamente se inicia un concurso de acreedores que acomoda el pasivo de la institución.</p>
+
+    <p>Por aquel entonces se hablaba de los "campeonatos económicos" y, sin embargo, San Lorenzo no terminaba de aprovechar la oportunidad para generar un proyecto de club integral, con políticas sanlorencistas largoplacistas.</p>
+
+    <p>Guil se va de San Lorenzo y con Rafael Savino vuelve un proceso de decadencia. Sin proyecto de club, con Savino más interesado en ser secretario de la AFA que presidente de San Lorenzo, y tras años de pésimos resultados futbolísticos, se le abre la puerta al grupo inversor.</p>
+
+    <p>El orden económico y financiero parecía ya no ser argumento suficiente para sostener la estabilidad política y se empezó a operar bajo el eje de que "nadie festeja los balances en el Obelisco". Así es como estos empresarios, encabezados por Marcelo Tinelli, Carlos Abdo y Gustavo Ranucci, le dan inicio a la privatización encubierta del club. Lo que Miele no había logrado formalmente, Savino y sus secuaces lo consolidan informalmente.</p>
+
+    <p>Con la llegada de Ramón Díaz, el antecedente del título logrado en 2007 y la excusa del centenario del club, el grupo inversor toma definitivamente las riendas de la institución.</p>
+
+    <p>Mientras el grupo inversor profundizaba su esquema de negocios, San Lorenzo —que deambulaba sin norte institucional— encuentra un eje de trabajo en la Vuelta a Boedo y se recupera la plaza Lorenzo Massa. Este evento histórico, lejos de obrar como el puntapié inicial para que el regreso a Tierra Santa se transformara en una cuestión de Estado dirigencial, pasó a ser un mero hecho "complaciente" con quienes fijaban el norte de la refundación en Av. La Plata, y la causa madre sanlorencista no tomó impulso.</p>
+
+    <p>De 2008 al 2010, el grupo inversor gobernó San Lorenzo mientras Savino se ocupaba de ser el mayordomo de Grondona, en un esquema de presupuestos futbolísticos en los que los sueldos, las primas y los premios exorbitantes de la fantasía construida por el gerenciamiento eran sostenidos exclusivamente por el club. Cuando esa secuencia empezó a tener grietas internas, toda la miseria quedó expuesta en dos situaciones que fueron lapidarias: la entrega del triangular Pedro Pompilio en el año 2008, el día en que Savino fue "a comprar pizza", y el recibimiento al plantel en Ezeiza tras la eliminación de la Copa Libertadores 2009 en México, por la disputa de los premios entre el plantel.</p>
+
+    <p>San Lorenzo ya no podía seguir camuflando su falta de proyecto integral y su crisis financiera con un buen presente deportivo, y el Grupo Inversor comenzó a emprender su retirada, dejando un tendal de deudas y juicios.</p>
+
+    <p>Esa retirada se organizó de manera prolija para asegurar la impunidad de quienes habían destruido a San Lorenzo. Así es como, en 2010, Carlos Abdo pasó de ser empresario privatizador a presidente de la institución, con el objetivo de esconder bajo la alfombra las miserias de su gestión "del otro lado del mostrador".</p>
+
+    <p>La experiencia salió mal. La situación sobrepasó a Abdo y se caldeó un escenario de "autogolpe" en el cual se generó una acefalía, gobierno transitorio y elecciones anticipadas donde, una vez más, los mismos de siempre se distribuyeron los cargos y se fijó como prioridad la necesidad de esconder la basura abajo de la alfombra.</p>
+
+    <p>La gravedad del escenario hizo que el Grupo Inversor incluyera en la lista a su figura más preponderante, Marcelo Tinelli. Primero tuvo un rol secundario como vocal durante la transición y, luego, formalizó su participación como vicepresidente en la lista que ganó las elecciones de 2012. Esa misma lista llevó como presidente a Matías Lammens, quien había ocupado el cargo de protesorero en la nómina del savinismo residual que había terminado cuarta en las elecciones de 2010.</p>
+
+    <p>Los éxitos deportivos de 2013 y 2014, la asunción de Francisco como obispo de Roma y la adquisición parcial del predio de Av. La Plata acomodaron la paz institucional y se percibió una creencia generalizada de que se podía dar el puntapié inicial a una época gloriosa.</p>
+
+    <p>El socio, cansado de los vaivenes de la política, y aun con el recuerdo nítido de haber estado al borde del descenso en 2012, se esperanzó con disfrutar de un orden institucional y la posibilidad de que, por fin, se explotara todo nuestro potencial. Incluso se perdió el interés por adjudicar responsabilidades a aquellos dirigentes y empresarios que nos habían llevado a la debacle años atrás.</p>
+
+    <p>Pero, una vez más, los intereses desperfilados de nuestros dirigentes nos llevaron a desperdiciar una oportunidad histórica. Las ansias de poder de Tinelli y de Lammens desacomodaron la agenda Sanlorencista. Tinelli se quiso quedar con el Fútbol Para Todos, luego con La Liga Profesional y hasta se animó a buscar el sillón de la AFA. Por su lado, Lammens se presentó como candidato a Jefe de Gobierno Porteño por el Frente de Todos en contra del partido gobernante, en pleno proceso de negociación por las leyes fundamentales y la adquisición de los terrenos de Avenida La Plata. Y así se dio inicio al proceso de traición y vaciamiento económico que decantó en este delicado presente.</p>
+
+    <p>Todo lo que parecía promisorio se transformó en desidia y angustia. Nunca se buscó consolidar un proyecto de Club integral con proyección de crecimiento sostenido. La figura del Papa Francisco no terminó de ser el norte de una construcción identitaria con alcance internacional, la Vuelta a Boedo empezó a desnudar todas sus mentiras y la estructura del fútbol profesional mostró sus grietas. El abandono dirigencial se proyectó en un abandono institucional a toda escala, con un Club que empezaba a mostrar un déficit de infraestructura preocupante y una economía desordenada.</p>
+
+    <p>Las internas de un oficialismo distorsionado por sus agendas individuales y las ansias de poder se tradujeron en el endeble armado electoral de 2019. La fragmentación política oficialista y la inexistencia de representatividad digna en las minorías propició un escenario de fragilidad institucional.</p>
+
+    <p>Las internas y las disputas se tradujeron en las renuncias de Lammens y de Tinelli, quedando el Club en manos de Horacio Arreceygor, Miguel Mastrosimone y Sergio Costantino. El outlet del oficialismo se repartía entre personajes que priorizaban los intereses de su Sindicato, un pusilánime mayordomo y un incapaz.</p>
+
+    <p>El caos generalizado llevó a la movilización. En 2022 la gente logró adelantar el llamado a elecciones tras manifestar su descontento en los partidos de local, movilizarse en reiteradas veces a Avenida La Plata, marchar al Ministerio de Deportes y congregarse en la vinería de Lammens a exigir elecciones anticipadas.</p>
+
+    <p>Pero lo que se impulsó en la calle fue arrebatado por la Inspección General de Justicia con una resolución que suspendió los comicios. El acuerdo se propició entre Nissen (máxima autoridad de la IGJ), Lammens, Mastrosimone, Costantino y Arreceygor, más la denuncia de Gagliardone (integrante de la Subcomisión del Hincha) y el fundamental aporte de César Francis, quien le dio a la IGJ los argumentos jurídicos para desestimar el llamado a elecciones. Todo el arco político de San Lorenzo, tanto oficialista como "opositor", jugó en contra de la voluntad de la gente.</p>
+
+    <p>El 2023 transcurrió en piloto automático con una masa societaria dolida e incrédula por la extensión de la mezquindad de nuestros dirigentes. El descreimiento en la clase política fue tan grande que se aplacó el calor revolucionario.</p>
+
+    <p>En las elecciones de diciembre el socio se tomó revancha tanto de Costantino como de Francis, quienes expresaban las figuras del oficialismo vaciador y la oposición silenciosa y cómplice, dejándolos tercero y cuarto respectivamente.</p>
+
+    <p>Pero, en un escenario electoral de ofertas muy pobres, donde ninguna lista reunía los requisitos para gobernar San Lorenzo, la elección la ganó quien mejor le mintió al socio.</p>
+
+    <p>La llegada de Moretti, secundado por Navarro, García Lago, Goroyeski, Cigna y Terzano es, sin dudas, el período más nefasto de la historia política de este Club. Un oficialismo incapaz repleto de delincuentes y mentirosos, una oposición estéril y sin músculo y la complicidad de determinados espacios de poder real que operaron para que la situación no se destrabe confluyeron para la destrucción de todo el tejido institucional.</p>
+
+    <p>La desesperación de Moretti por sostenerse en el cargo lo hizo buscar refugio en prestamistas y mutuos de dudosa procedencia, formalizando acuerdos con representantes que cooptaron la estructura del fútbol profesional. Este modelo gerenciador replicó lo ya vivido en años anteriores y, obviamente, nos llevó a profundizar la crisis económica y financiera.</p>
+
+    <p>Luego llegaron los episodios del video y de Moretti escapando en un patrullero en Av. La Plata. Las miserias se profundizaron y San Lorenzo, que ya tenía una imagen muy triste ante la opinión pública, terminó de consolidarse como un verdadero papelón nacional.</p>
+
+    <p>Tras un largo proceso institucional cargado de incertidumbre, malas decisiones, mentiras y operaciones, finalmente se logró destrabar la acefalía y se le dio paso al Gobierno Transitorio actual, en manos de Sergio Costantino.</p>
+
+    <p>De este breve repaso de los últimos 25 años quedan claras varias cosas sobre los vicios que se repiten una y otra vez, que han hecho de San Lorenzo una institución endeble, sin la capacidad de generar políticas de Estado sanlorencistas.</p>
+
+    <p>En todo este período se acentuaron muchos de nuestros grandes problemas de gestión, los que se centran en: falta de planificación, nula transparencia, ausencia de rendición de cuentas, escasa profesionalización de las áreas, inexistencia de diagnósticos claros, dirigentes priorizando sus proyectos personales, intereses dirigenciales en colisión con los intereses sanlorencistas y la sistemática búsqueda de "soluciones" en aportes económicos privados que siempre pusieron al Club al borde de una crisis terminal. Lo que, además, siempre decantó en la impunidad de todos los que nos arrastraron una y otra vez al lodo.</p>
+
+    <p><strong>Y así llegamos al día de hoy.</strong></p>
+
+
+    <!-- SECCIÓN 2: ESCENARIO ACTUAL -->
+    <div class="doc-section">
+      <span class="doc-section__label">◆ Parte II</span>
+      <h2 class="doc-section__title">
+        Escenario actual
+        <em>repetición de errores y crisis multifacética.</em>
+      </h2>
+    </div>
+
+    <p>La profunda crisis multifacética que atraviesa San Lorenzo es la consecuencia de una década de traiciones perpetradas por una camada de dirigentes irresponsables, incapaces y, en algunos casos, delincuentes. En nuestro Club no hubo error, ni imprudencia; hubo un desvío ético y moral en la conducta de quienes con su malicioso y temerario accionar atentaron contra la autonomía administrativa y salud financiera de nuestra Institución.</p>
+
+    <p>Si bien a San Lorenzo lo agobia el profundo vaciamiento económico, el real núcleo de nuestros problemas radica en la conducta desviada de nuestros dirigentes que pusieron al Club al servicio de sus intereses personales, dejándonos al borde de la quiebra y en un permanente estado de indefensión.</p>
+
+    <p>A nuestro Club lo vaciaron las gestiones de Marcelo Tinelli, Matías Lammens, Horacio Arreceygor y Sergio Costantino, y lo terminó de romper Marcelo Moretti. Y se tiene que dejar asentado con nombres propios para que tengamos claro que la única solución posible implica cambiar la matriz política del Club, lo que necesariamente implica generar una nueva camada dirigencial, sin los de antes y sin los de ahora.</p>
+
+    <div class="doc-highlight">
+      <p>Hoy nuestro Club <strong>debe 60 millones de dólares</strong>, tenemos un <strong>déficit operativo mensual de 700 mil dólares</strong> y afrontamos <strong>350 juicios y 6 pedidos de quiebra</strong>. Nuestras propiedades están hipotecadas y los ingresos genuinos entregados en garantía. Contamos con una infraestructura precaria en todo ámbito, con sedes abandonadas, una Ciudad Deportiva devastada y un Bidegain desatendido.</p>
+    </div>
+
+    <p>Los socios y las socias sufren día a día las complicaciones de un Club que continuamente les da la espalda. Nuestros sistemas informáticos y digitales son obsoletos, la marca está completamente desvalorizada, la estructura del fútbol profesional y de juveniles son avergonzantes, los deportes federados están librados a su suerte y las peñas, desarticuladas, permanecen atrapadas en disputas políticas y desconectadas del Club.</p>
+
+    <p>Al mismo tiempo, todos los Sanlorencistas hemos sido víctimas del sinfín de mentiras que se han perpetrado estos últimos años en torno a la Vuelta a Boedo, mientras vemos como en el predio de Av. La Plata hay un estacionamiento que junta yuyos y genera pérdidas mes a mes, lo que sin dudas configura la peor traición de nuestra historia.</p>
+
+    <p>La desidia, el abandono y la traición nos han llevado a que todos los días seamos protagonistas de una nueva mala noticia. Mientras otros Clubes hacen eje en obras, crecimiento patrimonial, expansión de masa societaria, marca y marketing, colegios y fundaciones, equipos competitivos y títulos, ampliación o construcción de estadios y obtención de nuevos terrenos, a la Familia Azulgrana la han arrastrado a la dolorosa indignidad de hablar de deudas, juicios, inhibiciones, pedidos de quiebra, elecciones anticipadas, IGJ, medidas cautelares, renuncias y destituciones.</p>
+
+    <p>Hemos naturalizado un vocabulario que cala hondo en el ánimo de todos los sanlorencistas, que nos expone a los ojos de la opinión pública y que en nada se vincula con nuestra rica y gloriosa historia.</p>
+
+    <p>Hoy en día, lo único que sostiene a San Lorenzo en pie es la grandeza intrínseca que perdura en la memoria colectiva de una masa societaria que sabe y entiende que otro Club es posible. Que sabe y entiende que hay un potencial inconmensurable a la espera de ser explotado para recuperar el lugar histórico que nos corresponde.</p>
+
+    <p>Pero no queda mucho más tiempo para instrumentar ese cambio que nos devuelva el orden y la paz institucional que se necesita para reconstruir al Club. A San Lorenzo no se le puede seguir exigiendo que resista mucho tiempo más.</p>
+
+
+    <!-- SECCIÓN 3: CRISIS MULTIFACÉTICA -->
+    <div class="doc-section">
+      <span class="doc-section__label">◆ Parte III</span>
+      <h2 class="doc-section__title">
+        Una crisis
+        <em>multifacética.</em>
+      </h2>
+    </div>
+
+    <p>San Lorenzo atraviesa una profunda crisis multifacética que es tanto ética y moral, como política, institucional, económica, financiera, social, deportiva, de marca, patrimonial y de infraestructura. Este delicado escenario ha puesto al Club al borde del colapso, haciendo peligrar su integridad institucional y su libertad administrativa.</p>
+
+    <div class="doc-subsection">
+      <h3 class="doc-subsection__title">Ético y moral</h3>
+      <p>Este doloroso presente es la consecuencia de las traiciones perpetradas por una camada de dirigentes irresponsables, incapaces y, en algunos casos, delincuentes. En nuestro Club no hubo error, ni imprudencia; hubo un desvío ético y moral en la conducta de quienes con su malicioso y temerario accionar atentaron contra la autonomía administrativa y salud financiera de nuestra Institución.</p>
+    </div>
+
+    <div class="doc-subsection">
+      <h3 class="doc-subsection__title">Política y de representatividad</h3>
+      <p>La falta de transparencia en la toma de decisiones, el debilitamiento de los órganos de control, el incumplimiento de normas básicas de administración y el escaso respeto por la vida institucional deterioraron la confianza y profundizaron la fragmentación interna, generando un descreimiento entendible de la masa societaria en todo el arco político del Club.</p>
+    </div>
+
+    <div class="doc-subsection">
+      <h3 class="doc-subsection__title">Institucional</h3>
+      <p>San Lorenzo dejó de discutir cómo crecer y pasó demasiado tiempo discutiendo cómo sostenerse. La urgencia reemplazó a la planificación, la coyuntura desplazó al largo plazo y el club perdió ambición institucional.</p>
+    </div>
+
+    <div class="doc-subsection">
+      <h3 class="doc-subsection__title">Económica y financiera</h3>
+      <p>El Club arrastra desde hace años un profundo desequilibrio económico-financiero, con deuda creciente, juicios recurrentes, inhibiciones, obligaciones postergadas e ingresos futuros comprometidos. Se recurrió sistemáticamente a ventas urgentes, adelantos de ingresos genuinos, mutuos sin documentación respaldatoria, préstamos con intereses usureros y emparches transitorios para cubrir problemas permanentes, sin atacar las causas de fondo.</p>
+    </div>
+
+    <div class="doc-subsection">
+      <h3 class="doc-subsection__title">Social</h3>
+      <p>La atención cotidiana se deterioró, se redujeron canales de participación y las peñas no fueron plenamente integradas a la vida del Club. Se debilitó así el sentido de comunidad que siempre distinguió a San Lorenzo y muchos socios e hinchas sienten un descontento palpable con el trato que le dispensa la Institución.</p>
+    </div>
+
+    <div class="doc-subsection">
+      <h3 class="doc-subsection__title">Deportiva</h3>
+      <p>La ausencia de un proyecto futbolístico integral, la improvisación en decisiones estratégicas y la discontinuidad de criterios afectaron la competitividad del Club. Las divisiones inferiores perdieron centralidad como política de Estado y se desaprovechó una de las principales fuentes de identidad y sustentabilidad.</p>
+      <p>Los deportes federados quedaron librados a su suerte, afectados por la crisis económica, la falta de planificación y la ausencia de una conducción integral. La infraestructura se deterioró progresivamente, con espacios emblemáticos como el Gimnasio San Martín atravesando problemas crónicos, obras inconclusas como la segunda cancha de hockey y limitaciones para el crecimiento de disciplinas como el básquet. Los deportistas debieron costearse su propia indumentaria y equipamiento, mientras responsables de áreas trabajaron ad honorem o con remuneraciones insuficientes, generando pérdida de referentes y cierres de categorías. En paralelo, cada disciplina funcionó como una isla, sin coordinación general, con conflictos por espacios, mayores costos operativos y sin una visión común que potencie el desarrollo deportivo e institucional.</p>
+    </div>
+
+    <div class="doc-subsection">
+      <h3 class="doc-subsection__title">Marca e imagen institucional</h3>
+      <p>La marca San Lorenzo, una de las más valiosas del fútbol argentino por historia, identidad y alcance popular, fue descuidada durante años. Faltó una estrategia moderna de comunicación, posicionamiento comercial y desarrollo institucional. Se desaprovecharon oportunidades para generar nuevos ingresos, atraer sponsors estratégicos y proyectar al club a nivel nacional e internacional.</p>
+    </div>
+
+    <div class="doc-subsection">
+      <h3 class="doc-subsection__title">Infraestructura</h3>
+      <p>El patrimonio del club sufrió años de abandono, postergación y falta de planificación. Ciudad Deportiva requiere una reorganización integral y una puesta en valor acorde a su dimensión estratégica. El Estadio Pedro Bidegain necesita mejoras sostenidas en infraestructura y servicios. Av. La Plata continúa sin el desarrollo operativo e institucional que su valor histórico exige.</p>
+    </div>
+
+  </article>
+
+  <!-- FOOTER CON BOTÓN VOLVER -->
+  <div class="doc-footer">
+    <a href="javascript:history.back()" class="doc-footer__back">Volver al sitio</a>
+  </div>
+
 </body>
 </html>

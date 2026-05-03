@@ -190,18 +190,19 @@ p { line-height: 1.7; }
 }
 
 .two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   font-size: 15px;
+  max-width: 720px;
 }
 
 .three-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   font-size: 15px;
-  color: rgba(255,255,255,0.85);
+  max-width: 720px;
 }
 
 /* ============================================================
@@ -633,10 +634,14 @@ p { line-height: 1.7; }
 .section__title {
   font-family: var(--f-display);
   font-weight: 900;
-  font-size: clamp(32px, 5.5vw, 72px);
+  font-size: clamp(28px, 4.2vw, 60px);
   line-height: 0.93;
   text-transform: uppercase;
   color: var(--navy);
+}
+
+@media (min-width: 769px) {
+  .section__title { white-space: nowrap; }
 }
 
 /* Títulos blancos en fondos oscuros */
@@ -1278,6 +1283,38 @@ p { line-height: 1.7; }
 .sumate .reveal:nth-child(3) { transition-delay: 0.2s; }
 
 /* ============================================================
+   SECTION-SPECIFIC COLOR OVERRIDES
+   (needed when a component has hardcoded colors)
+============================================================ */
+
+/* 03 POR QUÉ — ahora cream, texto era blanco */
+#porque .three-col { color: var(--navy); }
+
+/* 04 CANDIDATOS — ahora red, componente diseñado para fondo claro */
+#candidatos .candidate__stats,
+#candidatos .candidate__stat    { border-color: rgba(255,255,255,0.2); }
+#candidatos .stat-label         { color: rgba(255,255,255,0.5); }
+#candidatos .stat-val           { color: var(--white); }
+#candidatos .candidate__bio     { color: rgba(255,255,255,0.85); }
+
+/* 05 LISTA — ahora cream, stats con texto blanco */
+#lista .stats                   { border-color: rgba(0,0,0,0.12); }
+#lista .stats__item             { border-color: rgba(0,0,0,0.12); }
+#lista .stats__label            { color: rgba(0,0,0,0.45); }
+#lista .stats__num              { color: var(--red); }
+#lista .section__lead           { color: var(--navy); }
+
+/* 08 COMPROMISOS — ahora red, componente diseñado para fondo claro */
+#compromisos .commitment        { border-top-color: rgba(255,255,255,0.15); }
+#compromisos .commitment:last-child { border-bottom-color: rgba(255,255,255,0.15); }
+#compromisos .commitment__num   { color: var(--white); }
+#compromisos .commitment__desc  { color: rgba(255,255,255,0.75); }
+#compromisos .commitment__tag   { color: rgba(255,255,255,0.4); }
+
+/* 09 PROPUESTAS — ahora cream, grid de ejes con colores para fondo oscuro */
+#propuestas .ejes               { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
+
+/* ============================================================
    RESPONSIVE — TABLET
 ============================================================ */
 @media (max-width: 1024px) {
@@ -1353,9 +1390,6 @@ p { line-height: 1.7; }
   #porque .acc-content {
     padding-left: var(--pad-x);
   }
-
-  /* Grid utilities */
-  .two-col, .three-col { grid-template-columns: 1fr; gap: 20px; }
 
   /* Timeline */
   .timeline__item { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
