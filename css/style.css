@@ -717,7 +717,7 @@ p { line-height: 1.7; }
 
 .timeline__item {
   display: grid;
-  grid-template-columns: 120px 130px 1fr;
+  grid-template-columns: 120px 1fr;
   gap: 20px;
   padding: 22px 0;
   border-top: 1px solid rgba(255,255,255,0.1);
@@ -729,17 +729,12 @@ p { line-height: 1.7; }
   font-size: 32px;
   line-height: 1;
   color: var(--red);
-}
-.timeline__cat {
-  font-family: var(--f-display);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  padding-top: 4px;
+  padding-top: 2px;
 }
 .timeline__desc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   font-size: 14px;
   line-height: 1.65;
   color: rgba(255,255,255,0.75);
@@ -1366,8 +1361,8 @@ p { line-height: 1.7; }
   }
 
   /* Timeline */
-  .timeline__item { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
-  .timeline__year { font-size: 26px; }
+  .timeline__item { grid-template-columns: 72px 1fr; gap: 12px; padding: 16px 0; }
+  .timeline__year { font-size: 22px; }
 
   /* Candidate */
   .candidate { grid-template-columns: 1fr; gap: 24px; }
