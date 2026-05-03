@@ -256,6 +256,31 @@ p { line-height: 1.7; }
 
 /* ============================================================
    HERO
+   CTA button
+============================================================ */
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  padding: 13px 26px;
+  margin-top: 12px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.hero__cta:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* ============================================================
+   HERO
 ============================================================ */
 .hero {
   background: var(--navy);
@@ -1101,10 +1126,30 @@ p { line-height: 1.7; }
   max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   gap: 80px;
   align-items: start;
 }
+
+/* Columna de páginas en el footer */
+.footer__pages {}
+.footer__pages .label-xs { margin-bottom: 18px; display: block; }
+.footer__pages nav { display: flex; flex-direction: column; gap: 2px; }
+.footer__pages nav a {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.footer__pages nav a::before { content: '↗'; color: var(--red); font-size: 11px; flex-shrink: 0; }
+.footer__pages nav a:hover { color: var(--white); }
 .footer__logo {
   display: block;
   height: 56px;
@@ -1282,8 +1327,11 @@ p { line-height: 1.7; }
 #compromisos .commitment__desc  { color: rgba(255,255,255,0.75); }
 #compromisos .commitment__tag   { color: rgba(255,255,255,0.4); }
 
-/* 09 PROPUESTAS — ahora cream, grid de ejes con colores para fondo oscuro */
-#propuestas .ejes               { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
+/* 09 PROPUESTAS — ahora cream, ejes como cards blancas con acento rojo */
+#propuestas .ejes               { background: transparent; border: none; gap: 12px; }
+#propuestas .eje                { background: var(--white); border-left: 4px solid var(--red); padding: 28px 32px; }
+#propuestas .eje__title         { color: var(--navy); }
+#propuestas .eje__desc          { color: rgba(27,32,62,0.6); }
 
 /* ============================================================
    RESPONSIVE — TABLET
@@ -1420,6 +1468,7 @@ p { line-height: 1.7; }
 
   /* Footer */
   .footer__inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer__pages nav a { font-size: 14px; }
   .hero__logo { max-width: min(280px, 78vw); }
 
   /* Countdown mobile */

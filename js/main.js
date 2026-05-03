@@ -120,32 +120,6 @@ sections.forEach(s => {
 });
 
 
-/* ---- COUNTDOWN ---- */
-// 3 mayo 2026 11:00 hs ART (UTC-3) = 14:00 UTC
-const eventDate = new Date('2026-05-03T14:00:00Z');
-
-function updateCountdown() {
-  const diff = eventDate - new Date();
-
-  if (diff <= 0) {
-    const el = document.getElementById('countdown');
-    if (el) el.remove();
-    return;
-  }
-
-  const hours = Math.floor(diff / 36e5);
-  const mins  = Math.floor((diff % 36e5) / 6e4);
-  const secs  = Math.floor((diff % 6e4)  / 1e3);
-
-  const pad = n => String(n).padStart(2, '0');
-  document.getElementById('cd-hours').textContent = pad(hours);
-  document.getElementById('cd-mins').textContent  = pad(mins);
-  document.getElementById('cd-secs').textContent  = pad(secs);
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
 
 /* ---- Accordion section entrance animation (alterna izq/der) ---- */
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
