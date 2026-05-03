@@ -9,16 +9,37 @@
   <meta property="og:description" content="Una lista de socios. Nada más, nada menos. CASLA 2026.">
   <meta property="og:type" content="website">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="MBM RECURSOS/LOGO-MBM-COLOR-FINAL.png">
+  <link rel="apple-touch-icon" href="MBM RECURSOS/LOGO-MBM-COLOR-FINAL.png">
+
+  <!-- Preload fuentes críticas -->
+  <link rel="preload" href="MBM%20RECURSOS/BARLOW/Barlow-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="MBM%20RECURSOS/BARLOW/Barlow-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="MBM%20RECURSOS/BARLOW/Barlow-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="MBM%20RECURSOS/BIG%20CASLON/Big_Caslon_CC_Bold.woff2" as="font" type="font/woff2" crossorigin>
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <picture>
+      <source srcset="MBM RECURSOS/LOGO-BLANCO.webp" type="image/webp">
+      <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="MBM" class="preloader__logo">
+    </picture>
+  </div>
 
   <!-- ======================================================
        NAV
   ====================================================== -->
   <nav class="nav" id="nav">
     <a href="#hero" class="nav__logo">
-      <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete">
+      <picture>
+        <source srcset="MBM RECURSOS/LOGO-BLANCO.webp" type="image/webp">
+        <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete">
+      </picture>
     </a>
     <ul class="nav__links">
       <li><a href="#quienes">01 / QUIÉNES</a></li>
@@ -50,7 +71,10 @@
     </div>
 
     <div class="hero__main">
-      <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="hero__logo">
+      <picture>
+        <source srcset="MBM RECURSOS/LOGO-BLANCO.webp" type="image/webp">
+        <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="hero__logo">
+      </picture>
       <div class="hero__taglines">
         <p class="hero__tagline-1">SIN LOS DE ANTES,</p>
         <p class="hero__tagline-2">SIN LOS DE AHORA.</p>
@@ -430,7 +454,10 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="footer__logo">
+        <picture>
+          <source srcset="MBM RECURSOS/LOGO-BLANCO.webp" type="image/webp">
+          <img src="MBM RECURSOS/LOGO-BLANCO.png" alt="Movete Boedo Movete" class="footer__logo" loading="lazy">
+        </picture>
         <p class="footer__claim">AHORA Y PARA SIEMPRE,<br><span class="c-red">EN TUS MANOS.</span></p>
       </div>
       <div class="footer__social">

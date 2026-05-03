@@ -2,6 +2,30 @@
    MOVETE BOEDO MOVETE — main.js
 ============================================================ */
 
+/* ---- PRELOADER ---- */
+(function () {
+  const preloader = document.getElementById('preloader');
+  if (!preloader) return;
+
+  const MIN_MS = 500;
+  const start  = Date.now();
+
+  const hide = () => {
+    const wait = Math.max(0, MIN_MS - (Date.now() - start));
+    setTimeout(() => {
+      preloader.classList.add('preloader--done');
+      preloader.addEventListener('transitionend', () => preloader.remove(), { once: true });
+    }, wait);
+  };
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(hide);
+  } else {
+    window.addEventListener('load', hide);
+  }
+})();
+
+
 /* ---- ACORDEÓN ---- */
 const triggers = document.querySelectorAll('.acc-trigger');
 

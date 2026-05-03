@@ -5,7 +5,8 @@
 /* — BARLOW — */
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Regular.ttf') format('truetype');
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Regular.woff2') format('woff2'),
+       url('../MBM RECURSOS/BARLOW/Barlow-Regular.ttf') format('truetype');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
@@ -15,17 +16,20 @@
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Medium.ttf') format('truetype');
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Medium.woff2') format('woff2'),
+       url('../MBM RECURSOS/BARLOW/Barlow-Medium.ttf') format('truetype');
   font-weight: 500; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-SemiBold.ttf') format('truetype');
+  src: url('../MBM RECURSOS/BARLOW/Barlow-SemiBold.woff2') format('woff2'),
+       url('../MBM RECURSOS/BARLOW/Barlow-SemiBold.ttf') format('truetype');
   font-weight: 600; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Bold.ttf') format('truetype');
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Bold.woff2') format('woff2'),
+       url('../MBM RECURSOS/BARLOW/Barlow-Bold.ttf') format('truetype');
   font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
@@ -40,7 +44,8 @@
 }
 @font-face {
   font-family: 'Barlow';
-  src: url('../MBM RECURSOS/BARLOW/Barlow-Black.ttf') format('truetype');
+  src: url('../MBM RECURSOS/BARLOW/Barlow-Black.woff2') format('woff2'),
+       url('../MBM RECURSOS/BARLOW/Barlow-Black.ttf') format('truetype');
   font-weight: 900; font-style: normal; font-display: swap;
 }
 @font-face {
@@ -52,22 +57,26 @@
 /* — BIG CASLON CC — */
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC.otf') format('opentype');
+  src: url('../MBM RECURSOS/BIG CASLON/Big_Caslon_CC.woff2') format('woff2'),
+       url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC.otf') format('opentype');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Italic.otf') format('opentype');
+  src: url('../MBM RECURSOS/BIG CASLON/Big_Caslon_CC_Italic.woff2') format('woff2'),
+       url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Italic.otf') format('opentype');
   font-weight: 400; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold.otf') format('opentype');
+  src: url('../MBM RECURSOS/BIG CASLON/Big_Caslon_CC_Bold.woff2') format('woff2'),
+       url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold.otf') format('opentype');
   font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Big Caslon CC';
-  src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold_Italic.otf') format('opentype');
+  src: url('../MBM RECURSOS/BIG CASLON/Big_Caslon_CC_Bold_Italic.woff2') format('woff2'),
+       url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Bold_Italic.otf') format('opentype');
   font-weight: 700; font-style: italic; font-display: swap;
 }
 @font-face {
@@ -79,6 +88,35 @@
   font-family: 'Big Caslon CC';
   src: url('../MBM RECURSOS/BIG CASLON/fonnts.com-Big_Caslon_CC_Black_Italic.otf') format('opentype');
   font-weight: 900; font-style: italic; font-display: swap;
+}
+
+/* ============================================================
+   PRELOADER
+============================================================ */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--navy, #1b203e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.preloader--done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.preloader__logo {
+  width: min(260px, 55vw);
+  height: auto;
+  animation: preloader-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes preloader-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* ============================================================
