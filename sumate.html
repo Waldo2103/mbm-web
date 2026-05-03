@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sumate — MBM</title>
+  <meta property="og:title" content="Sumate a Movete Boedo Movete">
+  <meta property="og:description" content="Completá el formulario y sumarte a la lista de socios. MBM 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://moveteboedomovete.org/sumate.html">
+  <meta property="og:image" content="https://moveteboedomovete.org/recursos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="recursos/BARLOW/Barlow-Black.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="recursos/BARLOW/Barlow-Medium.woff2" as="font" type="font/woff2" crossorigin>
@@ -212,25 +220,13 @@
 
       <div class="form-group">
         <label for="zona">Ciudad / Provincia</label>
-        <select id="zona" name="zona" required>
-          <option value="" disabled selected>Seleccioná tu zona</option>
-          <option>Ciudad de Buenos Aires</option>
-          <option>Gran Buenos Aires</option>
-          <option>Provincia de Buenos Aires</option>
-          <option>Córdoba</option>
-          <option>Santa Fe</option>
-          <option>Mendoza</option>
-          <option>Tucumán</option>
-          <option>Rosario</option>
-          <option>Otra provincia</option>
-          <option>Exterior</option>
-        </select>
+        <input type="text" id="zona" name="zona" placeholder="Ej: Buenos Aires, Córdoba, Rosario..." required>
       </div>
 
       <div class="form-check">
         <input type="checkbox" id="privacidad" name="privacidad" required>
         <label for="privacidad">
-          Acepto que mis datos sean utilizados para comunicaciones de Movete Boedo Movete relacionadas con la campaña electoral 2026. No serán compartidos con terceros.
+          Acepto que mis datos sean utilizados para comunicaciones de Movete Boedo Movete.
         </label>
       </div>
 

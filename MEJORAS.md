@@ -1,111 +1,135 @@
 # MEJORAS — Movete Boedo Movete Web
+_Última revisión: mayo 2026_
 
-Lista de mejoras propuestas, ordenadas por impacto y prioridad.
+---
+
+## ✅ COMPLETADO
+
+- Tipografías reales del sistema de identidad (Barlow + Big Caslon CC)
+- Preloader con logo al entrar
+- Galería completa con lightbox (18 fotos, WebP, lazy loading)
+- Formulario de adhesión en sumate.html (estructura lista, backend pendiente)
+- PDF de plataforma descargable desde sección 09
+- Imágenes convertidas a WebP (115MB → 4.8MB)
+- Botones "siguiente sección" en cada acordeón
+- Footer con tres columnas y links a páginas internas
+- Botón SUMATE flotante
+- Favicon con logo MBM
+- Texto justificado en contenido editorial
+- Scroll al tope al cargar (fix hash en URL)
+- analisis.html con texto completo y diseño editorial
 
 ---
 
 ## PRIORIDAD ALTA
 
-### 1. Foto real del candidato
-Reemplazar el placeholder con la foto oficial de Manuel Agote (preferentemente en camiseta del club o con identidad visual de MBM). El placeholder actual tiene un patrón de diagonal pero la imagen real va a darle mucha más fuerza a la sección de candidatos.
-
-### 2. Formulario de adhesión (SUMATE)
-El botón "SUMATE" lleva a la sección CTA pero no hay forma de adherirse online. Agregar un formulario con:
-- Nombre completo
-- Número de socio CASLA
-- Email
-- Zona geográfica (ciudad/provincia)
-- Checkbox de aceptación de política de privacidad
-
-Integrar con: Google Forms embebido (rápido), Typeform, o Formspree si se quiere más control.
-
-### 3. Tipografías reales del sistema de identidad
-Cuando estén disponibles, reemplazar Barlow Condensed y Playfair Display por las tipografías originales del sistema gráfico de MBM. Ajuste mínimo de pesos y tamaños según la fuente final.
-
-### 4. Favicon y meta imagen
-- Agregar favicon con el cuervo o el logo MBM
-- Agregar imagen OG (1200×630px) para cuando se comparte en redes sociales e Instagram Stories
-- Completar meta tags: `og:image`, `og:url`, `twitter:card`
+### 4. Analytics
+Sin métricas no sabés cuánta gente entra, desde dónde, qué secciones leen.
+Opciones:
+- **Plausible** (privacy-first, sin cookies, sin banner): recomendado
+- **Google Analytics 4**: más potente, requiere banner de cookies
+Ver TODO en index.html.
 
 ### 5. Lista completa de candidatos
-Actualmente solo aparece el candidato a presidente. Agregar:
-- Candidato/a a vicepresidente
-- Resto de la lista (si se define)
-- Sistema de cards replicable para cada candidato
+La sección 05 solo tiene un párrafo y el PDF. Agregar cards para cada uno de
+los 20 candidatos: nombre, rol, zona o profesión. No necesita foto de todos —
+con nombre y cargo alcanza para dar volumen y seriedad a la propuesta.
 
 ---
 
 ## PRIORIDAD MEDIA
 
-### 6. Animación del cuervo en el hero
-El cuervo es el símbolo de MBM. Agregar un cuervo en SVG animado que vuele a través del hero al cargar la página. Opciones:
-- SVG con animación CSS de vuelo (path animation)
-- Lottie animation si se tiene la ilustración
-- Sutil: que aparezca una sola vez al cargar y desaparezca
+### 6. WhatsApp flotante
+Botón fijo bottom-left con link a WhatsApp para consultas rápidas.
+Implementación: 10 líneas de CSS y un link `https://wa.me/549XXXXXXXXX`.
+Alto impacto en conversión, especialmente desde mobile.
 
-### 7. Contador regresivo al evento
-Si hay eventos futuros, un countdown en el hero o en la hero__event card (`02 MAYO · quedan X días`) le da urgencia y dinamismo.
+### 7. Botón "Compartir" nativo
+En mobile, un botón que dispare la Web Share API (`navigator.share()`) para
+compartir el sitio directamente por WhatsApp, Instagram o donde el usuario elija.
+Fallback: copiar el link al portapapeles. Ideal en el hero o en el footer.
 
-### 8. Video de presentación
-Si existe material audiovisual (grabacion web movete.mov ya está en el repositorio), embeber un video de lanzamiento o presentación en la sección de candidatos o en una sección dedicada. Usar `<video>` con autoplay muted + poster, o un embed de YouTube/Vimeo.
+### 8. Barra de progreso de lectura en analisis.html
+El análisis es un documento largo. Una barra fina en el tope de la página que
+muestre el avance de lectura mejora la UX y da sensación de control.
+Implementación: ~15 líneas de JS con `scrollY / (scrollHeight - innerHeight)`.
 
-### 9. SEO y Analytics
-- Completar `<title>` con keywords relevantes
-- Agregar Google Analytics 4 o Plausible (privacy-first)
-- Agregar Meta Pixel si se van a hacer campañas en Instagram/Facebook
-- Schema.org markup para la organización
+### 9. Política de privacidad
+El formulario de adhesión recolecta datos personales. Es buena práctica (y en
+algunos contextos obligatorio) tener una página mínima de política de privacidad
+linkeada desde el checkbox del formulario. Una página simple, 300 palabras.
 
-### 10. Sección de prensa y novedades
-Una sección simple con las últimas apariciones en medios o comunicados. Puede ser:
-- 3 cards con título, medio, fecha y link
-- Un feed de noticias básico (incluso manual en un JSON)
-- Integración con el feed de Instagram si hay contenido ahí
+### 10. Sección de novedades / prensa
+Una página o sección con apariciones en medios, comunicados y actividades.
+Formato mínimo viable: lista de cards con título, medio, fecha y link externo.
+Se puede mantener manualmente editando el HTML.
+
+### 11. Video de presentación
+Si existe material audiovisual del lanzamiento o spots de campaña, integrarlo
+en la sección de candidatos o en una sección dedicada.
+Usar `<video>` con `autoplay muted loop` + poster, o embed de YouTube/Vimeo.
+
+### 12. CSS print para analisis.html
+El análisis es un documento que la gente puede querer imprimir o guardar como PDF.
+Un `@media print` básico que oculte nav, ajuste márgenes y use fuente negra
+sobre blanco tarda 30 minutos y mejora mucho la lectura impresa.
 
 ---
 
-## PRIORIDAD BAJA / MEJORAS FUTURAS
+## PRIORIDAD BAJA / FUTURO
 
-### 11. Modo oscuro / claro
-El sitio es 100% oscuro por diseño institucional. No es urgente, pero si se agregan secciones con mucho texto largo podría evaluarse.
+### 13. Testimonios de socios
+3–4 citas cortas de socios (nombre + número de socio + zona) reforzando la identidad
+"lista de socios". Formato: quote grande en serif + nombre pequeño. Muy fácil de
+implementar, da mucha autenticidad.
 
-### 12. WhatsApp flotante
-Botón flotante de contacto por WhatsApp para que socios hagan consultas o quieran sumarse informalmente. Implementación trivial, impacto alto en conversión.
+### 14. Mapa de adherentes
+Un SVG de Argentina coloreado por provincia según el campo "zona" del formulario.
+Requiere que el backend del form esté funcionando. Impacto visual alto pero
+complejidad media. Evaluar si tiene datos suficientes para tener sentido.
 
-### 13. Galería de fotos
-Sección con fotos del lanzamiento en Ushuaia, actividades previas, asistencia a asambleas, etc. Lightbox simple (sin librerías externas, CSS puro).
+### 15. Schema.org markup
+Agregar JSON-LD de tipo `Organization` + `Event` en el head para que Google
+entienda mejor el sitio. Mejora la aparición en búsquedas relacionadas con CASLA 2026.
 
-### 14. Versión PDF descargable de la plataforma
-Generar un PDF de la plataforma 2026 con la misma estética y ofrecer descarga en la sección de propuestas. Herramienta: Canva, InDesign o CSS print stylesheet.
+### 16. Accesibilidad (a11y)
+- Skip link "Ir al contenido" al inicio del body
+- Foco visible en todos los elementos interactivos (actualmente se pierde en algunos)
+- Revisar contraste WCAG AA en textos pequeños sobre fondo cream
+- Asegurar que el lightbox de galería sea navegable por teclado (ya implementado parcialmente)
 
-### 15. Mapa interactivo de adherentes
-Un mapa de Argentina (SVG o Leaflet.js) que muestre la distribución geográfica de socios adherentes, actualizado según los registros del formulario.
+### 17. Animación de entrada en hero
+El hero es la primera impresión. Una animación de entrada sutil (fade + slide up
+escalonado en las líneas del título) con CSS puro daría más presencia al sitio
+sin agregar peso.
 
-### 16. Testimonios de socios
-Sección con 3-4 citas de socios con nombre (y número de socio opcional), reforzando la identidad "lista de socios". Formato simple: quote + nombre + zona.
+---
 
-### 17. Preloader de entrada
-Una animación breve al cargar la página: el logo MBM aparece sobre fondo navy y hace un fadeout antes de mostrar el sitio. Da una sensación premium y da tiempo a que carguen las fuentes.
+## INFRAESTRUCTURA
 
-### 18. Optimización de performance
-- Convertir todas las imágenes a WebP
-- Agregar `loading="lazy"` a imágenes below-the-fold
-- Preload de fuentes críticas
-- Target: Lighthouse > 90 en todas las métricas
+### 18. Dominio propio
+Registrar `moveteboedo.com.ar` cuanto antes. El `.com.ar` refuerza el carácter
+nacional y es más creíble para el votante de CASLA.
+Proveedores: NIC Argentina (oficial), Donweb, Cloudflare Registrar.
 
-### 19. Internacionalización mínima (i18n)
-Si el alcance de la campaña crece: versión en inglés para socios en el exterior. Implementación simple con `?lang=en` y un JS de swapping de strings.
+### 19. Migrar hosting a Netlify o Cloudflare Pages
+GitHub Pages funciona, pero Netlify ofrece:
+- Deploy previews por rama
+- Formularios nativos (resolvería el TODO del form)
+- Headers de caché configurables
+- Redirects simples
+Sin costo para este volumen de tráfico.
 
-### 20. Accesibilidad (a11y)
-- ARIA labels en elementos interactivos
-- Foco visible en todos los links
-- Contraste mínimo WCAG AA en textos pequeños (revisar el texto en crema sobre fondo navy)
-- Navegación por teclado completa
+### 20. Lighthouse audit
+Correr un audit completo y apuntar a > 90 en Performance, Accessibility y SEO.
+Los principales gains probables: caché de assets, tamaño del HTML, ARIA roles faltantes.
 
 ---
 
 ## NOTAS TÉCNICAS
 
-- **Stack actual**: HTML + CSS + JS vanilla. Sin build tools. Ideal para el alcance actual.
-- **Siguiente paso si crece**: Migrar a Astro (mantiene vanilla pero agrega structure, partial hydration, y facilita SEO/SSG).
-- **Hosting recomendado**: Netlify (free tier, deploy en < 1 min, HTTPS automático, formularios nativos).
-- **Dominio**: Registrar `moveteboedo.com` o `moveteboedo.com.ar` cuanto antes.
+- **Stack**: HTML + CSS + JS vanilla. Sin build tools. Correcto para el alcance actual.
+- **Si el sitio crece**: migrar a Astro mantiene vanilla pero agrega estructura, SSG y mejor SEO.
+- **Fonts**: locales (Barlow + Big Caslon CC), sin dependencia de Google Fonts. ✅
+- **Imágenes**: todas en WebP con lazy loading. ✅
+- **Deploy actual**: GitHub Pages en `waldo2103.github.io/mbm-web`
