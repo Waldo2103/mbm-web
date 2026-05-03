@@ -735,6 +735,17 @@ p { line-height: 1.7; }
 .section--navy .section__lead { color: rgba(255,255,255,0.8); }
 .section--red  .section__lead { color: rgba(255,255,255,0.9); }
 
+/* Texto justificado en todo el contenido editorial */
+.two-col p,
+.three-col p,
+.candidate__bio p,
+.commitment__desc,
+.eje__desc,
+.timeline__desc p {
+  text-align: justify;
+  hyphens: auto;
+}
+
 /* ============================================================
    TIMELINE
 ============================================================ */
@@ -1165,6 +1176,7 @@ p { line-height: 1.7; }
 }
 .footer__pages nav a::before { content: '↗'; color: var(--red); font-size: 11px; flex-shrink: 0; }
 .footer__pages nav a:hover { color: var(--white); }
+.footer__brand { align-self: end; }
 .footer__logo {
   display: block;
   height: 56px;
