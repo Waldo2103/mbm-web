@@ -1439,6 +1439,10 @@ p { line-height: 1.7; }
   /* Nav */
   .nav__links { display: none; }
 
+  /* Hero — dejar el ticker visible sin scrollear */
+  .hero { min-height: calc(100svh - 48px); }
+  .hero__main { padding: 28px var(--pad-x) 24px; gap: 16px; }
+
   /* Escudo — bajar para que quede a la misma altura visual que en desktop */
   .hero__escudo { top: 15%; }
 
@@ -1531,8 +1535,11 @@ p { line-height: 1.7; }
     border-top: 1px solid rgba(255,255,255,0.3);
   }
 
-  /* Footer */
+  /* Footer — mobile: redes → links → brand */
   .footer__inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer__social { order: 1; }
+  .footer__pages  { order: 2; }
+  .footer__brand  { order: 3; align-self: auto; }
   .footer__pages nav a { font-size: 14px; }
   .hero__logo { max-width: min(280px, 78vw); }
 
