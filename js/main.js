@@ -78,45 +78,28 @@ const scrollObserver = new IntersectionObserver((entries) => {
 sumateReveals.forEach(el => scrollObserver.observe(el));
 
 
-/* ---- Section indicator (badge bottom-right) ---- */
+/* ---- Floating SUMATE button (aparece al salir del hero) ---- */
 const sections = [
-  { id: 'quienes',    num: '01', label: 'QUIÉNES SOMOS'     },
-  { id: 'hicimos',    num: '02', label: 'NUESTRO RECORRIDO'  },
-  { id: 'porque',     num: '03', label: 'POR QUÉ'            },
-  { id: 'candidatos', num: '04', label: 'NUESTRO PRESIDENTE' },
-  { id: 'lista',      num: '05', label: 'NUESTRA LISTA'      },
-  { id: 'situacion',  num: '06', label: 'CUADRO SITUACIÓN'   },
-  { id: 'valores',    num: '07', label: 'NUESTROS VALORES'   },
-  { id: 'compromisos',num: '08', label: 'NUESTRO COMPROMISO' },
-  { id: 'propuestas', num: '09', label: 'PROPUESTAS'         },
+  { id: 'quienes'    },
+  { id: 'hicimos'    },
+  { id: 'porque'     },
+  { id: 'candidatos' },
+  { id: 'lista'      },
+  { id: 'situacion'  },
+  { id: 'valores'    },
+  { id: 'compromisos'},
+  { id: 'propuestas' },
 ];
 
-const indicator = document.getElementById('secIndicator');
-const indNum    = document.getElementById('indNum');
-const indLabel  = document.getElementById('indLabel');
+const floatSumate = document.getElementById('floatSumate');
+const heroEl      = document.getElementById('hero');
 
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    if (entry.target.id === 'hero') {
-      indicator.classList.remove('visible');
-      return;
-    }
-    const match = sections.find(s => s.id === entry.target.id);
-    if (match) {
-      indNum.textContent   = match.num;
-      indLabel.textContent = match.label;
-      indicator.classList.add('visible');
-    }
-  });
-}, { threshold: 0.4 });
-
-const heroEl = document.getElementById('hero');
-if (heroEl) sectionObserver.observe(heroEl);
-sections.forEach(s => {
-  const el = document.getElementById(s.id);
-  if (el) sectionObserver.observe(el);
-});
+if (floatSumate && heroEl) {
+  const heroObserver = new IntersectionObserver((entries) => {
+    floatSumate.classList.toggle('visible', !entries[0].isIntersecting);
+  }, { threshold: 0 });
+  heroObserver.observe(heroEl);
+}
 
 
 /* ---- Nav active link ---- */
