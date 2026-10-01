@@ -54,7 +54,7 @@
         <li><a href="#sumate">CONTACTO</a></li>
       </ul>
     </nav>
-    <a href="sumate.html" class="nav__cta">SUMATE →</a>
+    <a href="#sumate" class="nav__cta">SUMATE →</a>
     <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navDrawer">
       <span></span>
       <span></span>
@@ -70,7 +70,7 @@
       <li><a href="#referente">REFERENTE</a></li>
       <li><a href="#sumate">CONTACTO</a></li>
     </ul>
-    <a href="sumate.html" class="nav__drawer-cta">SUMATE →</a>
+    <a href="#sumate" class="nav__drawer-cta">SUMATE →</a>
   </div>
   <div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
 
@@ -364,7 +364,7 @@
         <p class="section-desc">Desde antes de la fundación de MBM, quienes integramos esta agrupación llevamos años al servicio del resguardo institucional de San Lorenzo.</p>
       </div>
 
-      <div class="timeline">
+      <div class="timeline reveal">
 
         <div class="timeline__item reveal from-left">
           <div class="timeline__year-col">
@@ -588,6 +588,16 @@
           <p>En los últimos años se consolidó como una de las voces críticas frente al accionar de las dirigencias responsables de la crisis del Club, con foco en la transparencia, el cumplimiento del estatuto y el rol de los socios como base de la legitimidad institucional.</p>
           <p>En ese contexto, impulsó reclamos ante la IGJ. En 2024 advirtió públicamente el intento de convertir a San Lorenzo en SAD y, en diciembre de 2025, presentó una propuesta de Comisión Directiva transitoria en la Asamblea Extraordinaria de Representantes.</p>
         </div>
+        <div class="referente__socials">
+          <a href="https://instagram.com/manuelagote" target="_blank" rel="noopener noreferrer" class="referente__social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            @manuelagote
+          </a>
+          <a href="https://x.com/negrocasla" target="_blank" rel="noopener noreferrer" class="referente__social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.745l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            @negrocasla
+          </a>
+        </div>
       </div>
 
     </div>
@@ -598,19 +608,56 @@
   ====================================================== -->
   <section class="sumate" id="sumate">
     <div class="container">
-      <div class="sumate__inner">
+      <div class="sumate__grid">
+
         <div class="sumate__text">
           <p class="section-overline section-overline--light">◆ COMUNIDAD</p>
           <h2 class="sumate__title">SUMATE A <em>MBM</em></h2>
           <p class="sumate__desc">Somos una agrupación abierta. Si sos socio o socia de San Lorenzo y querés ser parte del cambio, completá el formulario.</p>
+          <p class="sumate__subdesc">Nos ponemos en contacto a la brevedad. Los datos son tratados de forma confidencial por MBM.</p>
         </div>
-        <form class="sumate__form" id="sumateQuickForm">
-          <div class="sumate__fields">
-            <input type="text" name="nombre" placeholder="Tu nombre" class="sumate__input" required autocomplete="name">
-            <input type="email" name="email" placeholder="Tu email" class="sumate__input" required autocomplete="email">
+
+        <div class="sumate__form-wrap">
+
+          <div id="sumateSuccess" class="sumate__success">
+            <p class="sumate__success-icon">✓</p>
+            <h3>¡ADHESIÓN RECIBIDA!</h3>
+            <p>Gracias por sumarte a Movete Boedo Movete. Nos ponemos en contacto a la brevedad.</p>
           </div>
-          <button type="submit" class="btn btn--white">SUMATE →</button>
-        </form>
+
+          <form class="sumate__form" id="sumateMainForm">
+            <div class="sumate__row">
+              <div class="sumate__group">
+                <label for="s_nombre">Nombre</label>
+                <input type="text" id="s_nombre" name="nombre" placeholder="Tu nombre" required autocomplete="given-name">
+              </div>
+              <div class="sumate__group">
+                <label for="s_apellido">Apellido</label>
+                <input type="text" id="s_apellido" name="apellido" placeholder="Tu apellido" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="sumate__row">
+              <div class="sumate__group">
+                <label for="s_email">Email</label>
+                <input type="email" id="s_email" name="email" placeholder="tu@email.com" required autocomplete="email">
+              </div>
+              <div class="sumate__group">
+                <label for="s_tel">Teléfono</label>
+                <input type="tel" id="s_tel" name="telefono" placeholder="+54 11 1234-5678" autocomplete="tel">
+              </div>
+            </div>
+            <div class="sumate__group">
+              <label for="s_zona">Ciudad / Provincia</label>
+              <input type="text" id="s_zona" name="zona" placeholder="Ej: Buenos Aires, Córdoba, Rosario..." required>
+            </div>
+            <div class="sumate__check">
+              <input type="checkbox" id="s_difusion" name="difusion">
+              <label for="s_difusion">Quiero que me agreguen al grupo de difusión de MBM.</label>
+            </div>
+            <button type="submit" class="btn btn--primary sumate__submit" id="sumateSubmit">ENVIAR ADHESIÓN →</button>
+          </form>
+
+        </div>
       </div>
     </div>
   </section>

@@ -143,14 +143,42 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 })();
 
 
-/* ---- SUMATE quick form — redirect to sumate.html ---- */
-const quickForm = document.getElementById('sumateQuickForm');
-if (quickForm) {
-  quickForm.addEventListener('submit', e => {
+/* ---- SUMATE inline form — Google Sheets ---- */
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw6-eE7tpleJ2-FEJQdE49XVHdzUe-7sbEDQ43UioSd6eY7vXGXqxr2bwR1warJR1H1/exec';
+
+const sumateForm    = document.getElementById('sumateMainForm');
+const sumateBtn     = document.getElementById('sumateSubmit');
+const sumateSuccess = document.getElementById('sumateSuccess');
+
+if (sumateForm) {
+  sumateForm.addEventListener('submit', async e => {
     e.preventDefault();
-    const nombre = quickForm.querySelector('[name="nombre"]').value.trim();
-    const email  = quickForm.querySelector('[name="email"]').value.trim();
-    const params = new URLSearchParams({ nombre, email });
-    window.location.href = `sumate.html?${params.toString()}`;
+    sumateBtn.disabled    = true;
+    sumateBtn.textContent = 'ENVIANDO...';
+
+    const data = {
+      nombre:   document.getElementById('s_nombre').value,
+      apellido: document.getElementById('s_apellido').value,
+      email:    document.getElementById('s_email').value,
+      telefono: document.getElementById('s_tel').value,
+      zona:     document.getElementById('s_zona').value,
+      difusion: document.getElementById('s_difusion').checked,
+    };
+
+    try {
+      const url = new URL(SCRIPT_URL);
+      Object.entries(data).forEach(([k, v]) => url.searchParams.append(k, String(v)));
+      await fetch(url.toString(), { mode: 'no-cors' });
+      sumateForm.style.display    = 'none';
+      sumateSuccess.style.display = 'block';
+    } catch {
+      sumateBtn.disabled    = false;
+      sumateBtn.textContent = 'ENVIAR ADHESIÓN →';
+      alert('Hubo un error al enviar. Por favor intentá de nuevo.');
+    }
   });
 }
+
+/* ---- Timeline line animation ---- */
+const timelineEl = document.querySelector('.timeline');
+if (timelineEl) revealObserver.observe(timelineEl);
