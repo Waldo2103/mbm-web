@@ -147,24 +147,32 @@ details[open]{
   box-shadow:inset 4px 0 0 var(--red), 0 8px 32px rgba(169,26,22,0.15);
 }
 summary{
-  list-style:none;cursor:pointer;padding:20px 24px;
-  display:flex;justify-content:space-between;gap:12px;align-items:center;
+  list-style:none;cursor:pointer;padding:22px 28px;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
   user-select:none;transition:background 0.2s;
 }
 summary:hover{background:rgba(27,32,62,0.05)}
 details[open] summary{background:rgba(169,26,22,0.06)}
 summary::-webkit-details-marker{display:none}
+.sum-header{display:flex;align-items:center;gap:20px;flex:1;min-width:0}
+.sum-num{
+  font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:0.1em;color:var(--red);flex-shrink:0;width:28px;
+}
 summary h2{
   font-family:'Barlow',sans-serif;font-size:14px;font-weight:800;
-  letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);margin:0;transition:color 0.2s;
+  letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);margin:0;
 }
 summary p{margin:.25em 0 0;color:rgba(27,32,62,0.5);font-size:13px;font-weight:500}
-summary::after{
-  content:"+";font-family:'Barlow',sans-serif;font-size:1.5rem;font-weight:300;
-  line-height:1;color:rgba(27,32,62,0.35);flex:none;
-  transition:transform 0.3s cubic-bezier(0.22,1,0.36,1), color 0.2s;
+.sum-icon{
+  width:36px;height:36px;border-radius:50%;
+  border:1.5px solid rgba(27,32,62,0.18);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:300;line-height:1;
+  color:rgba(27,32,62,0.45);flex-shrink:0;
+  transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),color 0.2s,border-color 0.2s;
 }
-details[open] summary::after{transform:rotate(45deg);color:var(--red)}
+details[open] .sum-icon{transform:rotate(45deg);color:var(--red);border-color:rgba(169,26,22,0.35)}
 
 /* — CUERPO (animación via JS) — */
 .body{
@@ -253,7 +261,7 @@ footer a:hover{text-decoration:underline}
 <p><button class="ctl" id="toggle" type="button">Abrir todo</button></p>
 
 <details id="legal" open>
-<summary><div><h2>Institucional y legal</h2><p>Cupo femenino y denuncia ante el Tribunal de Ética</p></div></summary>
+<summary><div class="sum-header"><span class="sum-num">01</span><div><h2>Institucional y legal</h2><p>Cupo femenino y denuncia ante el Tribunal de Ética</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
 <div class="body">
 <h3>La IGJ hizo lugar a nuestro reclamo por el cupo femenino</h3>
 <p>La Resolución N.º 3/2026 de la Junta Electoral fijaba 16 varones y 4 mujeres. El cálculo correcto era de 5 bancas para mujeres, el 25% de la Comisión Directiva.</p>
@@ -274,7 +282,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="cd">
-<summary><div><h2>Comisión Directiva</h2><p>Cómo votamos en cada reunión y por qué</p></div></summary>
+<summary><div class="sum-header"><span class="sum-num">02</span><div><h2>Comisión Directiva</h2><p>Cómo votamos en cada reunión y por qué</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
 <div class="body">
 <p>Analizamos cada tema del orden del día con nuestro equipo legal. Si no tenemos la documentación para evaluar con responsabilidad, votamos en contra o nos abstenemos, y pedimos más transparencia.</p>
 <div class="mtg"><h3>8 de junio</h3>
@@ -300,7 +308,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="handball">
-<summary><div><h2>Handball</h2><p>Becas, infraestructura y localía en Boedo</p></div></summary>
+<summary><div class="sum-header"><span class="sum-num">03</span><div><h2>Handball</h2><p>Becas, infraestructura y localía en Boedo</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
 <div class="body">
 <h3>Lo que hicimos</h3>
 <ul>
@@ -324,7 +332,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="hockey">
-<summary><div><h2>Hockey sobre patines</h2><p>Copa Nacional, sponsors propios y acompañamiento</p></div></summary>
+<summary><div class="sum-header"><span class="sum-num">04</span><div><h2>Hockey sobre patines</h2><p>Copa Nacional, sponsors propios y acompañamiento</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
 <div class="body">
 <ul>
 <li><b>Copa Nacional (Mendoza y San Juan):</b> el Club avisó pocos días antes que no había transporte. MBM aportó parte del costo del traslado para que los equipos pudieran competir.</li>
@@ -337,7 +345,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="social">
-<summary><div><h2>Acción social</h2><p>Campaña de Abrigo y Día de las Infancias</p></div></summary>
+<summary><div class="sum-header"><span class="sum-num">05</span><div><h2>Acción social</h2><p>Campaña de Abrigo y Día de las Infancias</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
 <div class="body">
 <h3>Campaña de Abrigo</h3>
 <p>El 9 de julio hicimos una jornada con la Peña de Wilde y llevamos las donaciones recolectadas. También entregamos donaciones a las Peñas de Bahía Blanca, Mercedes y Suipacha.</p>
@@ -353,7 +361,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="federal">
-<summary><div><h2>San Lorenzo federal</h2><p>Trabajo con las Peñas de todo el país</p></div></summary>
+<summary><div class="sum-header"><span class="sum-num">06</span><div><h2>San Lorenzo federal</h2><p>Trabajo con las Peñas de todo el país</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
 <div class="body">
 <p>San Lorenzo tiene cuna barrial, pero su identidad trasciende Boedo. Por eso fortalecimos el vínculo con las Peñas de distintas provincias con acciones sociales, actividades comunitarias y acompañamiento a las representaciones del Club en el interior.</p>
 <ul><li>Trabajamos con las Peñas de Wilde, Bahía Blanca, Mercedes, Suipacha y Salta.</li><li>Avanzamos en la articulación con las Peñas de Cuyo.</li></ul>
@@ -377,11 +385,11 @@ function openDetails(el) {
   if (!body || el.open) return;
   el.open = true;
   body.style.overflow = 'hidden';
-  body.style.transition = 'max-height 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.32s 0.05s';
+  body.style.transition = 'max-height 0.65s cubic-bezier(0.22,1,0.36,1), opacity 0.45s 0.08s';
   requestAnimationFrame(function() {
     body.style.maxHeight = body.scrollHeight + 'px';
     body.style.opacity = '1';
-    setTimeout(function() { if (el.open) body.style.maxHeight = 'none'; }, 460);
+    setTimeout(function() { if (el.open) body.style.maxHeight = 'none'; }, 680);
   });
 }
 
@@ -389,13 +397,13 @@ function closeDetails(el) {
   var body = getBody(el);
   if (!body || !el.open) return;
   body.style.overflow = 'hidden';
-  body.style.transition = 'max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.25s';
+  body.style.transition = 'max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.35s';
   body.style.maxHeight = body.scrollHeight + 'px';
   requestAnimationFrame(function() { requestAnimationFrame(function() {
     body.style.maxHeight = '0px';
     body.style.opacity = '0';
   }); });
-  setTimeout(function() { el.open = false; }, 380);
+  setTimeout(function() { el.open = false; }, 520);
 }
 
 document.querySelectorAll('details').forEach(function(el) {

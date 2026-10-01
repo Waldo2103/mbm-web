@@ -897,16 +897,24 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   color: rgba(27,32,62,0.5);
 }
 .gestion__item-icon {
-  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(27,32,62,0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
   font-weight: 300;
-  color: rgba(27,32,62,0.35);
+  color: rgba(27,32,62,0.45);
   flex-shrink: 0;
-  transition: transform 0.25s, color 0.2s;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), color 0.2s, border-color 0.2s;
   line-height: 1;
 }
 .gestion__item[open] .gestion__item-icon {
   transform: rotate(45deg);
   color: var(--red);
+  border-color: rgba(169,26,22,0.35);
 }
 
 .gestion__body {
@@ -1800,8 +1808,8 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
 ============================================================ */
 .reveal {
   opacity: 0;
-  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
-              transform 0.65s cubic-bezier(0.22,1,0.36,1);
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+              transform 0.9s cubic-bezier(0.22,1,0.36,1);
 }
 .reveal.from-up    { transform: translateY(28px); }
 .reveal.from-left  { transform: translateX(-28px); }

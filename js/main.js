@@ -97,7 +97,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     // Remove reveal classes after animation so hover transforms work normally
     setTimeout(() => {
       entry.target.classList.remove('reveal', 'from-up', 'from-left', 'from-right');
-    }, 750);
+    }, 1000);
   });
 }, { threshold: 0.1 });
 
@@ -133,21 +133,21 @@ document.querySelectorAll('details').forEach(el => {
     e.preventDefault();
     if (el.open) {
       // closing
-      body.style.transition = 'max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.25s';
+      body.style.transition = 'max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.35s';
       body.style.maxHeight  = body.scrollHeight + 'px';
       requestAnimationFrame(() => requestAnimationFrame(() => {
         body.style.maxHeight = '0px';
         body.style.opacity   = '0';
       }));
-      setTimeout(() => { el.open = false; }, 380);
+      setTimeout(() => { el.open = false; }, 520);
     } else {
       // opening
       el.open = true;
-      body.style.transition = 'max-height 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.32s 0.05s';
+      body.style.transition = 'max-height 0.65s cubic-bezier(0.22,1,0.36,1), opacity 0.45s 0.08s';
       requestAnimationFrame(() => {
         body.style.maxHeight = body.scrollHeight + 'px';
         body.style.opacity   = '1';
-        setTimeout(() => { if (el.open) body.style.maxHeight = 'none'; }, 460);
+        setTimeout(() => { if (el.open) body.style.maxHeight = 'none'; }, 680);
       });
     }
   });
