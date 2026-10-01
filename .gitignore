@@ -7,3 +7,4 @@ recursos/galeria/*.jpg
 recursos/galeria/*.jpeg
 recursos/galeria/*.HEIC
 recursos/galeria/*.heif
+node_modules/
