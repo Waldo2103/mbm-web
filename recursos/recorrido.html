@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nuestro Recorrido — Movete Boedo Movete</title>
+<style>
+/* ============================================================
+   RECORRIDO — MOVETE BOEDO MOVETE
+============================================================ */
+@font-face{font-family:'Barlow';src:url('BARLOW/Barlow-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:'Barlow';src:url('BARLOW/Barlow-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Barlow';src:url('BARLOW/Barlow-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Barlow';src:url('BARLOW/Barlow-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Barlow';src:url('BARLOW/Barlow-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Big Caslon CC';src:url('BIG CASLON/Big_Caslon_CC_Bold_Italic.woff2') format('woff2');font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:'Big Caslon CC';src:url('BIG CASLON/Big_Caslon_CC_Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  --navy:#1b203e; --navy-mid:#252b52; --red:#a91a16;
+  --cream:#F0EAE0; --white:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Barlow',sans-serif;font-weight:500;font-size:16px;
+  line-height:1.65;color:var(--navy);
+  background:var(--navy);overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:var(--red);text-decoration:none}
+a:hover{text-decoration:underline}
+em{font-family:'Big Caslon CC',Georgia,serif;font-style:italic;font-weight:700}
+
+/* — BACK BAR — */
+.back-bar{
+  background:rgba(27,32,62,0.95);backdrop-filter:blur(8px);
+  padding:0 24px;display:flex;align-items:center;height:52px;
+  position:sticky;top:0;z-index:20;border-bottom:2px solid var(--red);
+}
+.back-bar a{
+  font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:0.14em;color:rgba(255,255,255,0.6);text-decoration:none;
+  text-transform:uppercase;display:flex;align-items:center;gap:10px;transition:color 0.2s;
+}
+.back-bar a::before{content:"←";font-size:17px;font-weight:400}
+.back-bar a:hover{color:#fff;text-decoration:none}
+
+/* — HERO — */
+.hero{
+  background:var(--navy);
+  background-image:
+    radial-gradient(ellipse at 10% 45%, rgba(169,26,22,0.30) 0%,transparent 52%),
+    radial-gradient(ellipse at 90% 10%, rgba(169,26,22,0.12) 0%,transparent 45%);
+  color:#fff;padding:60px 24px 52px;
+}
+.wrap{max-width:740px;margin:0 auto}
+.hero h1{
+  font-family:'Barlow',sans-serif;font-size:clamp(2.4rem,8vw,4.4rem);
+  font-weight:900;letter-spacing:0.02em;text-transform:uppercase;line-height:1.0;
+}
+.hero h1::before{content:'';display:block;width:44px;height:3px;background:var(--red);margin-bottom:14px}
+.hero h1 em{
+  display:block;font-family:'Big Caslon CC',Georgia,serif;font-size:0.42em;
+  font-weight:700;font-style:italic;margin-top:0.55em;
+  color:rgba(255,255,255,0.65);text-transform:none;letter-spacing:0;
+}
+.hero p{max-width:58ch;color:rgba(255,255,255,0.7);margin-top:18px;font-size:15px;font-weight:500}
+
+/* — MAIN — */
+main{
+  background:var(--navy);
+  background-image:
+    radial-gradient(ellipse at 92% 8%, rgba(169,26,22,0.10) 0%,transparent 45%),
+    radial-gradient(ellipse at 8% 92%, rgba(169,26,22,0.07) 0%,transparent 45%);
+  padding:48px 24px 80px;
+}
+
+/* — SECTIONS — */
+.section{margin-bottom:64px}
+.section__label{
+  font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--red);
+  margin-bottom:20px;
+}
+.section__lead{
+  font-family:'Big Caslon CC',Georgia,serif;font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2.5vw,1.35rem);line-height:1.5;
+  color:rgba(255,255,255,0.85);margin-bottom:32px;max-width:60ch;
+}
+.divider{border:none;border-top:1px solid rgba(255,255,255,0.1);margin:40px 0}
+
+/* — TWO COL TEXT — */
+.two-col{
+  display:grid;grid-template-columns:1fr 1fr;gap:28px;
+  color:rgba(255,255,255,0.65);font-size:14px;line-height:1.75;
+}
+.two-col p strong{color:rgba(255,255,255,0.9);font-weight:700}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+
+/* — TIMELINE — */
+.timeline{position:relative;margin:40px 0}
+.timeline::before{
+  content:'';position:absolute;left:80px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom, var(--red), rgba(27,32,62,0.3));
+}
+.timeline__item{
+  display:grid;grid-template-columns:80px 1fr;gap:0;
+  padding:0 0 40px 0;position:relative;
+}
+.timeline__item:last-child{padding-bottom:0}
+.timeline__year-col{
+  padding-top:2px;text-align:right;padding-right:24px;position:relative;
+}
+.timeline__year-col::after{
+  content:'';position:absolute;right:-5px;top:8px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--navy-mid);border:2px solid var(--red);
+}
+.timeline__item--active .timeline__year-col::after{
+  background:var(--red);
+}
+.timeline__year{
+  font-family:'Barlow',sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:0.06em;color:var(--red);
+}
+.timeline__desc{
+  padding-left:28px;
+  color:rgba(255,255,255,0.65);font-size:14px;line-height:1.75;
+}
+.timeline__desc p{margin-bottom:12px}
+.timeline__desc p:last-child{margin-bottom:0}
+
+/* — AREAS GRID — */
+.areas-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  margin-top:32px;
+}
+.area-item{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;padding:24px;
+  transition:background 0.2s, border-color 0.2s;
+}
+.area-item:hover{background:rgba(169,26,22,0.08);border-color:rgba(169,26,22,0.25)}
+.area-item strong{
+  display:block;font-family:'Barlow',sans-serif;font-size:12px;font-weight:800;
+  letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:8px;
+}
+.area-item p{color:rgba(255,255,255,0.6);font-size:13px;line-height:1.65}
+@media(max-width:640px){.areas-grid{grid-template-columns:1fr}}
+
+/* — FOOTER — */
+footer{text-align:center;color:rgba(255,255,255,0.35);padding:12px 20px 48px;font-size:13px;font-family:'Barlow',sans-serif}
+footer a{color:var(--red);font-weight:600}
+footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="back-bar"><a href="../index.html">Volver al sitio</a></div>
+
+<header class="hero"><div class="wrap">
+  <h1>Nuestro<em>Recorrido</em></h1>
+  <p>Desde antes de la fundación de MBM, quienes integramos esta agrupación llevamos años al servicio del resguardo institucional, habiendo cada uno de nosotros sido partícipes de momentos relevantes de la historia de San Lorenzo.</p>
+</div></header>
+
+<main><div class="wrap">
+
+  <!-- BLOQUE 1: ÁREAS HISTÓRICAS -->
+  <div class="section">
+    <p class="section__label">◆ QUIÉNES SOMOS</p>
+    <p class="section__lead">Siempre Casla, siempre presentes.</p>
+    <div class="two-col">
+      <p><strong>Siempre Casla Nunca SA.</strong> En MBM se nuclean Sanlorencistas que en el año 2000 han batallado contra ISL, que trabajaron en la importancia de establecer el 30/11 como Día del Hincha, que entre 2008 y 2011 denunciaron y expusieron las nefastas consecuencias que nos iba a traer el Grupo Inversor que nos dejó al borde de un descenso en 2012 y que en 2016 confeccionaron e incluyeron en el Estatuto Social la figura del Plebiscito, que es el único real resguardo institucional contra la intromisión de capitales privados en la administración del Club.</p>
+      <p><strong>Vuelta a Boedo.</strong> Nos enorgullece que en nuestra agrupación haya verdaderos guardianes de la Vuelta a Boedo. En MBM hay compañeros que han impulsado la causa desde sus inicios, que movilizaron y acompañaron en todas las marchas, que dieron la batalla cultural y comunicacional para lograr que se convirtiera en Cuestión de Estado, que generaron aportes sustanciales y fundamentales para la argumentación legal y técnica que propició la recuperación de la Plaza Lorenzo Massa, que hicieron estudios con urbanistas reconocidos para generar publicaciones que elevaron el nivel de la discusión pública, que impulsaron estrategias de marketing y de militancia territorial que permitieron masificar la causa y, asimismo, que se ocuparon de denunciar las sistemáticas entregas y traiciones que sufrimos en estos últimos 10 años en torno a la Causa Madre Sanlorencista.</p>
+      <p><strong>Construcción Identitaria del Sanlorencismo digno.</strong> Durante más de una década, varios integrantes de MBM fuimos parte de DeBoedoVengo, espacio desde el cual traccionamos por la construcción identitaria de un Sanlorencismo digno, enarbolando las banderas del San Lorenzo No Se Vende, Sin Hinchas No Se Juega, la Vuelta a Boedo y el respeto por nuestros valores fundacionales.</p>
+      <p><strong>Género.</strong> Durante varios años, compañeras de MBM participaron del espacio San Lorenzo Feminista. Desde la Comisión de Salud articularon con la Campaña Nacional por la Despenalización del Aborto, la aprobación de la Ley IVE, desarrollaron diferentes conversatorios sobre memoria y juventudes, derechos humanos y educación sexual integral (ESI). Asimismo, acompañaron al plantel de fútbol femenino en la adecuación de la disciplina en su etapa de profesionalización.</p>
+      <p><strong>San Lorenzo Federal.</strong> Compañeras de MBM participaron en el área de Mujeres, Géneros y Diversidades del Departamento de Peñas de San Lorenzo. A través de la articulación con diferentes peñas de todo el país se desarrollaron jornadas y actividades en el marco de la reivindicación de un Club nacional, popular y federal.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BLOQUE 2: LÍNEA DE TIEMPO -->
+  <div class="section">
+    <p class="section__label">◆ DEFENSA INSTITUCIONAL</p>
+    <p class="section__lead">Desde nuestros inicios, en MBM nos dedicamos a la defensa institucional de San Lorenzo de Almagro, actuando ante cada situación de crisis dirigencial, económica y estatutaria.</p>
+
+    <div class="timeline">
+
+      <div class="timeline__item">
+        <div class="timeline__year-col"><span class="timeline__year">2022</span></div>
+        <div class="timeline__desc">
+          <p>Estructuramos la interpretación estatutaria, avanzamos en los acuerdos políticos y lideramos las manifestaciones públicas en contra de los vaciadores para lograr que se adelantaran las elecciones.</p>
+          <p>Cuando las mezquindades de la interna política nos arrebataron en la Inspección General de Justicia el derecho a ir a las urnas, fuimos los únicos que apelamos dicha resolución y elevamos el reclamo hasta la Cámara Civil.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item">
+        <div class="timeline__year-col"><span class="timeline__year">2023</span></div>
+        <div class="timeline__desc">
+          <p>Denunciamos los Estados Contables en los que se pretendían aprobar mutuos sin documentación respaldatoria por 3 millones de dólares, donde además desaparecía el 10% del pase de Agustín Giay. Así fue como logramos suspender la Asamblea en la que se pretendía vulnerar los derechos económicos de la Institución, trazando una jurisprudencia clave a la hora de exponer las maniobras fraudulentas de nuestros dirigentes.</p>
+          <p>Le solicitamos a la Inspección General de Justicia que se arbitren los medios necesarios para analizar la posibilidad de que en San Lorenzo existan delitos de lavado de activos, haciendo especial hincapié en supuestas donaciones que Matías Lammens le habría hecho al Club mientras investigábamos los mutuos sin documentación respaldatoria. Este trámite sigue en curso.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item">
+        <div class="timeline__year-col"><span class="timeline__year">2024</span></div>
+        <div class="timeline__desc">
+          <p>Denunciamos ante la IGJ el vaciamiento económico y financiero del Club, exponiendo la grave crisis institucional que estamos padeciendo. Así fue como logramos que se sancione a todos los dirigentes que administraron el Club entre los años 2020 y 2023: Matías Lammens, Marcelo Tinelli, Marcelo Moretti, Sergio Costantino, Horacio Arreceygor, Miguel Mastrosimone, César Francis, Claudio Lantaron y Carlos Rosales, entre otros. Con esta resolución histórica generamos un antecedente fundamental que el día de mañana nos permitirá recurrir al Tribunal de Ética del Club para lograr justicia con los que arruinaron a San Lorenzo.</p>
+          <p>Denunciamos de manera pública que Marcelo Moretti se había reunido con altas autoridades del Gobierno Nacional con la intención de convertir a San Lorenzo en SAD. Nos ocupamos de informar a todos los actores de la vida institucional del Club, nos reunimos con Claudio Tapia y activamos los resortes políticos para que se desterrara la propuesta de Moretti.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item">
+        <div class="timeline__year-col"><span class="timeline__year">2025</span></div>
+        <div class="timeline__desc">
+          <p>Denunciamos de manera pública la reunión entre Marcelo Moretti y el empresario Foster Gillett, en lo que fue el segundo intento privatizador de su gestión. Nos ocupamos de hacerle saber al propio Gillett las razones por las cuales la propuesta era inviable en nuestro Club, lo que lo llevó a desistir de su interés por involucrarse en San Lorenzo de Almagro.</p>
+          <p>En octubre, tras generarse la acefalía, armamos una propuesta de Gobierno de Transición para presentar en la Asamblea del Club con la intención de darle a San Lorenzo una alternativa al oficialismo vaciador y reciclado en cabeza de Sergio Costantino.</p>
+          <p>Fuimos convocados por Claudio Tapia al predio de la AFA en Ezeiza. Ante la presencia de Matías Lammens y Marcelo Moretti entre los invitados, fuimos los únicos que nos retiramos del evento, expresando que era imposible articular acuerdos con los dos principales responsables de la debacle institucional del Club. Sostuvimos que la única salida posible era generar una acefalía y elecciones anticipadas —algo que habíamos planteado 8 meses antes. El tiempo nos dio la razón.</p>
+          <p>Cuando Moretti se negaba a convocar a reunión de Comisión Directiva para generar la acefalía, dirigimos una nota al Club y a la IGJ intimando a que la reunión se realizara cuanto antes, bajo la amenaza de exigir que la IGJ convocara por sus propios medios. Logramos que en menos de 48hs Moretti hiciera el llamado. Finalmente, tras la reunión realizada en dos tramos, estaban todas las renuncias sobre la mesa.</p>
+          <p>En diciembre le presentamos a los asambleístas una alternativa para el gobierno transitorio: la única lista enfocada en un mandato breve que asegurara operatividad y gobernabilidad, con el objetivo principal de llamar a elecciones extraordinarias en 90 días. Ante la presencia de Matías Lammens como candidato, generamos los acuerdos pertinentes para bloquear su regreso al Club.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item timeline__item--active">
+        <div class="timeline__year-col"><span class="timeline__year">2026</span></div>
+        <div class="timeline__desc">
+          <p>En febrero presentamos una denuncia ante la IGJ, dando cuenta de las extralimitaciones administrativas, la opacidad en la gestión y el incumplimiento de deberes estatutarios por parte de Sergio Costantino y el resto de los integrantes de la Comisión Directiva Transitoria. La IGJ nos dio la razón e intimó a las actuales autoridades a encuadrar sus facultades en los límites estatutarios.</p>
+          <p>Ganamos las elecciones del 13 de junio con 2.511 votos. Hoy representamos a MBM en la Comisión Directiva de San Lorenzo, defendiendo el Estatuto, la transparencia y los derechos de los socios.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BLOQUE 3: ÁREAS DE TRABAJO -->
+  <div class="section">
+    <p class="section__label">◆ NUESTRAS ÁREAS</p>
+    <p class="section__lead">Además del resguardo institucional, desde MBM hemos impulsado muchas actividades motorizadas en los valores fundacionales de nuestra Institución y en la construcción de un Sanlorencismo digno.</p>
+    <div class="areas-grid">
+      <div class="area-item">
+        <strong>Área contable</strong>
+        <p>Generamos informes sobre los estados contables y los presupuestos del Club para que todos los socios podamos comprender claramente cuál es la situación económica y financiera de la Institución.</p>
+      </div>
+      <div class="area-item">
+        <strong>Área legal</strong>
+        <p>Elaboramos un sinfín de requerimientos al Club con los que luego estructuramos las denuncias correspondientes ante la IGJ y la justicia Civil. Asimismo, hemos asesorado y acompañado a más de 50 hinchas de San Lorenzo cuando les han aplicado derechos de admisión.</p>
+      </div>
+      <div class="area-item">
+        <strong>Área de acción social</strong>
+        <p>Realizamos campañas de abrigo, entrega de kits escolares, organización del día de la niñez, celebraciones de fin de año y coordinamos la recepción, logística y entrega de donaciones ante catástrofes humanitarias como las sufridas en las inundaciones de Bahía Blanca en marzo de 2025, en coordinación con peñas, organizaciones comunitarias y organismos del Estado.</p>
+      </div>
+      <div class="area-item">
+        <strong>Área de inclusión y género</strong>
+        <p>Participamos de talleres educativos y realizamos actividades solidarias con el Hogar de Mujeres Madre Lourdes.</p>
+      </div>
+      <div class="area-item">
+        <strong>Área de marca y producción</strong>
+        <p>Realizamos homenajes a ídolos como Edgardo Bauza y Rubén Darío Insúa, generamos piezas que reivindican fechas históricas y simbólicas de la Institución, con una línea de construcción identitaria enfocada en el reconocimiento y puesta en valor de nuestra historia.</p>
+      </div>
+      <div class="area-item">
+        <strong>Área de intendencia y eventos</strong>
+        <p>Abrimos las puertas de nuestra sede para generar espacio de fraternidad y encuentro Sanlorencista: jornadas musicales y culturales, transmisiones de partidos de visitante, el Día del Hincha y el cumpleaños del Club. Nos enorgullece haber realizado un evento en el que más de 250 hinchas pudimos disfrutar de la presencia del Gallego Insúa, padrino de nuestra sede.</p>
+      </div>
+    </div>
+  </div>
+
+</div></main>
+
+<footer>Toda nuestra actividad, documentos y canales de contacto: <a href="https://linktr.ee/moveteboedo">linktr.ee/moveteboedo</a></footer>
+</body>
+</html>

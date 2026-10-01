@@ -1012,6 +1012,21 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   background: var(--cream);
   padding: 88px 0;
 }
+.recorrido__cta {
+  text-align: center;
+  margin-top: 48px;
+}
+.recorrido__cta .btn {
+  color: var(--navy);
+  border-color: rgba(27,32,62,0.3);
+  background: transparent;
+}
+.recorrido__cta .btn:hover {
+  border-color: var(--navy);
+  background: rgba(27,32,62,0.05);
+  color: var(--navy);
+  text-decoration: none;
+}
 .timeline {
   position: relative;
   max-width: 800px;
