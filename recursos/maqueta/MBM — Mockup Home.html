@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Movete Boedo Movete</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,500;0,600;0,900;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1b203e;
+    --red: #a91a16;
+    --red-hover: #8c1412;
+    --white: #ffffff;
+    --cream: #F0EAE0;
+    --navy-light: #252b52;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--navy);
+    border-bottom: 2px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 64px;
+  }
+
+  .nav-logo img { height: 36px; }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    opacity: .75;
+    transition: opacity .2s, letter-spacing .2s ease;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--cream); letter-spacing: .1em; }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    opacity: 1 !important;
+    padding: 8px 20px;
+    font-weight: 900 !important;
+    transition: background .2s, transform .2s cubic-bezier(.2,.8,.3,1), box-shadow .2s !important;
+    letter-spacing: .06em !important;
+  }
+  .nav-cta:hover {
+    background: var(--red-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(169,26,22,.4);
+    letter-spacing: .1em !important;
+  }
+
+  /* ── TICKER ── */
+  .ticker {
+    margin-top: 64px;
+    background: var(--red);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-track {
+    display: inline-block;
+    animation: ticker 28s linear infinite;
+  }
+  .ticker-track span {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-right: 60px;
+  }
+  .ticker-track span::before {
+    content: '◆';
+    margin-right: 12px;
+    opacity: .6;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 80px;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -120px; top: -80px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(169,26,22,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-text { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow-bar {
+    width: 32px; height: 3px;
+    background: var(--red);
+  }
+  .hero-eyebrow span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: .7;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 6vw, 82px);
+    font-weight: 900;
+    line-height: 1.0;
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    color: var(--cream);
+    font-weight: 700;
+    text-transform: none;
+    font-size: .9em;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--cream);
+    opacity: .85;
+    max-width: 420px;
+    margin-bottom: 40px;
+  }
+
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    padding: 14px 32px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background .2s ease, transform .2s cubic-bezier(.2,.8,.3,1), box-shadow .2s ease, letter-spacing .2s ease;
+  }
+  .btn-primary:hover {
+    background: var(--red-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(169,26,22,.4);
+    letter-spacing: .12em;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--cream);
+    padding: 13px 32px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border: 2px solid rgba(240,234,224,.35);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color .2s, color .2s, transform .2s cubic-bezier(.2,.8,.3,1), background .2s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--cream);
+    color: var(--white);
+    transform: translateY(-2px);
+    background: rgba(240,234,224,.06);
+  }
+
+  /* Hero visual: informe destacado */
+  .hero-feature {
+    background: var(--navy-light);
+    border: 1px solid rgba(240,234,224,.12);
+    border-top: 3px solid var(--red);
+    padding: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature-label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .feature-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(169,26,22,.4);
+  }
+
+  .feature-title {
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: -.01em;
+  }
+
+  .feature-title em {
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    text-transform: none;
+    color: var(--cream);
+    font-size: .9em;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .75;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .feature-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: rgba(0,0,0,.25);
+  }
+
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1;
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: .55;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .feature-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .feature-date {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .45;
+  }
+
+  /* ── NOVEDADES ── */
+  .novedades {
+    background: var(--cream);
+    padding: 80px 80px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--navy);
+    letter-spacing: -.01em;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-num {
+    background: var(--red);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    padding: 4px 10px;
+    flex-shrink: 0;
+  }
+
+  .section-link {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid var(--red);
+    padding-bottom: 2px;
+    white-space: nowrap;
+    transition: letter-spacing .2s ease, opacity .2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section-link::after {
+    content: '→';
+    display: inline-block;
+    transition: transform .25s cubic-bezier(.2,.8,.3,1);
+  }
+  .section-link:hover {
+    letter-spacing: .13em;
+    opacity: .8;
+  }
+  .section-link:hover::after { transform: translateX(5px); }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .news-card {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--navy);
+    transition: transform .35s cubic-bezier(.2,.8,.3,1), box-shadow .35s ease, border-bottom-color .3s ease;
+    border-bottom: 3px solid transparent;
+    overflow: hidden;
+    position: relative;
+  }
+  .news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(27,32,62,.2);
+    border-bottom-color: var(--red);
+  }
+
+  /* Zoom + oscurecer imagen al hover */
+  .news-card:hover .news-card-img::after {
+    opacity: 1;
+  }
+  .news-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(27,32,62,.25);
+    opacity: 0;
+    transition: opacity .35s ease;
+    z-index: 1;
+  }
+  .news-card:hover .img-placeholder {
+    transform: scale(1.08);
+    filter: brightness(.85);
+  }
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    color: rgba(240,234,224,.2);
+    font-size: 48px;
+    transition: transform .45s cubic-bezier(.2,.8,.3,1), filter .35s ease;
+  }
+
+  /* Tag sube al hover */
+  .news-card:hover .news-card-tag {
+    transform: translateY(-2px);
+    background: var(--navy);
+  }
+  .news-card-tag {
+    transition: transform .25s ease, background .25s ease;
+    z-index: 2;
+  }
+
+  /* Título se tiñe y sube */
+  .news-card:hover h3 { color: var(--red); }
+  .news-card h3 { transition: color .25s ease; }
+
+  /* Flecha "leer más" aparece deslizando */
+  .news-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; position: relative; }
+  .news-card::before {
+    content: 'Leer más →';
+    position: absolute;
+    bottom: 20px; right: 20px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--red);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .25s ease, transform .25s ease;
+    z-index: 2;
+  }
+  .news-card:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .news-card-img {
+    height: 180px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .news-card.featured .news-card-img { height: 260px; }
+
+  .news-card-tag {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--red);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+  }
+
+  .news-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+
+  .news-card-date {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .news-card h3 {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: -.01em;
+  }
+
+  .news-card.featured h3 { font-size: 22px; }
+
+  .news-card p {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #444;
+    flex: 1;
+  }
+
+  /* ── GESTIÓN CD ── */
+  .gestion {
+    background: var(--navy);
+    padding: 80px 80px;
+  }
+
+  .gestion-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .gestion-desc {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+    color: var(--cream);
+    opacity: .75;
+    max-width: 560px;
+    margin-top: 12px;
+  }
+
+  /* Stats rápidos */
+  .gestion-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 40px;
+    background: rgba(240,234,224,.06);
+  }
+
+  .gestion-stat {
+    padding: 24px 20px;
+    background: rgba(240,234,224,.04);
+    text-align: center;
+    transition: background .2s;
+  }
+  .gestion-stat:hover { background: rgba(240,234,224,.09); }
+
+  .gestion-stat-num {
+    display: block;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .gestion-stat-lbl {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: .45;
+    line-height: 1.4;
+  }
+
+  /* Acordeones */
+  .gestion-acordeones {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .acord-item {
+    background: rgba(240,234,224,.05);
+    border-left: 3px solid transparent;
+    transition: border-color .25s, background .25s;
+    overflow: hidden;
+  }
+  .acord-item.open {
+    border-left-color: var(--red);
+    background: rgba(240,234,224,.08);
+  }
+
+  .acord-header {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    text-align: left;
+    transition: background .2s;
+  }
+  .acord-header:hover { background: rgba(240,234,224,.05); }
+
+  .acord-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .acord-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    opacity: .8;
+  }
+
+  .acord-titulo {
+    font-size: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .acord-sub {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .5;
+    line-height: 1.3;
+  }
+
+  .acord-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .acord-badge {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid;
+  }
+  .acord-badge.badge-ok  { color: #5cba7d; border-color: #5cba7d; }
+  .acord-badge.badge-no  { color: #e05555; border-color: #e05555; }
+  .acord-badge.badge-abs { color: var(--cream); border-color: rgba(240,234,224,.35); opacity: .65; }
+
+  .acord-chevron {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--red);
+    transition: transform .3s cubic-bezier(.2,.8,.3,1);
+    flex-shrink: 0;
+    line-height: 1;
+    width: 24px;
+    text-align: center;
+  }
+  .acord-item.open .acord-chevron { transform: rotate(45deg); }
+
+  /* Cuerpo del acordeón — animado con max-height */
+  .acord-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s cubic-bezier(.4,0,.2,1);
+  }
+  .acord-item.open .acord-body { max-height: 800px; }
+
+  .acord-content {
+    padding: 0 24px 24px 56px;
+    border-top: 1px solid rgba(240,234,224,.08);
+    padding-top: 20px;
+  }
+
+  .acord-bloque { margin-bottom: 20px; }
+  .acord-bloque:last-child { margin-bottom: 0; }
+
+  .acord-bloque h4 {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--cream);
+    opacity: .7;
+    margin-bottom: 10px;
+  }
+
+  .acord-bloque p, .acord-content > p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .65;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .acord-bloque ul, .acord-content ul {
+    padding-left: 16px;
+    margin: 8px 0;
+  }
+  .acord-bloque li, .acord-content li {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .65;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .acord-bloque li strong, .acord-content li strong { opacity: 1; color: var(--cream); }
+
+  .acord-voto {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(240,234,224,.07);
+  }
+  .acord-voto:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .acord-voto p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .65;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+    padding-top: 2px;
+  }
+
+  .acord-win {
+    background: rgba(92,186,125,.1);
+    border-left: 3px solid #5cba7d;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #5cba7d;
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  /* Responsive gestion */
+  @media (max-width: 900px) {
+    .gestion { padding: 60px 20px; }
+    .gestion-header { flex-direction: column; }
+    .gestion-stats { grid-template-columns: repeat(2, 1fr); }
+    .acord-content { padding-left: 20px; }
+    .acord-right { display: none; }
+    .acord-item.open .acord-right { display: flex; }
+  }
+
+  /* Badges globales de votación */
+  .votacion-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid;
+  }
+  .badge-a-favor { color: #5cba7d; border-color: #5cba7d; }
+  .badge-en-contra { color: #e05555; border-color: #e05555; }
+  .badge-abstencion { color: var(--cream); border-color: rgba(240,234,224,.4); opacity: .7; }
+
+  /* ── ÁREAS ── */
+  .areas {
+    background: var(--cream);
+    padding: 80px 80px;
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 40px;
+    background: rgba(27,32,62,.15);
+  }
+
+  .area-card {
+    background: var(--cream);
+    padding: 40px 32px;
+    text-decoration: none;
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: background .25s ease, transform .3s cubic-bezier(.2,.8,.3,1), box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .area-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(.2,.8,.3,1);
+    transform-origin: left;
+  }
+  .area-card:hover {
+    background: var(--white);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(27,32,62,.13);
+  }
+  .area-card:hover::before { transform: scaleX(1); }
+  /* Ícono crece al hover */
+  .area-card:hover .area-icon { transform: scale(1.2) rotate(-5deg); }
+  .area-icon {
+    font-size: 32px;
+    line-height: 1;
+    transition: transform .3s cubic-bezier(.2,.8,.3,1);
+    display: inline-block;
+  }
+  /* Arrow se mueve */
+  .area-card:hover .area-link { letter-spacing: .18em; color: var(--red); }
+  .area-link {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-top: auto;
+    transition: letter-spacing .25s ease;
+  }
+
+  /* ── REFERENTE ── */
+  .referente {
+    background: var(--red);
+    padding: 80px 80px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .referente-foto {
+    width: 220px;
+    height: 280px;
+    background: var(--red-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    flex-shrink: 0;
+    border: 3px solid rgba(255,255,255,.2);
+  }
+
+  .referente-content {}
+
+  .referente-role {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .7;
+    margin-bottom: 8px;
+  }
+
+  .referente-name {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.0;
+    letter-spacing: -.02em;
+    margin-bottom: 20px;
+  }
+
+  .referente-bio {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+    opacity: .88;
+    max-width: 540px;
+    margin-bottom: 28px;
+  }
+
+  .referente-redes {
+    display: flex;
+    gap: 12px;
+  }
+
+  .red-btn {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    color: var(--white);
+    padding: 8px 16px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s, transform .2s cubic-bezier(.2,.8,.3,1), letter-spacing .2s, border-color .2s;
+  }
+  .red-btn:hover {
+    background: rgba(255,255,255,.28);
+    transform: translateY(-2px);
+    letter-spacing: .13em;
+    border-color: rgba(255,255,255,.5);
+  }
+
+  /* ── SUMATE ── */
+  .sumate {
+    background: var(--navy-light);
+    padding: 80px 80px;
+    text-align: center;
+  }
+
+  .sumate h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.0;
+    letter-spacing: -.02em;
+    margin-bottom: 12px;
+  }
+
+  .sumate h2 em {
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    text-transform: none;
+    color: var(--cream);
+    font-size: .9em;
+  }
+
+  .sumate-sub {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .75;
+    margin-bottom: 40px;
+  }
+
+  .sumate-form {
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto 20px;
+  }
+
+  .sumate-form input {
+    flex: 1;
+    background: rgba(240,234,224,.08);
+    border: 1px solid rgba(240,234,224,.2);
+    border-right: none;
+    color: var(--white);
+    padding: 14px 20px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    outline: none;
+  }
+  .sumate-form input::placeholder { color: rgba(240,234,224,.4); }
+  .sumate-form input:focus { border-color: rgba(240,234,224,.5); }
+
+  .sumate-form button {
+    background: var(--red);
+    border: none;
+    color: var(--white);
+    padding: 14px 28px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s;
+    white-space: nowrap;
+  }
+  .sumate-form button:hover { background: var(--red-hover); }
+
+  .sumate-note {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .4;
+  }
+
+  /* ── RECORRIDO ── */
+  .recorrido {
+    background: var(--navy);
+    padding: 80px 80px;
+    overflow: hidden;
+  }
+
+  .recorrido .section-title { color: var(--white); margin-bottom: 48px; }
+
+  /* Contenedor con la línea de progreso */
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Línea de fondo — siempre visible, tenue */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 108px;
+    top: 8px; bottom: 8px;
+    width: 2px;
+    background: rgba(240,234,224,.1);
+  }
+
+  /* Línea de progreso — se dibuja sola con JS */
+  .timeline-progress {
+    position: absolute;
+    left: 108px;
+    top: 8px;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(to bottom, var(--red), rgba(169,26,22,.4));
+    transition: height .05s linear;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 108px 40px 1fr;
+    align-items: flex-start;
+    padding-bottom: 36px;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-16px);
+    transition: opacity .5s ease, transform .5s ease;
+    cursor: default;
+    border-radius: 2px;
+  }
+  .timeline-item:hover .timeline-content { transform: translateX(4px); }
+  .timeline-item:hover .timeline-year { opacity: 1; letter-spacing: .16em; }
+  .timeline-item:hover .timeline-dot { transform: scale(1.3); box-shadow: 0 0 0 5px rgba(169,26,22,.25); }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-year {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    color: var(--red);
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 4px;
+    transition: opacity .25s ease, letter-spacing .25s ease;
+    opacity: .75;
+  }
+
+  /* Dot base */
+  .timeline-dot {
+    width: 12px; height: 12px;
+    background: rgba(240,234,224,.15);
+    border: 2px solid rgba(240,234,224,.2);
+    border-radius: 50%;
+    margin: 4px auto 0;
+    position: relative;
+    z-index: 2;
+    transition: background .4s, border-color .4s, box-shadow .3s, transform .3s cubic-bezier(.2,.8,.3,1);
+  }
+
+  /* Dot activado cuando la línea llega */
+  .timeline-item.dot-active .timeline-dot {
+    background: var(--red);
+    border-color: var(--red);
+    transform: scale(1.1);
+  }
+
+  .timeline-item.major .timeline-dot {
+    width: 16px; height: 16px;
+    margin-top: 2px;
+  }
+  .timeline-item.major.dot-active .timeline-dot {
+    box-shadow: 0 0 0 4px rgba(169,26,22,.3), 0 0 16px rgba(169,26,22,.4);
+    transform: scale(1.15);
+  }
+
+  /* Pulso en el dot activo más reciente */
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(169,26,22,.6), 0 0 0 4px rgba(169,26,22,.25); }
+    70%  { box-shadow: 0 0 0 10px rgba(169,26,22,0), 0 0 0 4px rgba(169,26,22,.25); }
+    100% { box-shadow: 0 0 0 0 rgba(169,26,22,0), 0 0 0 4px rgba(169,26,22,.25); }
+  }
+  .timeline-item.dot-pulse .timeline-dot {
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  .timeline-content {
+    padding-left: 20px;
+    transition: transform .25s cubic-bezier(.2,.8,.3,1);
+  }
+
+  .timeline-content h4 {
+    font-size: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--cream);
+    margin-bottom: 6px;
+    line-height: 1.2;
+    opacity: .55;
+    transition: opacity .4s;
+  }
+  .timeline-item.dot-active .timeline-content h4 { opacity: 1; }
+
+  .timeline-content p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: 0;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity .4s .1s, max-height .4s .1s;
+  }
+  .timeline-item.dot-active .timeline-content p {
+    opacity: .6;
+    max-height: 120px;
+  }
+
+  /* Tag año 2026 — siempre visible y con pulso */
+  .timeline-item:last-child .timeline-content h4 { opacity: 1; }
+
+  .recorrido-footer {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(240,234,224,.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .5s .2s, transform .5s .2s;
+  }
+  .recorrido-footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .recorrido-footer p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    opacity: .45;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  /* ── COMPROMISOS ── */
+  .compromisos {
+    background: var(--cream);
+    padding: 80px 80px;
+  }
+
+  .compromisos-intro {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--navy);
+    opacity: .7;
+    line-height: 1.7;
+    max-width: 680px;
+    margin-bottom: 40px;
+    margin-top: 12px;
+  }
+
+  .compromisos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .compromiso-card {
+    background: var(--white);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 3px solid transparent;
+    transition: transform .3s cubic-bezier(.2,.8,.3,1), box-shadow .3s ease, border-top-color .25s ease;
+  }
+  .compromiso-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(27,32,62,.12);
+    border-top-color: var(--red);
+  }
+  .compromiso-card:hover .compromiso-num {
+    transform: scale(1.08);
+    letter-spacing: .18em;
+  }
+  .compromiso-num {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    padding: 3px 8px;
+    width: fit-content;
+    transition: transform .25s ease, letter-spacing .25s ease;
+  }
+
+  .compromiso-card h4 {
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  .compromiso-card p {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .compromisos-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(27,32,62,.1);
+    flex-wrap: wrap;
+  }
+  .compromisos-footer p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    opacity: .55;
+  }
+
+  /* ── ANIMACIONES GLOBALES ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .news-card {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--navy);
+    transition: transform .2s, border-bottom-color .2s;
+    border-bottom: 3px solid transparent;
+  }
+  .news-card:hover { transform: translateY(-4px); border-bottom-color: var(--red); }
+
+  .area-card {
+    background: var(--cream);
+    padding: 40px 32px;
+    text-decoration: none;
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: background .2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Responsive nuevas secciones */
+  @media (max-width: 900px) {
+    .recorrido { padding: 60px 20px; }
+    .compromisos { padding: 60px 20px; }
+    .timeline::before { left: 60px; }
+    .timeline-progress { left: 60px; }
+    .timeline-item { grid-template-columns: 60px 32px 1fr; }
+    .timeline-year { font-size: 12px; padding-right: 12px; }
+    .compromisos-grid { grid-template-columns: 1fr; gap: 12px; }
+    .recorrido-footer, .compromisos-footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    border-top: 2px solid var(--red);
+    padding: 40px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo img { height: 28px; opacity: .7; }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: .5;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .footer-links a:hover { opacity: 1; }
+
+  .footer-redes {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-redes a {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: .45;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .footer-redes a:hover { opacity: 1; }
+
+  /* Placeholder imágenes */
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    color: rgba(240,234,224,.2);
+    font-size: 48px;
+  }
+
+  /* ── HAMBURGER ── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: transform .25s, opacity .25s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+
+    /* Nav */
+    nav { padding: 0 20px; }
+
+    .nav-toggle { display: flex; }
+
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: var(--navy);
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(240,234,224,.1);
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { border-bottom: 1px solid rgba(240,234,224,.07); }
+    .nav-links a {
+      display: block;
+      padding: 16px 24px;
+      font-size: 15px;
+      opacity: 1;
+    }
+    .nav-cta {
+      margin: 16px 24px 20px;
+      display: block;
+      text-align: center;
+    }
+
+    /* Hero */
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 40px 20px 60px;
+      min-height: auto;
+      gap: 40px;
+    }
+    .hero::after { display: none; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-secondary { text-align: center; }
+
+    /* Feature card */
+    .feature-stats { grid-template-columns: 1fr 1fr; }
+    .feature-cta { flex-direction: column; gap: 12px; align-items: flex-start; }
+
+    /* Novedades */
+    .novedades { padding: 60px 20px; }
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+    .news-card.featured .news-card-img { height: 200px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+    /* Gestión CD */
+    .gestion { padding: 60px 20px; }
+    .gestion-inner { grid-template-columns: 1fr; gap: 36px; }
+    .votacion-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+    /* Áreas */
+    .areas { padding: 60px 20px; }
+    .areas-grid { grid-template-columns: 1fr; gap: 2px; }
+
+    /* Referente */
+    .referente {
+      grid-template-columns: 1fr;
+      padding: 60px 20px;
+      gap: 32px;
+    }
+    .referente-foto { width: 100%; height: 200px; }
+    .referente-redes { flex-wrap: wrap; }
+
+    /* Sumate */
+    .sumate { padding: 60px 20px; }
+    .sumate-form { flex-direction: column; max-width: 100%; }
+    .sumate-form input { border-right: 1px solid rgba(240,234,224,.2); border-bottom: none; }
+    .sumate-form button { padding: 14px; }
+
+    /* Footer */
+    footer {
+      padding: 32px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .footer-links { flex-wrap: wrap; gap: 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 38px; }
+    .feature-title { font-size: 22px; }
+    .stat-num { font-size: 26px; }
+    .referente-name { font-size: 36px; }
+    .sumate h2 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="http://moveteboedomovete.org/recursos/LOGO-BLANCO.png" alt="MBM" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-size:18px;font-weight:900;letter-spacing:.06em\'>MBM</span>'">
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#novedades" onclick="closeNav()">Novedades</a></li>
+    <li><a href="#gestion" onclick="closeNav()">Comisión Directiva</a></li>
+    <li><a href="#areas" onclick="closeNav()">Nuestra Gestión</a></li>
+    <li><a href="#referente" onclick="closeNav()">Referente</a></li>
+    <li><a href="#sumate" class="nav-cta" onclick="closeNav()">Sumate</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menú" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<script>
+  function toggleNav() {
+    const t = document.getElementById('navToggle');
+    const l = document.getElementById('navLinks');
+    t.classList.toggle('open');
+    l.classList.toggle('open');
+  }
+  function closeNav() {
+    document.getElementById('navToggle').classList.remove('open');
+    document.getElementById('navLinks').classList.remove('open');
+  }
+</script>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>120 días en la Comisión Directiva</span>
+    <span>Deporte Federado: Atletismo y Natación</span>
+    <span>Trabajo Social en Comedores</span>
+    <span>Seguinos @moveteboedo</span>
+    <span>Transparencia y Gestión</span>
+    <span>120 días en la Comisión Directiva</span>
+    <span>Deporte Federado: Atletismo y Natación</span>
+    <span>Trabajo Social en Comedores</span>
+    <span>Seguinos @moveteboedo</span>
+    <span>Transparencia y Gestión</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-bar"></div>
+      <span>Agrupación Sanlorencista · CASLA</span>
+    </div>
+    <h1>
+      Con la verdad<br>
+      <em>para adelante.</em>
+    </h1>
+    <p class="hero-sub">
+      Estamos adentro. Gestionamos deportes federados, hacemos trabajo social y rendimos cuentas en cada reunión de Comisión Directiva.
+    </p>
+    <div class="hero-actions">
+      <a href="#sumate" class="btn-primary">Sumate a MBM</a>
+      <a href="#gestion" class="btn-secondary">Ver informe 120 días</a>
+    </div>
+  </div>
+
+  <!-- Card destacada: informe 120 días -->
+  <div class="hero-feature">
+    <div class="feature-label">Novedad destacada</div>
+    <div class="feature-title">120 <em>días</em> de MBM<br>en la Comisión Directiva</div>
+    <p class="feature-desc">
+      Primer informe de gestión de nuestra representante en la CD. Votaciones, posiciones y logros concretos desde que entramos.
+    </p>
+    <div class="feature-stats">
+      <div class="stat-item">
+        <span class="stat-num">12</span>
+        <span class="stat-lbl">Reuniones</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">38</span>
+        <span class="stat-lbl">Puntos del orden del día</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2</span>
+        <span class="stat-lbl">Deportes gestionados</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5</span>
+        <span class="stat-lbl">Acciones sociales</span>
+      </div>
+    </div>
+    <div class="feature-cta">
+      <a href="#gestion" class="btn-primary" style="font-size:13px;padding:11px 24px">Ver informe completo</a>
+      <span class="feature-date">Septiembre 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- NOVEDADES -->
+<section class="novedades" id="novedades">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="section-num">01</span>
+      Novedades
+    </h2>
+    <a href="#" class="section-link">Ver todas</a>
+  </div>
+
+  <div class="news-grid">
+    <!-- Card grande -->
+    <a href="#" class="news-card featured">
+      <div class="news-card-img">
+        <div class="img-placeholder">🏊</div>
+        <span class="news-card-tag">Deporte Federado</span>
+      </div>
+      <div class="news-card-body">
+        <div class="news-card-date">28 Sep 2026</div>
+        <h3>Natación: primer torneo interno bajo nuestra gestión</h3>
+        <p>Más de 60 socios participaron del torneo interno de natación organizado por MBM. Un paso concreto en la reconstrucción de los deportes federados del club.</p>
+      </div>
+    </a>
+
+    <!-- Card chica 1 -->
+    <a href="#" class="news-card">
+      <div class="news-card-img">
+        <div class="img-placeholder">🍽️</div>
+        <span class="news-card-tag">Acción Social</span>
+      </div>
+      <div class="news-card-body">
+        <div class="news-card-date">20 Sep 2026</div>
+        <h3>Donación al Comedor Las Estrellitas de Flores</h3>
+        <p>Entregamos kits alimentarios a 150 familias sanlorencistas del barrio de Flores.</p>
+      </div>
+    </a>
+
+    <!-- Card chica 2 -->
+    <a href="#" class="news-card">
+      <div class="news-card-img">
+        <div class="img-placeholder">📋</div>
+        <span class="news-card-tag">Comisión Directiva</span>
+      </div>
+      <div class="news-card-body">
+        <div class="news-card-date">15 Sep 2026</div>
+        <h3>Nuestra posición sobre el presupuesto 2027</h3>
+        <p>Votamos en contra del presupuesto sin auditoría independiente. Explicamos por qué.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- GESTIÓN CD -->
+<section class="gestion" id="gestion">
+  <div class="gestion-header">
+    <div>
+      <h2 class="section-title" style="color:var(--white);margin-bottom:12px;">
+        <span class="section-num" style="background:var(--red)">02</span>
+        Nuestra voz en la CD
+      </h2>
+      <p class="gestion-desc">
+        Nuestra representante lleva nuestras posiciones a cada reunión. Analizamos cada punto del orden del día con nuestro equipo legal: si no tenemos la documentación para evaluar con responsabilidad, votamos en contra o nos abstenemos.
+      </p>
+    </div>
+    <a href="informe.html" class="btn-primary" style="white-space:nowrap;align-self:flex-start">Informe 120 días →</a>
+  </div>
+
+  <!-- Stats rápidos -->
+  <div class="gestion-stats">
+    <div class="gestion-stat"><span class="gestion-stat-num">2.511</span><span class="gestion-stat-lbl">Votos recibidos</span></div>
+    <div class="gestion-stat"><span class="gestion-stat-num">4</span><span class="gestion-stat-lbl">Reuniones de CD</span></div>
+    <div class="gestion-stat"><span class="gestion-stat-num">1</span><span class="gestion-stat-lbl">Cupo femenino recuperado</span></div>
+    <div class="gestion-stat"><span class="gestion-stat-num">2</span><span class="gestion-stat-lbl">Deportes federados gestionados</span></div>
+  </div>
+
+  <!-- Acordeones -->
+  <div class="gestion-acordeones">
+
+    <!-- Institucional -->
+    <div class="acord-item" data-idx="0">
+      <button class="acord-header" onclick="toggleAcord(this)">
+        <div class="acord-left">
+          <span class="acord-icon">⚖️</span>
+          <div>
+            <div class="acord-titulo">Institucional y legal</div>
+            <div class="acord-sub">Cupo femenino y denuncia ante el Tribunal de Ética</div>
+          </div>
+        </div>
+        <div class="acord-right">
+          <span class="acord-badge badge-ok">Logro</span>
+          <span class="acord-chevron">＋</span>
+        </div>
+      </button>
+      <div class="acord-body">
+        <div class="acord-content">
+          <div class="acord-bloque">
+            <h4>La IGJ hizo lugar a nuestro reclamo por el cupo femenino</h4>
+            <p>La Resolución N.º 3/2026 de la Junta Electoral fijaba 16 varones y 4 mujeres. El cálculo correcto era 5 bancas para mujeres — el 25% de la CD. Peleamos hasta lograrlo.</p>
+            <ul>
+              <li><strong>8 y 19 de junio:</strong> notas formales a la Junta Electoral. Sin respuesta.</li>
+              <li><strong>23 de julio:</strong> denuncia ante la IGJ, a través de nuestra vocal Lucía Rojas Albornoz.</li>
+              <li><strong>14 de septiembre:</strong> la IGJ hizo lugar al reclamo e intimó al Club a integrar 15 varones y 5 mujeres.</li>
+            </ul>
+          </div>
+          <div class="acord-bloque">
+            <h4>Denuncia ante el Tribunal de Ética</h4>
+            <ul>
+              <li><strong>29 de mayo:</strong> denuncia contra Arreceygor y Costantino, pidiendo su expulsión por irregularidades contables y administrativas.</li>
+              <li><strong>12 de junio:</strong> ampliamos la presentación y pedimos inhabilitación para ejercer cargos directivos.</li>
+              <li><strong>28 de agosto:</strong> nueva nota pidiendo acceso al expediente y avances.</li>
+            </ul>
+          </div>
+          <div class="acord-win">✓ Se confirma la importancia de usar todas las herramientas institucionales para defender el Estatuto.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reunión 8 junio -->
+    <div class="acord-item" data-idx="1">
+      <button class="acord-header" onclick="toggleAcord(this)">
+        <div class="acord-left">
+          <span class="acord-icon">📋</span>
+          <div>
+            <div class="acord-titulo">Reunión del 8 de junio</div>
+            <div class="acord-sub">Asunción de autoridades y representantes</div>
+          </div>
+        </div>
+        <div class="acord-right">
+          <span class="acord-badge badge-ok">A favor</span>
+          <span class="acord-chevron">＋</span>
+        </div>
+      </button>
+      <div class="acord-body">
+        <div class="acord-content">
+          <div class="acord-voto">
+            <span class="votacion-badge badge-a-favor" style="font-size:11px;padding:4px 12px">A favor</span>
+            <p>Asunción de autoridades, representantes legales y administrativos, y Oficial de Cumplimiento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reunión 13 julio -->
+    <div class="acord-item" data-idx="2">
+      <button class="acord-header" onclick="toggleAcord(this)">
+        <div class="acord-left">
+          <span class="acord-icon">📋</span>
+          <div>
+            <div class="acord-titulo">Reunión del 13 de julio</div>
+            <div class="acord-sub">Contratos, peñas y sistema de gestión</div>
+          </div>
+        </div>
+        <div class="acord-right">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">
+            <span class="acord-badge badge-abs">Abstención</span>
+            <span class="acord-badge badge-no">En contra</span>
+          </div>
+          <span class="acord-chevron">＋</span>
+        </div>
+      </button>
+      <div class="acord-body">
+        <div class="acord-content">
+          <div class="acord-voto">
+            <span class="votacion-badge badge-abstencion" style="font-size:11px;padding:4px 12px">Abstención</span>
+            <p>Contratos del Fútbol Profesional y sistema de gestión de socios — sin acceso previo a la documentación.</p>
+          </div>
+          <div class="acord-voto">
+            <span class="votacion-badge badge-en-contra" style="font-size:11px;padding:4px 12px">En contra</span>
+            <p>Designación directa del Presidente del Departamento de Peñas: defendemos el mecanismo de elección que establece el Estatuto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reunión 23 julio -->
+    <div class="acord-item" data-idx="3">
+      <button class="acord-header" onclick="toggleAcord(this)">
+        <div class="acord-left">
+          <span class="acord-icon">📋</span>
+          <div>
+            <div class="acord-titulo">Reunión del 23 de julio</div>
+            <div class="acord-sub">Sponsoring, transferencias y cuotas sociales</div>
+          </div>
+        </div>
+        <div class="acord-right">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">
+            <span class="acord-badge badge-abs">Abstención</span>
+            <span class="acord-badge badge-no">En contra</span>
+          </div>
+          <span class="acord-chevron">＋</span>
+        </div>
+      </button>
+      <div class="acord-body">
+        <div class="acord-content">
+          <div class="acord-voto">
+            <span class="votacion-badge badge-abstencion" style="font-size:11px;padding:4px 12px">Abstención</span>
+            <p>Sponsoring principal y transferencia de derechos federativos y económicos — falta de documentación respaldatoria.</p>
+          </div>
+          <div class="acord-voto">
+            <span class="votacion-badge badge-en-contra" style="font-size:11px;padding:4px 12px">En contra</span>
+            <p>Aumento del cuadro tarifario de cuotas sociales: no corresponde en un contexto de crisis institucional sin plan de saneamiento claro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reunión 17 septiembre -->
+    <div class="acord-item" data-idx="4">
+      <button class="acord-header" onclick="toggleAcord(this)">
+        <div class="acord-left">
+          <span class="acord-icon">📋</span>
+          <div>
+            <div class="acord-titulo">Reunión del 17 de septiembre</div>
+            <div class="acord-sub">Fútbol profesional, básquet, peñas y cultura</div>
+          </div>
+        </div>
+        <div class="acord-right">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">
+            <span class="acord-badge badge-ok">A favor</span>
+            <span class="acord-badge badge-no">En contra</span>
+            <span class="acord-badge badge-abs">Abstención</span>
+          </div>
+          <span class="acord-chevron">＋</span>
+        </div>
+      </button>
+      <div class="acord-body">
+        <div class="acord-content">
+          <div class="acord-voto">
+            <span class="votacion-badge badge-a-favor" style="font-size:11px;padding:4px 12px">A favor</span>
+            <p>Servicio de Emergencias, miembros del Interclubes AFA, Subcomisión de Cultura y Subcomisiones de Vóley, Fitness y Natación.</p>
+          </div>
+          <div class="acord-voto">
+            <span class="votacion-badge badge-en-contra" style="font-size:11px;padding:4px 12px">En contra</span>
+            <p>Altas y bajas del Fútbol Profesional (sin documentación), bono adicional frente a Boca y cargos del Departamento de Peñas.</p>
+          </div>
+          <div class="acord-voto">
+            <span class="votacion-badge badge-abstencion" style="font-size:11px;padding:4px 12px">Abstención</span>
+            <p>Básquet: falta información sobre proyecto, presupuesto y financiamiento para evaluar con responsabilidad.</p>
+          </div>
+          <div class="acord-bloque" style="margin-top:16px">
+            <h4>Otros temas tratados</h4>
+            <ul>
+              <li>Se informó la resolución de la IGJ sobre el cupo femenino.</li>
+              <li><strong>Evento musical en el Bidegain:</strong> acercamos contacto de productora reconocida y se hicieron recorridas. Falta que el Club entregue los planos.</li>
+              <li><strong>Posible concurso de acreedores:</strong> ofrecimos colaborar para que haya estrategia clara e información a socios.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RECORRIDO -->
+<section class="recorrido" id="recorrido">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="section-num">02</span>
+      Nuestro Recorrido
+    </h2>
+    <a href="#" class="section-link" style="color:var(--cream);opacity:.5;border-color:rgba(240,234,224,.3)">Ver historia completa</a>
+  </div>
+
+  <div class="timeline" id="timeline">
+    <div class="timeline-progress" id="timelineProgress"></div>
+
+    <div class="timeline-item major">
+      <div class="timeline-year">2000</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Los orígenes — Batalla contra ISL</h4>
+        <p>Quienes integramos MBM venimos de años de defensa institucional. En 2000 peleamos contra ISL y establecimos el 30/11 como Día del Hincha.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2008–11</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Denuncia del Grupo Inversor</h4>
+        <p>Expusimos las nefastas consecuencias del Grupo Inversor que casi nos llevó al descenso en 2012.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item major">
+      <div class="timeline-year">2016</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>El Plebiscito en el Estatuto</h4>
+        <p>Impulsamos e incluimos la figura del Plebiscito en el Estatuto Social — el único resguardo real contra la intromisión de capitales privados.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2022</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Elecciones anticipadas</h4>
+        <p>Lideramos la lucha para adelantar las elecciones. Cuando la IGJ nos bloqueó, fuimos los únicos que apelamos hasta la Cámara Civil.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2023</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Suspensión de la Asamblea</h4>
+        <p>Denunciamos estados contables con mutuos sin respaldo por 3 millones de dólares y logramos suspender la Asamblea que vulneraba los derechos económicos del Club.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2024</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Sanción histórica de la IGJ</h4>
+        <p>Logramos que la IGJ sancionara a todos los dirigentes del período 2020–2023: Lammens, Tinelli, Moretti, Costantino y otros. Bloqueamos el intento de convertir San Lorenzo en SAD.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2025</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Acefalía y elecciones anticipadas</h4>
+        <p>Bloqueamos la segunda intentona privatizadora con Foster Gillett. Forzamos la acefalía y las elecciones — lo que habíamos pedido 8 meses antes. Bloqueamos el regreso de Lammens.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item major">
+      <div class="timeline-year">2026</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Adentro — un representante en la CD</h4>
+        <p>Presentamos nuestra lista, ganamos un lugar en la Comisión Directiva y empezamos a gestionar: deportes federados, acción social y transparencia en cada votación.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="recorrido-footer">
+    <p>Más de 25 años de defensa institucional sanlorencista. Esta es solo la síntesis.</p>
+    <a href="#" class="btn-secondary" style="font-size:13px;padding:11px 28px">Historia completa</a>
+  </div>
+</section>
+
+<!-- COMPROMISOS -->
+<section class="compromisos" id="compromisos">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="section-num">03</span>
+      Nuestros Compromisos
+    </h2>
+    <a href="#" class="section-link">Ver los 14 compromisos</a>
+  </div>
+  <p class="compromisos-intro">
+    Nuestra propuesta se estructura en una revolución ética y moral para San Lorenzo: gestión honesta, renovación dirigencial y la verdad para adelante. Estos son los pilares.
+  </p>
+
+  <div class="compromisos-grid">
+
+    <div class="compromiso-card">
+      <span class="compromiso-num">01</span>
+      <h4>Ser un club normal</h4>
+      <p>Todas nuestras decisiones apuntan a que San Lorenzo vuelva a ser una institución administrada y gobernada de manera normal.</p>
+    </div>
+
+    <div class="compromiso-card">
+      <span class="compromiso-num">02</span>
+      <h4>Respetar el Estatuto</h4>
+      <p>El Estatuto Social, los órganos de control y los mecanismos de participación serán respetados y fortalecidos.</p>
+    </div>
+
+    <div class="compromiso-card">
+      <span class="compromiso-num">03</span>
+      <h4>Decir la verdad</h4>
+      <p>Gestionaremos siendo frontales y honestos. La palabra dirigencial debe recuperar valor.</p>
+    </div>
+
+    <div class="compromiso-card">
+      <span class="compromiso-num">05</span>
+      <h4>Transparencia total</h4>
+      <p>Cada decisión relevante será explicada, documentada y puesta a disposición del socio. La información no puede ser patrimonio de unos pocos.</p>
+    </div>
+
+    <div class="compromiso-card">
+      <span class="compromiso-num">07</span>
+      <h4>Orden económico</h4>
+      <p>Ajustes presupuestarios, concurso de acreedores para sanear el pasivo y generación de recursos genuinos. Administración responsable y austera.</p>
+    </div>
+
+    <div class="compromiso-card">
+      <span class="compromiso-num">14</span>
+      <h4>Vuelta a Boedo</h4>
+      <p>Acabar con el ocultamiento y las mentiras de los últimos gobiernos. Abordar la Causa Madre con verdad, planificación y responsabilidad institucional.</p>
+    </div>
+
+  </div>
+
+  <div class="compromisos-footer">
+    <p>Estos son 6 de los 14 compromisos de nuestra plataforma de gobierno.</p>
+    <a href="#" class="btn-primary">Ver plataforma completa</a>
+  </div>
+</section>
+
+<!-- ÁREAS DE GESTIÓN -->
+<section class="areas" id="areas">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="section-num">04</span>
+      Lo que hacemos
+    </h2>
+    <a href="#" class="section-link">Más info</a>
+  </div>
+
+  <div class="areas-grid">
+    <a href="#" class="area-card">
+      <div class="area-icon">🏃</div>
+      <h3>Atletismo</h3>
+      <p>Gestionamos el área de atletismo del club. Entrenamientos, competencias y desarrollo de nuevos atletas sanlorencistas.</p>
+      <span class="area-link">Ver actividades →</span>
+    </a>
+    <a href="#" class="area-card">
+      <div class="area-icon">🏊</div>
+      <h3>Natación</h3>
+      <p>Trabajamos para recuperar la infraestructura y los programas de natación. Torneos internos y formación de socios.</p>
+      <span class="area-link">Ver actividades →</span>
+    </a>
+    <a href="#" class="area-card">
+      <div class="area-icon">🤝</div>
+      <h3>Acción Social</h3>
+      <p>Donaciones a comedores, escuelas y peñas del interior. San Lorenzo es un club nacional, popular y federal.</p>
+      <span class="area-link">Ver acciones →</span>
+    </a>
+  </div>
+</section>
+
+<!-- REFERENTE -->
+<section class="referente" id="referente">
+  <div class="referente-foto">👤</div>
+  <div class="referente-content">
+    <div class="referente-role">Referente · Movete Boedo Movete</div>
+    <div class="referente-name">Manuel<br>Agote</div>
+    <p class="referente-bio">
+      Abogado especializado en derecho comercial. Referente de MBM y candidato a presidente en las elecciones 2026. Lleva más de una década en la defensa institucional de San Lorenzo.
+    </p>
+    <div class="referente-redes">
+      <a href="https://x.com/moveteboedo" class="red-btn">X / Twitter</a>
+      <a href="https://instagram.com/moveteboedo" class="red-btn">Instagram</a>
+      <a href="https://youtube.com/@moveteboedo" class="red-btn">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- SUMATE -->
+<section class="sumate" id="sumate">
+  <h2>El club<br><em>somos todos.</em></h2>
+  <p class="sumate-sub">Sumarte a MBM es sumarte a un San Lorenzo que se gestiona con verdad.</p>
+  <form class="sumate-form" onsubmit="return false">
+    <input type="email" placeholder="Tu email de socio">
+    <button type="submit">Sumate</button>
+  </form>
+  <p class="sumate-note">También podés escribirnos por Instagram: @moveteboedo</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="http://moveteboedomovete.org/recursos/LOGO-BLANCO.png" alt="MBM" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-size:14px;font-weight:900;letter-spacing:.1em;opacity:.5\'>MOVETE BOEDO MOVETE</span>'">
+  </div>
+  <ul class="footer-links">
+    <li><a href="#">Novedades</a></li>
+    <li><a href="#">Comisión Directiva</a></li>
+    <li><a href="#">Gestión</a></li>
+    <li><a href="#">Quiénes somos</a></li>
+  </ul>
+  <div class="footer-redes">
+    <a href="https://instagram.com/moveteboedo">IG</a>
+    <a href="https://x.com/moveteboedo">X</a>
+    <a href="https://youtube.com/@moveteboedo">YT</a>
+    <a href="https://tiktok.com/@moveteboedo">TK</a>
+  </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+//  0. ACORDEONES CD
+// ══════════════════════════════════════════════
+function toggleAcord(btn) {
+  const item = btn.closest('.acord-item');
+  const isOpen = item.classList.contains('open');
+  // Cierra todos
+  document.querySelectorAll('.acord-item.open').forEach(el => el.classList.remove('open'));
+  // Abre el clickeado si estaba cerrado
+  if (!isOpen) item.classList.add('open');
+}
+
+// ══════════════════════════════════════════════
+//  1. TIMELINE — línea que crece + dots que se activan
+// ══════════════════════════════════════════════
+(function () {
+  const timeline = document.getElementById('timeline');
+  const progress = document.getElementById('timelineProgress');
+  if (!timeline || !progress) return;
+
+  const items = Array.from(timeline.querySelectorAll('.timeline-item'));
+
+  // Entrada lateral de cada item (IntersectionObserver)
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  items.forEach(item => io.observe(item));
+
+  // Línea + dots driven por scroll
+  function tick() {
+    const tRect  = timeline.getBoundingClientRect();
+    const vH     = window.innerHeight;
+    const scrolled = vH * 0.62 - tRect.top;
+    const px     = Math.round(Math.min(Math.max(scrolled, 0), tRect.height));
+    const pct    = px / tRect.height;
+
+    progress.style.height = px + 'px';
+
+    let lastActive = null;
+    items.forEach(item => {
+      const dot = item.querySelector('.timeline-dot');
+      if (!dot) return;
+      const dotTop = dot.getBoundingClientRect().top - tRect.top;
+      if (px >= dotTop + 6) {
+        item.classList.add('dot-active');
+        lastActive = item;
+      } else {
+        item.classList.remove('dot-active', 'dot-pulse');
+      }
+    });
+
+    // Pulso solo en el frente de avance
+    items.forEach(i => i.classList.remove('dot-pulse'));
+    if (lastActive && pct < 0.99) lastActive.classList.add('dot-pulse');
+  }
+
+  window.addEventListener('scroll', tick, { passive: true });
+  window.addEventListener('resize', tick, { passive: true });
+  setTimeout(tick, 150);
+})();
+
+// ══════════════════════════════════════════════
+//  2. FADE-UP UNIVERSAL — todo lo demás
+// ══════════════════════════════════════════════
+(function () {
+  // Selector de todo lo que queremos animar al scrollear
+  const SELECTORS = [
+    // Hero
+    '.hero-text',
+    '.hero-feature',
+    // Novedades
+    '.novedades .section-header',
+    '.news-card',
+    // Gestion CD
+    '.gestion-text',
+    '.votaciones',
+    // Compromisos
+    '.compromisos .section-header',
+    '.compromisos-intro',
+    '.compromiso-card',
+    '.compromisos-footer',
+    // Áreas
+    '.areas .section-header',
+    '.area-card',
+    // Referente
+    '.referente-foto',
+    '.referente-content',
+    // Sumate
+    '.sumate h2',
+    '.sumate-sub',
+    '.sumate-form',
+    // Recorrido footer
+    '.recorrido-footer',
+  ];
+
+  // Delays escalonados para grupos de cards
+  const STAGGER = {
+    '.news-card':       0.09,
+    '.compromiso-card': 0.07,
+    '.area-card':       0.08,
+  };
+
+  // Contadores por selector para el stagger
+  const counters = {};
+
+  SELECTORS.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      // Calcular delay si es parte de un grupo escalonado
+      let delay = 0;
+      for (const [s, d] of Object.entries(STAGGER)) {
+        if (el.matches(s)) {
+          counters[s] = (counters[s] || 0);
+          delay = counters[s] * d;
+          counters[s]++;
+          break;
+        }
+      }
+
+      // Aplicar estado inicial invisible
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.transition = `opacity .55s ease ${delay}s, transform .55s ease ${delay}s`;
+
+      // Resetear counter cuando cambia el grupo (aproximado por orden DOM)
+    });
+  });
+
+  // IntersectionObserver único para todos
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  SELECTORS.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => io.observe(el));
+  });
+
+  // Hero especial: split izquierda/derecha
+  const heroText = document.querySelector('.hero-text');
+  const heroFeat = document.querySelector('.hero-feature');
+  if (heroText) {
+    heroText.style.transform = 'translateX(-24px)';
+    heroText.style.transition = 'opacity .7s ease .1s, transform .7s ease .1s';
+  }
+  if (heroFeat) {
+    heroFeat.style.transform = 'translateX(24px)';
+    heroFeat.style.transition = 'opacity .7s ease .25s, transform .7s ease .25s';
+  }
+
+  // El hero se activa solo al cargar (está above the fold)
+  window.addEventListener('load', () => {
+    [heroText, heroFeat].forEach(el => {
+      if (!el) return;
+      el.style.opacity = '1';
+      el.style.transform = 'translate(0)';
+    });
+  });
+
+  // Gestion — left/right split
+  const gText = document.querySelector('.gestion-text');
+  const gVot  = document.querySelector('.votaciones');
+  if (gText) {
+    gText.style.opacity = '0';
+    gText.style.transform = 'translateX(-20px)';
+    gText.style.transition = 'opacity .6s ease, transform .6s ease';
+    io.observe(gText);
+  }
+  if (gVot) {
+    gVot.style.opacity = '0';
+    gVot.style.transform = 'translateX(20px)';
+    gVot.style.transition = 'opacity .6s ease .15s, transform .6s ease .15s';
+    io.observe(gVot);
+  }
+
+  // Referente — left/right split
+  const rFoto = document.querySelector('.referente-foto');
+  const rCont = document.querySelector('.referente-content');
+  if (rFoto) {
+    rFoto.style.opacity = '0';
+    rFoto.style.transform = 'translateX(-20px)';
+    rFoto.style.transition = 'opacity .6s ease, transform .6s ease';
+    io.observe(rFoto);
+  }
+  if (rCont) {
+    rCont.style.opacity = '0';
+    rCont.style.transform = 'translateX(20px)';
+    rCont.style.transition = 'opacity .6s ease .15s, transform .6s ease .15s';
+    io.observe(rCont);
+  }
+
+  // Votacion items — cascada
+  document.querySelectorAll('.votacion-item').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(16px)';
+    el.style.transition = `opacity .4s ease ${i * 0.08}s, transform .4s ease ${i * 0.08}s`;
+    io.observe(el);
+  });
+
+  // Sumate — elementos uno a uno
+  document.querySelectorAll('.sumate h2, .sumate-sub, .sumate-form, .sumate-note').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = `opacity .5s ease ${i * 0.1}s, transform .5s ease ${i * 0.1}s`;
+    io.observe(el);
+  });
+
+})();
+</script>
+</body>
+</html>
