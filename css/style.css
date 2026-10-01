@@ -711,14 +711,14 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: rgba(255,255,255,0.25);
+  background: var(--navy);
   transition: background var(--transition);
 }
 .news-card:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 20px 56px rgba(169,26,22,0.45);
 }
-.news-card:hover::before { background: rgba(255,255,255,0.6); }
+.news-card:hover::before { background: var(--navy); }
 
 .news-card--red {
   background: var(--navy);
