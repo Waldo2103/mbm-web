@@ -695,8 +695,8 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   gap: 24px;
 }
 .news-card {
-  background: var(--white);
-  border: 1px solid var(--grey-200);
+  background: var(--red);
+  border: 1px solid rgba(169,26,22,0.3);
   border-radius: var(--radius-md);
   padding: 28px;
   display: flex;
@@ -711,19 +711,18 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: var(--grey-200);
+  background: rgba(255,255,255,0.25);
   transition: background var(--transition);
 }
 .news-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 20px 56px rgba(169,26,22,0.22);
+  box-shadow: 0 20px 56px rgba(169,26,22,0.45);
 }
-.news-card:hover::before { background: var(--red); }
+.news-card:hover::before { background: rgba(255,255,255,0.6); }
 
 .news-card--red {
   background: var(--navy);
   border-color: rgba(169,26,22,0.4);
-  color: #fff;
 }
 .news-card--red::before { background: var(--red); }
 .news-card--red:hover {
@@ -732,17 +731,15 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   box-shadow: 0 20px 56px rgba(169,26,22,0.35), 0 0 0 1px rgba(169,26,22,0.3);
 }
 .news-card--red:hover::before { background: #cc2218; }
+.news-card--red .news-card__tag { color: rgba(255,255,255,0.45); }
 
 .news-card__tag {
   font-family: var(--f-display);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: var(--red);
+  color: rgba(255,255,255,0.55);
   text-transform: uppercase;
-}
-.news-card__tag--light {
-  color: rgba(255,255,255,0.5);
 }
 .news-card__body { flex: 1; }
 .news-card__title {
@@ -752,30 +749,27 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   line-height: 1.25;
   margin-bottom: 10px;
   text-transform: uppercase;
+  color: #fff;
 }
-.news-card--red .news-card__title { color: #fff; }
 .news-card__excerpt {
   font-size: 14px;
   font-weight: 500;
-  color: var(--grey-600);
+  color: rgba(255,255,255,0.7);
   line-height: 1.6;
 }
-.news-card--red .news-card__excerpt { color: rgba(255,255,255,0.6); }
 
 .news-card__link {
   font-family: var(--f-display);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--red);
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
   text-transform: uppercase;
   transition: color var(--transition);
   align-self: flex-start;
 }
-.news-card__link:hover { color: var(--navy); }
-.news-card__link--light { color: rgba(255,255,255,0.7); }
-.news-card__link--light:hover { color: #fff; }
+.news-card__link:hover { color: #fff; }
 
 /* ============================================================
    GESTIÓN CD
