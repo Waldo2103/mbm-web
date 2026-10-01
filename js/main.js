@@ -180,5 +180,5 @@ if (sumateForm) {
 }
 
 /* ---- Timeline line animation ---- */
-const timelineEl = document.querySelector('.timeline');
+const timelineEl = document.getElementById('timelineEl');
 if (timelineEl) revealObserver.observe(timelineEl);
