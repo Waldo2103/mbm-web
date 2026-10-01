@@ -848,14 +848,7 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
 .gestion__item[open] {
   box-shadow: inset 4px 0 0 var(--red), 0 8px 32px rgba(169,26,22,0.15);
 }
-/* body slide-in when accordion opens */
-.gestion__item[open] .gestion__body {
-  animation: gestionBodyOpen 0.3s cubic-bezier(0.22,1,0.36,1) both;
-}
-@keyframes gestionBodyOpen {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: none; }
-}
+/* body animation handled by JS accordion */
 .gestion__trigger {
   width: 100%;
   display: flex;
@@ -1406,8 +1399,17 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
    SUMATE — full form
 ============================================================ */
 .sumate {
-  background: var(--red);
+  background: #0c0e1a;
   padding: 88px 0;
+}
+.sumate__text {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .sumate__grid {
   display: grid;
@@ -1421,7 +1423,7 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   font-weight: 900;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: #fff;
   line-height: 1.05;
   margin: 16px 0 20px;
 }
@@ -1431,21 +1433,21 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   font-style: italic;
   font-weight: 700;
   font-size: 0.88em;
-  color: rgba(27,32,62,0.6);
+  color: rgba(255,255,255,0.55);
   text-transform: none;
   letter-spacing: 0;
 }
 .sumate__desc {
   font-size: 15px;
   font-weight: 500;
-  color: rgba(27,32,62,0.8);
+  color: rgba(255,255,255,0.7);
   line-height: 1.7;
   margin-bottom: 12px;
 }
 .sumate__subdesc {
   font-size: 13px;
   font-weight: 500;
-  color: rgba(27,32,62,0.55);
+  color: rgba(255,255,255,0.38);
   line-height: 1.6;
 }
 
@@ -1807,6 +1809,42 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* ============================================================
+   HOVER OVERRIDES — fix .reveal.is-visible cascade conflict
+   (estas reglas deben ir DESPUÉS de .reveal.is-visible)
+============================================================ */
+.news-card.is-visible:hover,
+.news-card.reveal.is-visible:hover {
+  transform: translateY(-8px) scale(1.03) !important;
+}
+.compromiso-card.is-visible:hover,
+.compromiso-card.reveal.is-visible:hover {
+  transform: translateY(-8px) scale(1.03) !important;
+}
+.area-card.is-visible:hover,
+.area-card.reveal.is-visible:hover {
+  transform: translateY(-8px) scale(1.03) !important;
+}
+
+/* ============================================================
+   COMPROMISOS EXPANDED — stagger animation when details opens
+============================================================ */
+.compromisos__more[open] .compromiso-card {
+  animation: compromisosIn 0.4s cubic-bezier(0.22,1,0.36,1) both;
+}
+.compromisos__more[open] .compromiso-card:nth-child(1) { animation-delay: 0.12s; }
+.compromisos__more[open] .compromiso-card:nth-child(2) { animation-delay: 0.20s; }
+.compromisos__more[open] .compromiso-card:nth-child(3) { animation-delay: 0.28s; }
+.compromisos__more[open] .compromiso-card:nth-child(4) { animation-delay: 0.36s; }
+.compromisos__more[open] .compromiso-card:nth-child(5) { animation-delay: 0.44s; }
+.compromisos__more[open] .compromiso-card:nth-child(6) { animation-delay: 0.52s; }
+.compromisos__more[open] .compromiso-card:nth-child(7) { animation-delay: 0.60s; }
+.compromisos__more[open] .compromiso-card:nth-child(8) { animation-delay: 0.68s; }
+@keyframes compromisosIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* ============================================================

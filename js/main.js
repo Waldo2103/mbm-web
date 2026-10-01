@@ -113,6 +113,42 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 
+/* ---- Animated <details> accordions ---- */
+document.querySelectorAll('details').forEach(el => {
+  const summary = el.querySelector(':scope > summary');
+  const body    = el.querySelector(':scope > :not(summary)');
+  if (!summary || !body) return;
+
+  body.style.overflow = 'hidden';
+  if (!el.open) {
+    body.style.maxHeight = '0px';
+    body.style.opacity   = '0';
+  }
+
+  summary.addEventListener('click', e => {
+    e.preventDefault();
+    if (el.open) {
+      // closing
+      body.style.transition = 'max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.25s';
+      body.style.maxHeight  = body.scrollHeight + 'px';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        body.style.maxHeight = '0px';
+        body.style.opacity   = '0';
+      }));
+      setTimeout(() => { el.open = false; }, 380);
+    } else {
+      // opening
+      el.open = true;
+      body.style.transition = 'max-height 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.32s 0.05s';
+      requestAnimationFrame(() => {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.style.opacity   = '1';
+        setTimeout(() => { if (el.open) body.style.maxHeight = 'none'; }, 460);
+      });
+    }
+  });
+});
+
 /* ---- MODAL — Informe 120 días ---- */
 (function () {
   if (sessionStorage.getItem('modal120_seen')) return;
