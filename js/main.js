@@ -94,6 +94,10 @@ const revealObserver = new IntersectionObserver((entries) => {
     if (!entry.isIntersecting) return;
     entry.target.classList.add('is-visible');
     revealObserver.unobserve(entry.target);
+    // Remove reveal classes after animation so hover transforms work normally
+    setTimeout(() => {
+      entry.target.classList.remove('reveal', 'from-up', 'from-left', 'from-right');
+    }, 750);
   });
 }, { threshold: 0.1 });
 

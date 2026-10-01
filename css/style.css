@@ -1399,7 +1399,7 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
    SUMATE — full form
 ============================================================ */
 .sumate {
-  background: #0c0e1a;
+  background: var(--red);
   padding: 88px 0;
 }
 .sumate__text {
