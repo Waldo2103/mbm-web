@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+[context.production]
+  branch = "master"
+
+[context."redesign/migracion-visual-2026"]
+  branch = "redesign/migracion-visual-2026"
