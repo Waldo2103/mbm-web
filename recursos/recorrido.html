@@ -33,18 +33,33 @@ a:hover{text-decoration:underline}
 em{font-family:'Big Caslon CC',Georgia,serif;font-style:italic;font-weight:700}
 
 /* — BACK BAR — */
-.back-bar{
-  background:rgba(27,32,62,0.95);backdrop-filter:blur(8px);
-  padding:0 24px;display:flex;align-items:center;height:52px;
-  position:sticky;top:0;z-index:20;border-bottom:2px solid var(--red);
-}
-.back-bar a{
-  font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:0.14em;color:rgba(255,255,255,0.6);text-decoration:none;
-  text-transform:uppercase;display:flex;align-items:center;gap:10px;transition:color 0.2s;
-}
-.back-bar a::before{content:"←";font-size:17px;font-weight:400}
-.back-bar a:hover{color:#fff;text-decoration:none}
+/* === NAV === */
+:root{--nav-h:64px}
+body{padding-top:64px}
+.snav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:900;background:var(--navy);display:flex;align-items:stretch;justify-content:space-between;padding:0 24px;box-shadow:0 2px 12px rgba(0,0,0,0.3)}
+.snav__logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.snav__logo img{height:36px;width:auto}
+.snav__menu{display:flex;align-items:center;flex:1;justify-content:center}
+.snav__links{display:flex;align-items:center;list-style:none;padding:0;margin:0}
+.snav__links a{display:flex;align-items:center;height:var(--nav-h);padding:0 13px;font-family:'Barlow',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.09em;color:rgba(255,255,255,0.7);text-decoration:none;text-transform:uppercase;border-bottom:3px solid transparent;transition:color 0.22s}
+.snav__links a:hover{color:#fff;border-bottom-color:var(--red)}
+.snav__cta{display:flex;align-items:center;padding:0 20px;background:var(--red);color:#fff;font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-decoration:none;text-transform:uppercase;transition:background 0.22s;flex-shrink:0}
+.snav__cta:hover{background:#8c1412}
+.snav__toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:100%;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0}
+.snav__toggle span{display:block;width:24px;height:2px;background:#fff;transition:transform 0.3s,opacity 0.3s}
+.snav__toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.snav__toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.snav__toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.snav__drawer{position:fixed;top:0;right:0;width:min(340px,85vw);height:100dvh;z-index:950;background:#252b52;display:flex;flex-direction:column;padding:calc(var(--nav-h)+24px) 0 32px;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1)}
+.snav__drawer.is-open{transform:none}
+.snav__drawer-links{flex:1;overflow-y:auto;padding:8px 0;list-style:none;margin:0}
+.snav__drawer-links li a{display:block;padding:16px 28px;font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.1em;color:rgba(255,255,255,0.75);text-decoration:none;text-transform:uppercase;border-left:3px solid transparent;transition:color 0.22s,border-color 0.22s}
+.snav__drawer-links li a:hover{color:#fff;border-left-color:var(--red)}
+.snav__drawer-cta{display:block;margin:0 24px;padding:16px 24px;background:var(--red);color:#fff;font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.1em;text-align:center;text-decoration:none;text-transform:uppercase;border-radius:4px;transition:background 0.22s}
+.snav__drawer-cta:hover{background:#8c1412}
+.snav__overlay{display:none;position:fixed;inset:0;z-index:940;background:rgba(0,0,0,0.5);opacity:0;transition:opacity 0.3s}
+.snav__overlay.is-open{display:block;opacity:1}
+@media(max-width:900px){.snav__menu{display:none}.snav__cta{display:none}.snav__toggle{display:flex}}
 
 /* — HERO — */
 .hero{
@@ -156,7 +171,33 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="back-bar"><a href="../index.html">Volver al sitio</a></div>
+<header class="snav" id="snav">
+  <a href="../index.html" class="snav__logo"><picture><source srcset="LOGO-BLANCO.webp" type="image/webp"><img src="LOGO-BLANCO.png" alt="Movete Boedo Movete"></picture></a>
+  <nav class="snav__menu" aria-label="Navegación principal"><ul class="snav__links">
+    <li><a href="../quienes.html">QUIÉNES SOMOS</a></li>
+    <li><a href="../index.html#gestion">GESTIÓN</a></li>
+    <li><a href="../index.html#recorrido">RECORRIDO</a></li>
+    <li><a href="../situacion.html">CUADRO DE SITUACIÓN</a></li>
+    <li><a href="../index.html#compromisos">COMPROMISOS</a></li>
+    <li><a href="../index.html#referente">REFERENTE</a></li>
+    <li><a href="../index.html#sumate">CONTACTO</a></li>
+  </ul></nav>
+  <a href="../index.html#sumate" class="snav__cta">SUMATE →</a>
+  <button class="snav__toggle" id="snavToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="snavDrawer"><span></span><span></span><span></span></button>
+</header>
+<div class="snav__drawer" id="snavDrawer" aria-hidden="true">
+  <ul class="snav__drawer-links">
+    <li><a href="../quienes.html">QUIÉNES SOMOS</a></li>
+    <li><a href="../index.html#gestion">GESTIÓN</a></li>
+    <li><a href="../index.html#recorrido">RECORRIDO</a></li>
+    <li><a href="../situacion.html">CUADRO DE SITUACIÓN</a></li>
+    <li><a href="../index.html#compromisos">COMPROMISOS</a></li>
+    <li><a href="../index.html#referente">REFERENTE</a></li>
+    <li><a href="../index.html#sumate">CONTACTO</a></li>
+  </ul>
+  <a href="../index.html#sumate" class="snav__drawer-cta">SUMATE →</a>
+</div>
+<div class="snav__overlay" id="snavOverlay" aria-hidden="true"></div>
 
 <header class="hero"><div class="wrap">
   <h1>Nuestro<em>Recorrido</em></h1>
@@ -225,8 +266,8 @@ footer a:hover{text-decoration:underline}
       <div class="timeline__item timeline__item--active">
         <div class="timeline__year-col"><span class="timeline__year">2026</span></div>
         <div class="timeline__desc">
-          <p>En febrero presentamos una denuncia ante la IGJ, dando cuenta de las extralimitaciones administrativas, la opacidad en la gestión y el incumplimiento de deberes estatutarios por parte de Sergio Costantino y el resto de los integrantes de la Comisión Directiva Transitoria. La IGJ nos dio la razón e intimó a las actuales autoridades a encuadrar sus facultades en los límites estatutarios.</p>
-          <p>Participamos en las elecciones del 13 de junio con 2.511 votos. Hoy representamos a MBM en la Comisión Directiva de San Lorenzo, defendiendo el Estatuto, la transparencia y los derechos de los socios.</p>
+          <p>Bajo la conducción de nuestro referente Manuel Agote, en febrero denunciamos ante la IGJ a la Comisión Directiva Transitoria por incumplimiento estatutario, logrando que el organismo intime a las autoridades a adecuar sus facultades al marco legal.</p>
+          <p>Luego de recibir el apoyo de más de 2.500 socios y socias de San Lorenzo en las elecciones de mayo de 2026, comenzamos a trabajar en la Comisión Directiva a través de nuestra representante Lucía Rojas Albornoz. En estos primeros 120 días impulsamos un trabajo integral: logramos un fallo histórico de la IGJ para garantizar las 5 bancas correspondientes al cupo femenino y llevamos al Tribunal de Ética a los responsables del vaciamiento. Además, asumimos la responsabilidad directa sobre Hockey sobre Patines y Handball, apostando al fortalecimiento del deporte social y federado del Club.</p>
         </div>
       </div>
 
@@ -236,39 +277,13 @@ footer a:hover{text-decoration:underline}
   <hr class="divider">
 
   <!-- BLOQUE 3: ÁREAS DE TRABAJO -->
-  <div class="section">
-    <p class="section__label">◆ NUESTRAS ÁREAS</p>
-    <p class="section__lead">Además del resguardo institucional, desde MBM hemos impulsado muchas actividades motorizadas en los valores fundacionales de nuestra Institución y en la construcción de un Sanlorencismo digno.</p>
-    <div class="areas-grid">
-      <div class="area-item">
-        <strong>Área contable</strong>
-        <p>Generamos informes sobre los estados contables y los presupuestos del Club para que todos los socios podamos comprender claramente cuál es la situación económica y financiera de la Institución.</p>
-      </div>
-      <div class="area-item">
-        <strong>Área legal</strong>
-        <p>Elaboramos un sinfín de requerimientos al Club con los que luego estructuramos las denuncias correspondientes ante la IGJ y la justicia Civil. Asimismo, hemos asesorado y acompañado a más de 50 hinchas de San Lorenzo cuando les han aplicado derechos de admisión.</p>
-      </div>
-      <div class="area-item">
-        <strong>Área de acción social</strong>
-        <p>Realizamos campañas de abrigo, entrega de kits escolares, organización del día de la niñez, celebraciones de fin de año y coordinamos la recepción, logística y entrega de donaciones ante catástrofes humanitarias como las sufridas en las inundaciones de Bahía Blanca en marzo de 2025, en coordinación con peñas, organizaciones comunitarias y organismos del Estado.</p>
-      </div>
-      <div class="area-item">
-        <strong>Área de inclusión y género</strong>
-        <p>Participamos de talleres educativos y realizamos actividades solidarias con el Hogar de Mujeres Madre Lourdes.</p>
-      </div>
-      <div class="area-item">
-        <strong>Área de marca y producción</strong>
-        <p>Realizamos homenajes a ídolos como Edgardo Bauza y Rubén Darío Insúa, generamos piezas que reivindican fechas históricas y simbólicas de la Institución, con una línea de construcción identitaria enfocada en el reconocimiento y puesta en valor de nuestra historia.</p>
-      </div>
-      <div class="area-item">
-        <strong>Área de intendencia y eventos</strong>
-        <p>Abrimos las puertas de nuestra sede para generar espacio de fraternidad y encuentro Sanlorencista: jornadas musicales y culturales, transmisiones de partidos de visitante, el Día del Hincha y el cumpleaños del Club. Nos enorgullece haber realizado un evento en el que más de 250 hinchas pudimos disfrutar de la presencia del Gallego Insúa, padrino de nuestra sede.</p>
-      </div>
-    </div>
-  </div>
 
 </div></main>
 
+<div style="text-align:center;padding:40px 24px 20px">
+  <a href="../index.html#sumate" class="btn btn--primary" style="display:inline-block;background:#a91a16;color:#fff;font-family:'Barlow',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:14px 32px;text-decoration:none;border-radius:2px;">Conocé nuestra lista y el proyecto que presentamos para San Lorenzo →</a>
+</div>
+<script>(function(){var t=document.getElementById('snavToggle'),d=document.getElementById('snavDrawer'),o=document.getElementById('snavOverlay');function op(){d.classList.add('is-open');o.classList.add('is-open');d.setAttribute('aria-hidden','false');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function cl(){d.classList.remove('is-open');o.classList.remove('is-open');d.setAttribute('aria-hidden','true');t.setAttribute('aria-expanded','false');document.body.style.overflow='';}if(t)t.addEventListener('click',function(){d.classList.contains('is-open')?cl():op();});if(o)o.addEventListener('click',cl);document.querySelectorAll('.snav__drawer-links a').forEach(function(a){a.addEventListener('click',cl);});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d&&d.classList.contains('is-open'))cl();});})();</script>
 <footer>Toda nuestra actividad, documentos y canales de contacto: <a href="https://linktr.ee/moveteboedo">linktr.ee/moveteboedo</a></footer>
 </body>
 </html>

@@ -88,16 +88,37 @@ sections.forEach(id => {
 });
 
 
-/* ---- Reveal animations on scroll ---- */
+/* ---- Reveal animations on scroll (bidirectional) ---- */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('is-visible');
-    revealObserver.unobserve(entry.target);
-    // Remove reveal classes after animation so hover transforms work normally
-    setTimeout(() => {
-      entry.target.classList.remove('reveal', 'from-up', 'from-left', 'from-right');
-    }, 1000);
+    const el = entry.target;
+    if (entry.isIntersecting) {
+      el.classList.add('is-visible');
+      // Remove reveal/direction classes after animation so hover transitions work
+      const t = setTimeout(() => {
+        ['from-up', 'from-left', 'from-right'].forEach(c => {
+          if (el.classList.contains(c)) el.dataset.revealDir = c;
+        });
+        el.classList.remove('reveal', 'from-up', 'from-left', 'from-right');
+        el._revealTimer = null;
+      }, 1000);
+      el._revealTimer = t;
+    } else {
+      // Cancel pending class-removal if element left before animation finished
+      if (el._revealTimer) { clearTimeout(el._revealTimer); el._revealTimer = null; }
+      // Animate out only if element was already visible
+      if (el.classList.contains('is-visible')) {
+        const dir = el.dataset.revealDir ||
+          ['from-up', 'from-left', 'from-right'].find(c => el.classList.contains(c));
+        if (!el.classList.contains('reveal')) {
+          el.classList.add('reveal');
+          if (dir) el.classList.add(dir);
+        }
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          el.classList.remove('is-visible');
+        }));
+      }
+    }
   });
 }, { threshold: 0.1 });
 
@@ -218,6 +239,78 @@ if (sumateForm) {
     }
   });
 }
+
+/* ---- NOVEDADES CAROUSEL ---- */
+(function () {
+  const track    = document.getElementById('novedadesTrack');
+  const btnPrev  = document.getElementById('carouselPrev');
+  const btnNext  = document.getElementById('carouselNext');
+  if (!track || !btnPrev || !btnNext) return;
+
+  const AUTOPLAY_MS  = 4500;
+  const RESUME_DELAY = 8000;
+  let autoTimer  = null;
+  let resumeTimer = null;
+
+  function hasOverflow() {
+    return track.scrollWidth > track.clientWidth + 2;
+  }
+
+  function cardStep() {
+    const card = track.querySelector('.news-card');
+    if (!card) return 1;
+    const gap = parseFloat(getComputedStyle(track).gap) || 12;
+    return card.offsetWidth + gap;
+  }
+
+  function currentIndex() {
+    return Math.round(track.scrollLeft / cardStep());
+  }
+
+  function scrollTo(idx) {
+    const total = track.querySelectorAll('.news-card').length;
+    idx = ((idx % total) + total) % total;
+    track.scrollTo({ left: idx * cardStep(), behavior: 'smooth' });
+  }
+
+  function updateButtons() {
+    const show = hasOverflow();
+    btnPrev.hidden = !show;
+    btnNext.hidden = !show;
+  }
+
+  function advance() {
+    if (!hasOverflow()) return;
+    scrollTo(currentIndex() + 1);
+  }
+
+  function startAutoplay() {
+    if (autoTimer) return;
+    autoTimer = setInterval(advance, AUTOPLAY_MS);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoTimer);
+    autoTimer = null;
+  }
+
+  function pauseAutoplay() {
+    stopAutoplay();
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(startAutoplay, RESUME_DELAY);
+  }
+
+  btnPrev.addEventListener('click', () => { scrollTo(currentIndex() - 1); pauseAutoplay(); });
+  btnNext.addEventListener('click', () => { scrollTo(currentIndex() + 1); pauseAutoplay(); });
+  track.addEventListener('scroll',     updateButtons, { passive: true });
+  track.addEventListener('touchstart', pauseAutoplay, { passive: true });
+
+  updateButtons();
+  startAutoplay();
+
+  window.addEventListener('resize', updateButtons);
+})();
+
 
 /* ---- Timeline line animation ---- */
 const timelineEl = document.getElementById('timelineEl');

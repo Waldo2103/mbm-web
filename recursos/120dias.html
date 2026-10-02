@@ -34,18 +34,33 @@ a:hover{text-decoration:underline}
 em{font-family:'Big Caslon CC',Georgia,serif;font-style:italic;font-weight:700}
 
 /* — BACK BAR — */
-.back-bar{
-  background:rgba(27,32,62,0.95);backdrop-filter:blur(8px);
-  padding:0 24px;display:flex;align-items:center;height:52px;
-  position:sticky;top:0;z-index:20;border-bottom:2px solid var(--red);
-}
-.back-bar a{
-  font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:0.14em;color:rgba(255,255,255,0.6);text-decoration:none;
-  text-transform:uppercase;display:flex;align-items:center;gap:10px;transition:color 0.2s;
-}
-.back-bar a::before{content:"←";font-size:17px;font-weight:400}
-.back-bar a:hover{color:#fff;text-decoration:none}
+/* === NAV === */
+:root{--nav-h:64px}
+body{padding-top:64px}
+.snav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:900;background:var(--navy);display:flex;align-items:stretch;justify-content:space-between;padding:0 24px;box-shadow:0 2px 12px rgba(0,0,0,0.3)}
+.snav__logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.snav__logo img{height:36px;width:auto}
+.snav__menu{display:flex;align-items:center;flex:1;justify-content:center}
+.snav__links{display:flex;align-items:center;list-style:none;padding:0;margin:0}
+.snav__links a{display:flex;align-items:center;height:var(--nav-h);padding:0 13px;font-family:'Barlow',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.09em;color:rgba(255,255,255,0.7);text-decoration:none;text-transform:uppercase;border-bottom:3px solid transparent;transition:color 0.22s}
+.snav__links a:hover{color:#fff;border-bottom-color:var(--red)}
+.snav__cta{display:flex;align-items:center;padding:0 20px;background:var(--red);color:#fff;font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-decoration:none;text-transform:uppercase;transition:background 0.22s;flex-shrink:0}
+.snav__cta:hover{background:#8c1412}
+.snav__toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:100%;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0}
+.snav__toggle span{display:block;width:24px;height:2px;background:#fff;transition:transform 0.3s,opacity 0.3s}
+.snav__toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.snav__toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.snav__toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.snav__drawer{position:fixed;top:0;right:0;width:min(340px,85vw);height:100dvh;z-index:950;background:#252b52;display:flex;flex-direction:column;padding:calc(var(--nav-h)+24px) 0 32px;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1)}
+.snav__drawer.is-open{transform:none}
+.snav__drawer-links{flex:1;overflow-y:auto;padding:8px 0;list-style:none;margin:0}
+.snav__drawer-links li a{display:block;padding:16px 28px;font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.1em;color:rgba(255,255,255,0.75);text-decoration:none;text-transform:uppercase;border-left:3px solid transparent;transition:color 0.22s,border-color 0.22s}
+.snav__drawer-links li a:hover{color:#fff;border-left-color:var(--red)}
+.snav__drawer-cta{display:block;margin:0 24px;padding:16px 24px;background:var(--red);color:#fff;font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.1em;text-align:center;text-decoration:none;text-transform:uppercase;border-radius:4px;transition:background 0.22s}
+.snav__drawer-cta:hover{background:#8c1412}
+.snav__overlay{display:none;position:fixed;inset:0;z-index:940;background:rgba(0,0,0,0.5);opacity:0;transition:opacity 0.3s}
+.snav__overlay.is-open{display:block;opacity:1}
+@media(max-width:900px){.snav__menu{display:none}.snav__cta{display:none}.snav__toggle{display:flex}}
 
 /* — HERO — */
 .hero{
@@ -156,9 +171,11 @@ details[open] summary{background:rgba(169,26,22,0.06)}
 summary::-webkit-details-marker{display:none}
 .sum-header{display:flex;align-items:center;gap:20px;flex:1;min-width:0}
 .sum-num{
-  font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:0.1em;color:var(--red);flex-shrink:0;width:28px;
+  width:28px;height:28px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--red);
 }
+.sum-num svg{display:block;}
 summary h2{
   font-family:'Barlow',sans-serif;font-size:14px;font-weight:800;
   letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);margin:0;
@@ -168,10 +185,10 @@ summary p{margin:.25em 0 0;color:rgba(27,32,62,0.5);font-size:13px;font-weight:5
   width:36px;height:36px;border-radius:50%;
   border:1.5px solid rgba(27,32,62,0.18);
   display:inline-flex;align-items:center;justify-content:center;
-  font-size:22px;font-weight:300;line-height:1;
   color:rgba(27,32,62,0.45);flex-shrink:0;
   transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),color 0.2s,border-color 0.2s;
 }
+.sum-icon svg{display:block;}
 details[open] .sum-icon{transform:rotate(45deg);color:var(--red);border-color:rgba(169,26,22,0.35)}
 
 /* — CUERPO (animación via JS) — */
@@ -246,7 +263,33 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="back-bar"><a href="../index.html">Volver al sitio</a></div>
+<header class="snav" id="snav">
+  <a href="../index.html" class="snav__logo"><picture><source srcset="LOGO-BLANCO.webp" type="image/webp"><img src="LOGO-BLANCO.png" alt="Movete Boedo Movete"></picture></a>
+  <nav class="snav__menu" aria-label="Navegación principal"><ul class="snav__links">
+    <li><a href="../quienes.html">QUIÉNES SOMOS</a></li>
+    <li><a href="../index.html#gestion">GESTIÓN</a></li>
+    <li><a href="../index.html#recorrido">RECORRIDO</a></li>
+    <li><a href="../situacion.html">CUADRO DE SITUACIÓN</a></li>
+    <li><a href="../index.html#compromisos">COMPROMISOS</a></li>
+    <li><a href="../index.html#referente">REFERENTE</a></li>
+    <li><a href="../index.html#sumate">CONTACTO</a></li>
+  </ul></nav>
+  <a href="../index.html#sumate" class="snav__cta">SUMATE →</a>
+  <button class="snav__toggle" id="snavToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="snavDrawer"><span></span><span></span><span></span></button>
+</header>
+<div class="snav__drawer" id="snavDrawer" aria-hidden="true">
+  <ul class="snav__drawer-links">
+    <li><a href="../quienes.html">QUIÉNES SOMOS</a></li>
+    <li><a href="../index.html#gestion">GESTIÓN</a></li>
+    <li><a href="../index.html#recorrido">RECORRIDO</a></li>
+    <li><a href="../situacion.html">CUADRO DE SITUACIÓN</a></li>
+    <li><a href="../index.html#compromisos">COMPROMISOS</a></li>
+    <li><a href="../index.html#referente">REFERENTE</a></li>
+    <li><a href="../index.html#sumate">CONTACTO</a></li>
+  </ul>
+  <a href="../index.html#sumate" class="snav__drawer-cta">SUMATE →</a>
+</div>
+<div class="snav__overlay" id="snavOverlay" aria-hidden="true"></div>
 <header class="hero"><div class="wrap">
 <h1>120 días<span>de Movete Boedo Movete en la Comisión Directiva</span></h1>
 <p>Asumimos el compromiso de representar a MBM y a los socios y socias que nos dieron su voto y su confianza. Para una agrupación joven, estos 120 días son apenas el comienzo.</p>
@@ -261,7 +304,7 @@ footer a:hover{text-decoration:underline}
 <p><button class="ctl" id="toggle" type="button">Abrir todo</button></p>
 
 <details id="legal" open>
-<summary><div class="sum-header"><span class="sum-num">01</span><div><h2>Institucional y legal</h2><p>Cupo femenino y denuncia ante el Tribunal de Ética</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
+<summary><div class="sum-header"><span class="sum-num"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span><div><h2>Institucional y legales</h2><p>Cupo femenino y denuncia ante el Tribunal de Ética</p></div></div><span class="sum-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
 <div class="body">
 <h3>La IGJ hizo lugar a nuestro reclamo por el cupo femenino</h3>
 <p>La Resolución N.º 3/2026 de la Junta Electoral fijaba 16 varones y 4 mujeres. El cálculo correcto era de 5 bancas para mujeres, el 25% de la Comisión Directiva.</p>
@@ -271,7 +314,7 @@ footer a:hover{text-decoration:underline}
 <li><b>23 de julio:</b> denuncia ante la IGJ, a través de nuestra vocal Lucía Rojas Albornoz.</li>
 <li><b>14 de septiembre:</b> la IGJ hizo lugar al reclamo e intimó al Club a adecuar de inmediato la integración: 15 varones y 5 mujeres.</li>
 </ul>
-<div class="win">Se confirma la importancia de defender el Estatuto y usar todas las herramientas institucionales para que se cumpla.</div>
+<div class="win">Se confirma la importancia de defender el Estatuto y usar todas las herramientas institucionales para garantizar su cumplimiento.</div>
 <h3>Seguimos defendiendo la institucionalidad</h3>
 <ul>
 <li><b>29 de mayo:</b> denuncia ante el Tribunal de Ética contra Carlos Horacio Arreceygor y Sergio Gabriel Costantino, pidiendo su expulsión por irregularidades contables y administrativas vinculadas a la Resolución IGJ N.º 870/2024.</li>
@@ -282,7 +325,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="cd">
-<summary><div class="sum-header"><span class="sum-num">02</span><div><h2>Comisión Directiva</h2><p>Cómo votamos en cada reunión y por qué</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
+<summary><div class="sum-header"><span class="sum-num"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><div><h2>Comisión Directiva</h2><p>Cómo votamos en cada reunión y por qué</p></div></div><span class="sum-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
 <div class="body">
 <p>Analizamos cada tema del orden del día con nuestro equipo legal. Si no tenemos la documentación para evaluar con responsabilidad, votamos en contra o nos abstenemos, y pedimos más transparencia.</p>
 <div class="mtg"><h3>8 de junio</h3>
@@ -308,7 +351,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="handball">
-<summary><div class="sum-header"><span class="sum-num">03</span><div><h2>Handball</h2><p>Becas, infraestructura y localía en Boedo</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
+<summary><div class="sum-header"><span class="sum-num"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 4 10 14.5 14.5 0 0 0-4 10 14.5 14.5 0 0 0-4-10 14.5 14.5 0 0 0 4-10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span><div><h2>Handball</h2><p>Becas, infraestructura y localía en Boedo</p></div></div><span class="sum-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
 <div class="body">
 <h3>Lo que hicimos</h3>
 <ul>
@@ -332,7 +375,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="hockey">
-<summary><div class="sum-header"><span class="sum-num">04</span><div><h2>Hockey sobre patines</h2><p>Copa Nacional, sponsors propios y acompañamiento</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
+<summary><div class="sum-header"><span class="sum-num"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg></span><div><h2>Hockey sobre patines</h2><p>Copa Nacional, sponsors propios y acompañamiento</p></div></div><span class="sum-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
 <div class="body">
 <ul>
 <li><b>Copa Nacional (Mendoza y San Juan):</b> el Club avisó pocos días antes que no había transporte. MBM aportó parte del costo del traslado para que los equipos pudieran competir.</li>
@@ -345,7 +388,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="social">
-<summary><div class="sum-header"><span class="sum-num">05</span><div><h2>Acción social</h2><p>Campaña de Abrigo y Día de las Infancias</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
+<summary><div class="sum-header"><span class="sum-num"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span><div><h2>Acción social</h2><p>Campaña de Abrigo y Día de las Infancias</p></div></div><span class="sum-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
 <div class="body">
 <h3>Campaña de Abrigo</h3>
 <p>El 9 de julio hicimos una jornada con la Peña de Wilde y llevamos las donaciones recolectadas. También entregamos donaciones a las Peñas de Bahía Blanca, Mercedes y Suipacha.</p>
@@ -361,7 +404,7 @@ footer a:hover{text-decoration:underline}
 </details>
 
 <details id="federal">
-<summary><div class="sum-header"><span class="sum-num">06</span><div><h2>San Lorenzo federal</h2><p>Trabajo con las Peñas de todo el país</p></div></div><span class="sum-icon" aria-hidden="true">+</span></summary>
+<summary><div class="sum-header"><span class="sum-num"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div><h2>San Lorenzo federal</h2><p>Trabajo con las Peñas de todo el país</p></div></div><span class="sum-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
 <div class="body">
 <p>San Lorenzo tiene cuna barrial, pero su identidad trasciende Boedo. Por eso fortalecimos el vínculo con las Peñas de distintas provincias con acciones sociales, actividades comunitarias y acompañamiento a las representaciones del Club en el interior.</p>
 <ul><li>Trabajamos con las Peñas de Wilde, Bahía Blanca, Mercedes, Suipacha y Salta.</li><li>Avanzamos en la articulación con las Peñas de Cuyo.</li></ul>
@@ -436,6 +479,9 @@ document.querySelectorAll('nav[aria-label="Temas"] a').forEach(function(a) {
     if (target) openDetails(target);
   });
 });
+</script>
+<script>
+(function(){var t=document.getElementById('snavToggle'),d=document.getElementById('snavDrawer'),o=document.getElementById('snavOverlay');function open(){d.classList.add('is-open');o.classList.add('is-open');d.setAttribute('aria-hidden','false');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function close(){d.classList.remove('is-open');o.classList.remove('is-open');d.setAttribute('aria-hidden','true');t.setAttribute('aria-expanded','false');document.body.style.overflow='';}if(t)t.addEventListener('click',function(){d.classList.contains('is-open')?close():open();});if(o)o.addEventListener('click',close);document.querySelectorAll('.snav__drawer-links a').forEach(function(a){a.addEventListener('click',close);});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d&&d.classList.contains('is-open'))close();});})();
 </script>
 </body>
 </html>
