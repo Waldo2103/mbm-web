@@ -8,3 +8,7 @@ recursos/galeria/*.jpeg
 recursos/galeria/*.HEIC
 recursos/galeria/*.heif
 node_modules/
+
+# Notas internas
+DIFERENCIAS-TEXTO.md
+MEJORAS.md

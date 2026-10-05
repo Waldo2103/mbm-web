@@ -666,19 +666,35 @@
        MODAL — Informe 120 días
   ====================================================== -->
   <div class="modal-overlay" id="modalOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal">
-      <p class="modal__overline">◆ INFORME</p>
-      <h2 class="modal__title" id="modalTitle">120 DÍAS EN LA<br><em>COMISIÓN DIRECTIVA</em></h2>
-      <p class="modal__desc">Ya publicamos nuestro primer informe de gestión. Conocé todo lo que hicimos desde que asumimos en la CD de San Lorenzo.</p>
-      <div class="modal__stats">
-        <div class="modal__stat"><strong>2.511</strong><span>votos recibidos</span></div>
-        <div class="modal__stat"><strong>4</strong><span>reuniones de CD</span></div>
-        <div class="modal__stat"><strong>1</strong><span>cupo femenino</span></div>
-        <div class="modal__stat"><strong>2</strong><span>deportes federados</span></div>
+    <div class="modal modal--aventura">
+      <div class="modal__prog-bar"><div class="modal__prog-fill" id="modalProgFill"></div></div>
+      <button class="modal__x-close" id="modalClose" aria-label="Cerrar">✕</button>
+
+      <!-- Pantalla: tarjeta de área -->
+      <div id="modalScreenCard" class="modal__screen">
+        <div class="modal__card-area" id="modalCardArea">
+          <p class="modal__overline" id="modalOverline">◆ GESTIÓN</p>
+          <div class="modal__card-icon" id="modalCardIcon"></div>
+          <h2 class="modal__title" id="modalTitle"></h2>
+          <p class="modal__card-sub" id="modalCardSub"></p>
+          <p class="modal__desc" id="modalDesc"></p>
+        </div>
+        <div class="modal__dots" id="modalDots"></div>
+        <div class="modal__actions">
+          <a href="#" class="btn btn--primary" id="modalCta" target="_blank" rel="noopener">VER EN INFORME →</a>
+          <button class="modal__next-btn" id="modalNext">SIGUIENTE ÁREA →</button>
+          <button class="modal__dismiss" id="modalDismiss">Cerrar</button>
+        </div>
       </div>
-      <div class="modal__actions">
-        <a href="recursos/120dias.html" class="btn btn--primary" id="modalCta">VER INFORME COMPLETO →</a>
-        <button class="modal__dismiss" id="modalDismiss">Continuar al sitio</button>
+
+      <!-- Pantalla: elegir próxima área -->
+      <div id="modalScreenChoice" class="modal__screen" hidden>
+        <p class="modal__overline">◆ TU PRÓXIMA ÁREA</p>
+        <h2 class="modal__title">¿QUÉ EXPLORÁS<br><em>ahora?</em></h2>
+        <div class="modal__choices" id="modalChoices"></div>
+        <div class="modal__actions">
+          <button class="modal__dismiss" id="modalDismissChoice">Cerrar</button>
+        </div>
       </div>
     </div>
   </div>

@@ -174,33 +174,196 @@ document.querySelectorAll('details').forEach(el => {
   });
 });
 
-/* ---- MODAL — Informe 120 días ---- */
+/* ---- MODAL — Aventura: Gestión CD ---- */
 (function () {
-  if (sessionStorage.getItem('modal120_seen')) return;
+  const AREAS = [
+    {
+      id: 'handball',
+      label: 'HANDBALL',
+      sub: 'Becas e infraestructura en Boedo',
+      desc: 'Impulsamos becas para atletas de alto rendimiento y trabajamos para que Boedo sea la sede permanente del handball de San Lorenzo.',
+      href: 'recursos/120dias.html#handball',
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 4 10 14.5 14.5 0 0 0-4 10 14.5 14.5 0 0 0-4-10 14.5 14.5 0 0 0 4-10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>'
+    },
+    {
+      id: 'hockey',
+      label: 'HOCKEY SOBRE PATINES',
+      sub: 'Copa Nacional y sponsors propios',
+      desc: 'Acompañamos la Copa Nacional, gestionamos sponsors propios para el equipo y seguimos de cerca la evolución en cada competencia.',
+      href: 'recursos/120dias.html#hockey',
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>'
+    },
+    {
+      id: 'legal',
+      label: 'INSTITUCIONAL Y LEGALES',
+      sub: 'Cupo femenino y Tribunal de Ética',
+      desc: 'Logramos restablecer el cupo femenino en la Comisión Directiva y presentamos una denuncia ante el Tribunal de Ética por conductas contrarias al Estatuto.',
+      href: 'recursos/120dias.html#legal',
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>'
+    },
+    {
+      id: 'cd',
+      label: 'COMISIÓN DIRECTIVA',
+      sub: 'Votaciones documentadas y transparentes',
+      desc: 'Cada reunión, cada voto, cada posición pública: transparencia total de nuestra actuación en la CD de San Lorenzo durante estos cuatro meses.',
+      href: 'recursos/120dias.html#cd',
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
+    },
+    {
+      id: 'social',
+      label: 'ACCIÓN SOCIAL',
+      sub: 'Campaña de Abrigo · Día de las Infancias',
+      desc: 'Más de 1.500 bolsas de ropa y 350 juguetes entregados. Un San Lorenzo nacional, popular y presente en cada barrio.',
+      href: 'recursos/120dias.html#social',
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
+    },
+    {
+      id: 'federal',
+      label: 'SAN LORENZO FEDERAL',
+      sub: 'Trabajo con las Peñas del país',
+      desc: 'Conectamos las Peñas de todo el país con la gestión de la CD, llevando la voz y los derechos de los socios del interior.',
+      href: 'recursos/120dias.html#federal',
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
+    }
+  ];
 
-  const overlay  = document.getElementById('modalOverlay');
-  const dismiss  = document.getElementById('modalDismiss');
-  const cta      = document.getElementById('modalCta');
+  const overlay        = document.getElementById('modalOverlay');
   if (!overlay) return;
+
+  const progFill       = document.getElementById('modalProgFill');
+  const screenCard     = document.getElementById('modalScreenCard');
+  const screenChoice   = document.getElementById('modalScreenChoice');
+  const overlineEl     = document.getElementById('modalOverline');
+  const cardIconEl     = document.getElementById('modalCardIcon');
+  const titleEl        = document.getElementById('modalTitle');
+  const subEl          = document.getElementById('modalCardSub');
+  const descEl         = document.getElementById('modalDesc');
+  const dotsEl         = document.getElementById('modalDots');
+  const ctaEl          = document.getElementById('modalCta');
+  const nextBtn        = document.getElementById('modalNext');
+  const dismissBtn     = document.getElementById('modalDismiss');
+  const dismissChoiceBtn = document.getElementById('modalDismissChoice');
+  const closeBtn       = document.getElementById('modalClose');
+  const cardArea       = document.getElementById('modalCardArea');
+  const choicesEl      = document.getElementById('modalChoices');
+
+  const readSet = new Set();          // ids donde se hizo click en "VER EN INFORME"
+  let pool = AREAS.map((_, i) => i); // áreas aún no mostradas como tarjeta principal
+  let current = 0;
+
+  function renderDots() {
+    dotsEl.innerHTML = '';
+    AREAS.forEach((a, i) => {
+      const d = document.createElement('span');
+      d.className = 'modal__dot' +
+        (i === current ? ' modal__dot--active' : '') +
+        (readSet.has(a.id) ? ' modal__dot--seen' : '');
+      dotsEl.appendChild(d);
+    });
+  }
+
+  function transition(hide, show, populate) {
+    hide.classList.add('anim-out');
+    hide.addEventListener('animationend', () => {
+      hide.classList.remove('anim-out');
+      hide.hidden = true;
+      populate();
+      show.hidden = false;
+      show.classList.add('anim-in');
+      show.addEventListener('animationend', () => show.classList.remove('anim-in'), { once: true });
+    }, { once: true });
+  }
+
+  function showCard(aIdx) {
+    current = aIdx;
+    pool = pool.filter(i => i !== aIdx); // una vez vista, no vuelve a aparecer como opción
+    const area = AREAS[aIdx];
+
+    const populate = () => {
+      overlineEl.textContent = `◆ GESTIÓN · ÁREA ${aIdx + 1} DE ${AREAS.length}`;
+      cardIconEl.innerHTML = area.icon;
+      titleEl.textContent = area.label;
+      subEl.textContent = area.sub;
+      descEl.textContent = area.desc;
+      ctaEl.href = area.href;
+      progFill.style.width = `${(readSet.size / AREAS.length) * 100}%`;
+      renderDots();
+    };
+
+    if (!screenCard.hidden) {
+      transition(screenCard, screenCard, populate);
+    } else {
+      transition(screenChoice, screenCard, populate);
+    }
+  }
+
+  function showChoices() {
+    const options = pool.slice(0, 2);
+    if (options.length === 0) { closeModal(); return; }
+
+    transition(screenCard, screenChoice, () => {
+      choicesEl.innerHTML = '';
+      options.forEach(aIdx => {
+        const area = AREAS[aIdx];
+        const btn = document.createElement('button');
+        btn.className = 'modal__choice-card';
+        btn.innerHTML =
+          `<div class="modal__choice-icon">${area.icon}</div>` +
+          `<div class="modal__choice-text"><strong>${area.label}</strong><span>${area.sub}</span></div>` +
+          `<span class="modal__choice-arrow">→</span>`;
+        btn.addEventListener('click', () => showCard(aIdx));
+        choicesEl.appendChild(btn);
+      });
+    });
+  }
 
   function closeModal() {
     overlay.classList.remove('is-visible');
     overlay.setAttribute('aria-hidden', 'true');
-    sessionStorage.setItem('modal120_seen', '1');
   }
 
-  // Mostrar el modal 1.2s después (permite que termine el preloader)
+  // Init — primera tarjeta sin animación de salida
   setTimeout(() => {
+    current = pool[0];
+    pool = pool.filter(i => i !== current);
+    const area = AREAS[current];
+    overlineEl.textContent = `◆ GESTIÓN · ÁREA ${current + 1} DE ${AREAS.length}`;
+    cardIconEl.innerHTML = area.icon;
+    titleEl.textContent = area.label;
+    subEl.textContent = area.sub;
+    descEl.textContent = area.desc;
+    ctaEl.href = area.href;
+    progFill.style.width = '0%';
+    renderDots();
+    screenChoice.hidden = true;
+    screenCard.hidden = false;
+    screenCard.classList.add('anim-in');
+    screenCard.addEventListener('animationend', () => screenCard.classList.remove('anim-in'), { once: true });
     overlay.classList.add('is-visible');
     overlay.setAttribute('aria-hidden', 'false');
   }, 1200);
 
-  dismiss.addEventListener('click', closeModal);
+  // "VER EN INFORME" — abre nueva pestaña, marca como leída, muestra elección
+  ctaEl.addEventListener('click', () => {
+    readSet.add(AREAS[current].id);
+    progFill.style.width = `${(readSet.size / AREAS.length) * 100}%`;
+    if (pool.length === 0) { setTimeout(closeModal, 400); return; }
+    setTimeout(showChoices, 350);
+  });
+
+  // "SIGUIENTE ÁREA" — ya fue removida del pool al mostrarla, muestra las que siguen
+  nextBtn.addEventListener('click', () => {
+    if (pool.length === 0) { closeModal(); return; }
+    showChoices();
+  });
+
+  dismissBtn.addEventListener('click', closeModal);
+  dismissChoiceBtn.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && overlay.classList.contains('is-visible')) closeModal();
   });
-  if (cta) cta.addEventListener('click', () => sessionStorage.setItem('modal120_seen', '1'));
 })();
 
 

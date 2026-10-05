@@ -1838,6 +1838,193 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   .modal__stats { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ---- Modal Aventura ---- */
+.modal--aventura::before { display: none; }
+
+.modal__prog-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: rgba(169,26,22,0.12);
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+.modal__prog-fill {
+  height: 100%;
+  background: var(--red);
+  width: 0%;
+  transition: width 0.55s cubic-bezier(0.22,1,0.36,1);
+}
+
+.modal__x-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: none;
+  border: none;
+  color: rgba(27,32,62,0.3);
+  font-size: 16px;
+  font-family: var(--f-display);
+  cursor: pointer;
+  padding: 6px 8px;
+  line-height: 1;
+  transition: color var(--transition);
+}
+.modal__x-close:hover { color: var(--navy); }
+
+.modal__card-area {
+  will-change: opacity, transform;
+}
+
+.modal__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: rgba(169,26,22,0.08);
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.modal__card-sub {
+  font-family: var(--f-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: -6px 0 16px;
+  text-align: left;
+}
+
+.modal__dots {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  margin: 4px 0 22px;
+}
+.modal__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(27,32,62,0.15);
+  transition: background 0.3s, transform 0.3s;
+  flex-shrink: 0;
+}
+.modal__dot--active {
+  background: var(--red);
+  transform: scale(1.45);
+}
+.modal__dot--seen {
+  background: rgba(27,32,62,0.42);
+}
+
+.modal__next-btn {
+  background: none;
+  border: 1.5px solid rgba(27,32,62,0.18);
+  color: rgba(27,32,62,0.7);
+  font-family: var(--f-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+  text-align: center;
+}
+.modal__next-btn:hover {
+  border-color: rgba(27,32,62,0.4);
+  color: var(--navy);
+  background: rgba(27,32,62,0.04);
+}
+
+.modal__screen { display: block; }
+.modal__screen[hidden] { display: none; }
+
+@keyframes mbm-up-in  { from { opacity:0; transform:translateY(38px) scale(.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes mbm-up-out { from { opacity:1; transform:translateY(0) scale(1); } to { opacity:0; transform:translateY(-26px) scale(.97); } }
+@keyframes mbm-choice-in { from { opacity:0; transform:translateX(28px); } to { opacity:1; transform:translateX(0); } }
+
+.modal__screen.anim-in  { animation: mbm-up-in  0.3s cubic-bezier(0.22,1,0.36,1) both; }
+.modal__screen.anim-out { animation: mbm-up-out 0.15s ease-in both; }
+
+.modal__screen.anim-in .modal__choice-card:nth-child(1) { animation: mbm-choice-in .28s .1s  cubic-bezier(0.22,1,0.36,1) both; }
+.modal__screen.anim-in .modal__choice-card:nth-child(2) { animation: mbm-choice-in .28s .2s  cubic-bezier(0.22,1,0.36,1) both; }
+
+.modal__choice-card { transition: border-color .18s, background .18s, transform .18s, box-shadow .18s; }
+.modal__choice-card:hover { transform: scale(1.02) translateX(4px); box-shadow: 0 4px 18px rgba(169,26,22,.13); }
+.modal__choice-card:active { transform: scale(0.97); transition-duration: .08s; }
+
+.modal__choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0 4px;
+}
+.modal__choice-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(27,32,62,0.03);
+  border: 1.5px solid rgba(27,32,62,0.12);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  font-family: var(--f-display);
+}
+.modal__choice-card:hover {
+  border-color: var(--red);
+  background: rgba(169,26,22,0.04);
+  transform: translateX(4px);
+}
+.modal__choice-icon {
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(169,26,22,0.08);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal__choice-text {
+  flex: 1;
+  min-width: 0;
+}
+.modal__choice-text strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.modal__choice-text span {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(27,32,62,0.5);
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+.modal__choice-arrow {
+  color: rgba(27,32,62,0.25);
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+.modal__choice-card:hover .modal__choice-arrow {
+  color: var(--red);
+  transform: translateX(3px);
+}
+
 /* ============================================================
    CARD CLICK & HOVER ANIMATIONS
 ============================================================ */
