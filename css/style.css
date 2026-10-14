@@ -1518,21 +1518,23 @@ em { font-family: var(--f-serif); font-style: italic; font-weight: 700; }
   margin-bottom: 16px;
   text-align: justify;
 }
-.quienes__foto-placeholder {
+.quienes__foto {
   margin: 32px 0;
-  border: 2px dashed rgba(27,32,62,0.18);
-  border-radius: 8px;
-  min-height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(27,32,62,0.03);
+  border-radius: 10px;
+  overflow: hidden;
 }
-.quienes__foto-placeholder figcaption {
+.quienes__foto img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+.quienes__foto figcaption {
   font-family: var(--f-serif);
   font-style: italic;
-  color: rgba(27,32,62,0.4);
+  color: rgba(27,32,62,0.45);
   font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
 }
 .quienes__pilares {
   max-width: 720px;
